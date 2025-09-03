@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> English Now</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <style>
+  :root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --nav-bg: #ffffff;
+  --nav-text: #000000;
+  --card-bg: #f9f9f9;
+  --card-text: #000000;
+  --footer-bg: #f1f1f1;
+  --footer-text: #000000;
+}
+    /*Estilo del Body de la pagina */
+    body {
+      background: linear-gradient(to right, #e6f0ff, #ffffff);
+            font-family: 'Inter', sans-serif;
+      transition: background 0.5s ease;
+    }
+/*Estilo de todo el cuadro de vocabulario */
+    .vocab-section {
+      padding: 50px 15px;
+    }
+    .vocab-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #004aad;
+      text-align: center;
+      margin-bottom: 30px;
+      animation: fadeInDown 1s;
+    }
+    .table {
+      background-color: white;
+      box-shadow: 0 8px 16px rgba(0, 74, 173, 0.15);
+      border-radius: 12px;
+      overflow: hidden;
+      animation: fadeInUp 1s;
+    }
+    th {
+      background-color: #004aad;
+      color: white;
+      text-align: center;
+    }
+    td {
+      vertical-align: middle;
+    }
+    tr:hover {
+      background-color: #eaf2ff;
+      transition: 0.3s ease;
+    }
+    .btn-audio {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+    }
+    .btn-audio:hover {
+      background-color: #003080;
+    }
+
+    /* Estilo de las divisiones */
+
+    .section-divider {
+      margin: 80px 0 40px;
+      padding-top: 40px;
+      border-top: 3px solid #004aad30;
+    }
+
+    .section-divider h2 {
+      text-align: center;
+      color: #004aad;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Estilo de la parte para practicar */
+
+    .phrase-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 5%;
+    }
+
+    .phrase-box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-left: 4px solid #004aad;
+      text-align: center;
+      width: 280px;
+      transition: transform 0.3s ease;
+    }
+
+    .phrase-box:hover {
+      transform: translateY(-5px);
+    }
+
+    /*parte del boton de finish*/
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .quiz-button {
+      display: block;
+      margin: 30px auto;
+      font-size: 18px;
+      padding: 12px 24px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .quiz-button:hover {
+      background-color: #218838;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: fixed;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px;
+  display: inline-block;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover {
+  color: #004aad;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.level-icon {
+  font-weight: bold;
+  background-color: #a2b8f4;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 325px;
+}
+
+.login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.logo1 {
+  box-shadow: 0 0 0 1px #004aad;
+  border-radius: 50%;
+}
+  </style>
+</head>
+<body>
+
+    <nav>
+    <div class="nav-left">
+      <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+      <div class="nav-links">
+
+                <a href="../principal/index.html">Inicio</a>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Speaking</a>
+          <div class="dropdown-content">
+            <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Listening</a>
+          <div class="dropdown-content">
+            <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+            <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Reading</a>
+          <div class="dropdown-content">
+            <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Writing</a>
+          <div class="dropdown-content">
+            <a href="#"><span class="level-icon">A1</span> Elementary</a>
+            <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+            <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/TestExpo/fulltest.html">Exams</a>
+        <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/aboutus.html">About us</a>
+
+      </div>
+    </div>
+  <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario.html"><button class="login-btn" href="">Login</button></a>
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario2.html"><button class="register-btn">Register</button></a>
+  </nav>
+
+  <section class="vocab-section container">
+    <h2 class="vocab-title">📘 Basic Vocabulary </h2>
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle text-center">
+        <thead>
+          <tr>
+            <th>Inglés</th>
+            <th>Español</th>
+            <th>Explicación</th>
+            <th>Audio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- cuadro de frases -->
+           <tr>
+            <td>Hello!</td>
+            <td>¡Hola!</td>
+            <td>Forma común y amigable de saludar.</td>
+            <td><button class="btn-audio" onclick="speak('Hello!')">🔊 Escuchar</button></td>
+          </tr>
+          <tr>
+            <td>How are you?</td>
+            <td>¿Cómo estás?</td>
+            <td>Pregunta básica para saber cómo está alguien.</td>
+            <td><button class="btn-audio" onclick="speak('How are you?')">🔊 Escuchar</button></td>
+          </tr>
+          <tr>
+            <td>I’m fine, thank you.</td>
+            <td>Estoy bien, gracias.</td>
+            <td>Respuesta común y cortés.</td>
+            <td><button class="btn-audio" onclick="speak('I am fine, thank you.')">🔊 Escuchar</button></td>
+          </tr>
+          <tr>
+            <td>What’s your name?</td>
+            <td>¿Cómo te llamas?</td>
+            <td>Para preguntar el nombre de alguien.</td>
+            <td><button class="btn-audio" onclick="speak('What is your name?')">🔊 Escuchar</button></td>
+          </tr>
+          <tr>
+            <td>My name is…</td>
+            <td>Me llamo…</td>
+            <td>Para decir tu nombre.</td>
+            <td><button class="btn-audio" onclick="speak('My name is...')">🔊 Escuchar</button></td>
+          </tr>
+          <tr>
+            <td>Nice to meet you.</td>
+            <td>Encantado de conocerte.</td>
+            <td>Frase de cortesía al conocer a alguien.</td>
+            <td><button class="btn-audio" onclick="speak('Nice to meet you.')">🔊 Escuchar</button></td>
+          </tr>
+          <tr>
+            <td>Goodbye! / Bye!</td>
+            <td>¡Adiós!</td>
+            <td>Para despedirse.</td>
+            <td><button class="btn-audio" onclick="speak('Goodbye!')">🔊 Escuchar</button></td>
+          </tr>
+          <tr>
+            <td>Please.</td>
+            <td>Por favor.</td>
+            <td>Para pedir algo con amabilidad.</td>
+            <td><button class="btn-audio" onclick="speak('Please.')">🔊 Escuchar</button></td>
+          </tr>
+          <tr>
+            <td>Thank you.</td>
+            <td>Gracias.</td>
+            <td>Para mostrar gratitud.</td>
+            <td><button class="btn-audio" onclick="speak('Thank you.')">🔊 Escuchar</button></td>
+          </tr>
+          <tr>
+            <td>You’re welcome.</td>
+            <td>De nada.</td>
+            <td>Respuesta educada a “Thank you”.</td>
+            <td><button class="btn-audio" onclick="speak('You are welcome.')">🔊 Escuchar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+   <!--Division jejeje-->
+
+  <div class="section-divider">
+    <h2>🎤 Practice Speaking – Basic Phrases</h2>
+    <div class="phrase-container">
+
+      <!-- Frases prácticas insertadas aquí -->
+       <div class="phrase-container">
+  <div class="phrase-box" data-index="0">
+    <p><strong>Phrase:</strong> Hello! My name is</p>
+    <button onclick="startRecognitionPhrase(this)">🎤 Repeat</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="phrase-box" data-index="1">
+    <p><strong>Phrase:</strong> How are you?</p>
+    <button onclick="startRecognitionPhrase(this)">🎤 Repeat</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="phrase-box" data-index="2">
+    <p><strong>Phrase:</strong> I’m fine, thank you.</p>
+    <button onclick="startRecognitionPhrase(this)">🎤 Repeat</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="phrase-box" data-index="3">
+    <p><strong>Phrase:</strong> What’s your name?</p>
+    <button onclick="startRecognitionPhrase(this)">🎤 Repeat</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="phrase-box" data-index="4">
+    <p><strong>Phrase:</strong> Nice to meet you.</p>
+    <button onclick="startRecognitionPhrase(this)">🎤 Repeat</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="phrase-box" data-index="5">
+    <p><strong>Phrase:</strong> Goodbye! / Bye!</p>
+    <button onclick="startRecognitionPhrase(this)">🎤 Repeat</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="phrase-box" data-index="6">
+    <p><strong>Phrase:</strong> Please.</p>
+    <button onclick="startRecognitionPhrase(this)">🎤 Repeat</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="phrase-box" data-index="7">
+    <p><strong>Phrase:</strong> Thank you</p>
+    <button onclick="startRecognitionPhrase(this)">🎤 Repeat</button>
+    <p class="result"></p>
+  </div>
+
+  <div class="phrase-box" data-index="8">
+    <p><strong>Phrase:</strong> You’re welcome!</p>
+    <button onclick="startRecognitionPhrase(this)">🎤 Repeat</button>
+    <p class="result"></p>
+  </div>
+</div>
+    </div>
+    <button class="quiz-button" onclick="finishQuiz()">✅ Finish Quiz</button>
+  </div>
+
+<!--Parte de script-->
+
+  <script>
+    const results = {};
+    let micPermissionAsked = false;
+
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US'; 
+      speechSynthesis.speak(utterance);
+    }
+
+    //Bueno aqui esta el script para practicar 
+
+    function startRecognitionPhrase(button) {
+      if (!micPermissionAsked) {
+        alert("🎤 This feature requires microphone access to work. Click 'Allow' when prompted.");
+        micPermissionAsked = true;
+      }
+
+      const box = button.closest(".phrase-box");
+      const phraseElement = box.querySelector("p");
+      const resultElement = box.querySelector(".result");
+      const index = box.getAttribute("data-index");
+
+      const phraseText = phraseElement.textContent.replace("Phrase:", "").trim().toLowerCase();
+
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.start();
+
+      recognition.onresult = function(event) {
+        const spoken = event.results[0][0].transcript.toLowerCase();
+        const distance = levenshteinDistance(phraseText, spoken);
+        const similarity = 1 - distance / Math.max(phraseText.length, spoken.length);
+
+        if (similarity >= 0.85) {
+          resultElement.textContent = `✅ Great job! You said: "${spoken}"`;
+          resultElement.style.color = "green";
+          results[index] = true;
+        } else {
+          resultElement.textContent = `❌ You said: "${spoken}". Try to say: "${phraseText}"`;
+          resultElement.style.color = "red";
+          results[index] = false;
+        }
+      };
+
+      recognition.onerror = function(event) {
+        alert("Error: " + event.error);
+      };
+    }
+
+    function finishQuiz() {
+      const total = document.querySelectorAll(".phrase-box").length;
+      const correct = Object.values(results).filter(Boolean).length;
+      const score = Math.round((correct / total) * 10);
+
+      alert(`🎓 Final Results:\n✔️ Correct: ${correct}/${total}\n❌ Incorrect: ${total - correct}\n📊 Score: ${score}/10`);
+    }
+
+    function levenshteinDistance(a, b) {
+      const matrix = Array.from({ length: a.length + 1 }, () =>
+        Array(b.length + 1).fill(0)
+      );
+
+      for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
+      for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+
+      for (let i = 1; i <= a.length; i++) {
+        for (let j = 1; j <= b.length; j++) {
+          const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j] + 1,
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j - 1] + cost
+          );
+        }
+      }
+      return matrix[a.length][b.length];
+    }
+  </script>
+   <footer style="background-color: #eeeeee;" class="text-center text-lg-start text-dark pt-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English connect with the world.</p>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+          <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+        </ul>
+      </div>
+
+<div class="col-md-2 mb-4">
+  <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+    <i class="fab fa-facebook-f text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+    <i class="fab fa-twitter text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+    <i class="fab fa-instagram text-white"></i>
+  </a>
+</div>
+
+
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Reading B1 – A Journey to Remember</title>
+<head>
+   
+  
+    <style>
+        /*NAVAAAAAAAAAAAAR*/
+        /* --- Botón modo oscuro --- */
+.btn-toggle {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+}
+
+body.dark-mode .btn-toggle {
+  background: var(--blanco);
+  color: var(--azul-oscuro);
+}
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px;
+  display: inline-block;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover {
+  color: #004aad;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.level-icon {
+  font-weight: bold;
+  background-color: #a2b8f4;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 225px;
+}
+
+.login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-right: 50px;
+}
+
+.register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.logo1 {
+  box-shadow: 0 0 0 1px #004aad;
+  border-radius: 50%;
+}
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+nav {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+body.dark-mode nav {
+  background-color: var(--dark-mode-element-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--accent-green);
+  background-color: var(--dark-mode-element-bg);
+  color: var(--accent-green);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* --- Variables de color --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--light-gray-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: var(--black);
+  margin: 0 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-blue);
+}
+
+/* --- Botón cuadrado de modo oscuro --- */
+.dark-mode-toggle {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px; /* cuadrado pero con ligera suavidad */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-left: 250px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent-green);
+}
+        /*AAAAAAAAAAAAAAAAAAAA*/
+        :root {
+            --primary-blue: #3f51b5; /* Azul principal */
+            --light-blue: #7986cb;   /* Azul claro para acentos */
+            --dark-blue: #1a237e;    /* Azul oscuro para texto importante */
+            --background-light: #e8f0fe; /* Fondo muy claro */
+            --card-background: #ffffff; /* Fondo de tarjeta */
+            --text-color: #333333; /* Color de texto general */
+            --light-text: #666666; /* Texto más suave */
+            --success-green: #4caf50; /* Verde para éxito */
+            --error-red: #f44336;     /* Rojo para error */
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-dark: rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            background-color: var(--background-light);
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    min-height: 100vh;
+    box-sizing: border-box;
+      padding-top: 100px;
+        }
+
+        .container {
+            max-width: 900px; /* Un poco más ancho para mejor lectura */
+            width: 100%;
+            margin: 30px auto; /* Márgenes ajustados */
+            background: var(--card-background);
+            padding: 45px; /* Más padding para aire */
+            border-radius: 25px; /* Bordes más redondeados */
+            box-shadow: 0 10px 30px var(--shadow-light); /* Sombra más pronunciada pero suave */
+            transition: transform 0.3s ease-in-out; /* Transición para un posible hover */
+        }
+
+        /* Opcional: una sutil animación al cargar el contenedor */
+        .container {
+            animation: fadeInScale 0.8s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.98);
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif; /* Fuente para títulos */
+            color: var(--dark-blue);
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 2.8em; /* Título un poco más grande */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* Sutil sombra en el texto */
+        }
+
+        .reading {
+            font-size: 1.15rem; /* Tamaño de fuente ligeramente más grande para lectura */
+            line-height: 1.8; /* Mayor altura de línea para mejor legibilidad */
+            margin-bottom: 45px;
+            text-align: justify;
+            color: var(--text-color);
+        }
+
+        .reading p {
+            margin-bottom: 1em; /* Espacio entre párrafos */
+        }
+
+        .glossary {
+            margin-top: 50px; /* Más espacio antes del glosario */
+            background-color: var(--background-light); /* Fondo suave para el glosario */
+            padding: 20px 25px;
+            border-radius: 20px;
+            box-shadow: inset 0 2px 8px var(--shadow-light); /* Sombra interna para efecto "hundido" */
+        }
+
+        .accordion-btn {
+            background-color: transparent;
+            color: var(--primary-blue);
+            font-size: 1.4em;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: left;
+            padding: 10px 0;
+            width: 100%;
+            transition: color 0.3s ease, transform 0.3s ease; /* Transición para el icono */
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Para separar el texto del icono */
+        }
+
+        .accordion-btn:hover {
+            color: var(--dark-blue);
+            transform: translateY(-2px); /* Sutil elevación al pasar el cursor */
+        }
+
+        .accordion-btn .icon {
+            font-size: 0.9em; /* Tamaño del icono */
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-btn.active .icon {
+            transform: rotate(90deg); /* Rota el icono cuando está activo */
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Transición suave */
+            padding-left: 15px;
+            color: var(--light-text);
+        }
+
+        .accordion-content ul {
+            list-style-type: none; /* Eliminar viñetas predeterminadas */
+            padding-left: 0; /* Quitar padding predeterminado */
+            margin-top: 15px;
+        }
+
+        .accordion-content li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .accordion-content li::before {
+            content: '•'; /* Viñeta personalizada */
+            color: var(--light-blue);
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        .accordion-content strong {
+            color: var(--dark-blue); /* Negritas más pronunciadas */
+        }
+
+        .quiz {
+            background: var(--background-light);
+            padding: 30px; /* Más padding */
+            border-radius: 20px;
+            color: var(--dark-blue);
+            margin-top: 50px; /* Más espacio antes del quiz */
+            box-shadow: 0 5px 15px var(--shadow-light); /* Sombra para el quiz */
+        }
+
+        .question {
+            margin-bottom: 30px; /* Más espacio entre preguntas */
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0; /* Separador sutil */
+        }
+
+        .question:last-child {
+            border-bottom: none; /* No hay separador en la última pregunta */
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question p {
+            font-weight: 600; /* Un poco más de peso */
+            margin-bottom: 15px;
+            font-size: 1.2em; /* Pregunta un poco más grande */
+            color: var(--primary-blue);
+        }
+
+        label {
+            display: flex; /* Para alinear input y texto */
+            align-items: center;
+            margin-bottom: 12px; /* Más espacio entre opciones */
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: var(--text-color);
+        }
+
+        label:hover {
+            background-color: rgba(63, 81, 181, 0.05); /* Sutil fondo al pasar el cursor */
+            transform: translateX(5px); /* Pequeño desplazamiento */
+        }
+
+        label input[type="radio"] {
+            margin-right: 12px;
+            /* Estilo personalizado para radio buttons */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        label input[type="radio"]:checked {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        label input[type="radio"]:checked::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--card-background);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+        .btn {
+            background-color: var(--primary-blue);
+            color: var(--card-background);
+            padding: 14px 30px; /* Más padding */
+            font-size: 1.1em; /* Texto más grande */
+            border: none;
+            border-radius: 12px; /* Bordes más redondeados */
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para el botón */
+            display: block; /* Ocupa todo el ancho si es necesario */
+            width: fit-content; /* Se ajusta al contenido */
+            margin-left: auto; /* Centrar el botón si display: block */
+            margin-right: auto;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-3px); /* Pequeña elevación */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hover */
+        }
+
+        .result {
+            margin-top: 25px;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: var(--background-light);
+            box-shadow: inset 0 1px 5px var(--shadow-light);
+            opacity: 0; /* Inicialmente invisible */
+            animation: fadeIn 0.5s ease-out forwards; /* Animación de aparición */
+        }
+
+        .result.correct {
+            color: var(--success-green);
+            border: 1px solid var(--success-green);
+        }
+
+        .result.incorrect {
+            color: var(--error-red);
+            border: 1px solid var(--error-red);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 30px;
+                border-radius: 15px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+                margin-bottom: 25px;
+            }
+
+            .reading {
+                font-size: 1.05rem;
+                margin-bottom: 30px;
+            }
+
+            .glossary, .quiz {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .accordion-btn {
+                font-size: 1.2em;
+            }
+
+            .question p {
+                font-size: 1.1em;
+            }
+
+            label {
+                font-size: 0.95em;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 20px;
+                margin: 10px auto;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .reading {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+            .glossary, .quiz {
+                padding: 15px;
+                margin-top: 30px;
+            }
+            .accordion-btn {
+                font-size: 1.1em;
+            }
+            .accordion-content li {
+                font-size: 0.95em;
+            }
+            .question {
+                margin-bottom: 20px;
+            }
+            .question p {
+                font-size: 1em;
+            }
+            label {
+                font-size: 0.9em;
+                padding: 6px 10px;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+                width: 100%; /* El botón ocupa todo el ancho en móviles */
+            }
+        }
+
+        /* --- Footer --- */
+footer .social-links {
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  flex-wrap: wrap;           /* que baje si no cabe en una fila */
+  gap: 10px;                 /* espacio entre iconos */
+}
+
+footer .social-links a {
+  display: inline-flex !important; /* obliga a que estén en fila */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+    </style>
+</head>
+<body>
+    <!--NAVAAAAAAAAAAAAAAR-->
+    <nav>
+  <div class="nav-left">
+    <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+    <div class="nav-links">
+      <a href="../principal/index.html">Inicio</a>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Speaking</a>
+        <div class="dropdown-content">
+          <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Listening</a>
+        <div class="dropdown-content">
+          <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+          <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Reading</a>
+        <div class="dropdown-content">
+          <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Writing</a>
+        <div class="dropdown-content">
+          <a href="#"><span class="level-icon">A1</span> Elementary</a>
+          <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+          <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/ExpoMypage/index.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html">Exams</a>
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/aboutus.html">About us</a>
+    </div>
+  </div>
+
+  <!-- Botones Login / Register -->
+  <div class="nav-buttons">
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario.html"><button class="login-btn" href="">Login</button></a>
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario2.html"><button class="register-btn">Register</button></a>
+  </div>
+</nav>
+    <!--AAAAAAAAAAAAAAAAAAAAAA-->
+    <div class="container">
+        <h1>A Journey to Remember</h1>
+
+        <div class="reading">
+            <p>
+                Last summer, Emma and her best friend Lucas decided to go on a trip across Europe. It was their first time traveling without their families, so they were both excited and nervous.
+            </p>
+            <p>
+                They started their journey in France, where they visited the Eiffel Tower and ate croissants every morning. Then, they traveled by train to Italy and explored Rome’s historical sites, like the Colosseum and the Vatican. Emma loved taking pictures, and Lucas enjoyed trying different types of pasta in every city.
+            </p>
+            <p>
+                One day in Venice, they got lost in the narrow streets. Instead of panicking, they decided to enjoy the moment. They discovered a small café where they had the best hot chocolate of their lives. Sometimes, getting lost can lead to the best experiences.
+            </p>
+            <p>
+                Their last stop was Germany, where they stayed with a local family they met through a travel app. The family was kind and showed them around Munich. Emma and Lucas practiced their German, played with the family’s dog, and learned how to cook traditional German food.
+            </p>
+            <p>
+                After two weeks, they returned home tired but happy. The trip taught them not only about new cultures but also about independence and friendship. It was truly a journey to remember.
+            </p>
+        </div>
+
+        <div class="glossary">
+            <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span>Vocabulary</span>
+                <i class="fas fa-chevron-right icon"></i> </button>
+            <div class="accordion-content" id="glossary-content">
+                <ul>
+                    <li><strong>Trip</strong> – viaje</li>
+                    <li><strong>Historical sites</strong> – sitios históricos</li>
+                    <li><strong>Get lost</strong> – perderse</li>
+                    <li><strong>Enjoy the moment</strong> – disfrutar el momento</li>
+                    <li><strong>Local family</strong> – familia local</li>
+                    <li><strong>Friendship</strong> – amistad</li>
+                    <li><strong>Independence</strong> – independencia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quiz">
+            <div class="question">
+                <p>1. Where did Emma and Lucas start their trip?</p>
+                <label><input type="radio" name="b1q1" value="a"> In Italy</label>
+                <label><input type="radio" name="b1q1" value="b"> In France</label>
+                <label><input type="radio" name="b1q1" value="c"> In Germany</label>
+            </div>
+
+            <div class="question">
+                <p>2. What did Emma and Lucas enjoy doing in Italy?</p>
+                <label><input type="radio" name="b1q2" value="a"> Swimming in the sea</label>
+                <label><input type="radio" name="b1q2" value="b"> Trying pasta and visiting historical sites</label>
+                <label><input type="radio" name="b1q2" value="c"> Going to concerts</label>
+            </div>
+
+            <div class="question">
+                <p>3. What happened in Venice?</p>
+                <label><input type="radio" name="b1q3" value="a"> They missed a train</label>
+                <label><input type="radio" name="b1q3" value="b"> They got lost and found a café</label>
+                <label><input type="radio" name="b1q3" value="c"> They stayed in a hotel</label>
+            </div>
+
+            <div class="question">
+                <p>4. Who hosted them in Germany?</p>
+                <label><input type="radio" name="b1q4" value="a"> A tour guide</label>
+                <label><input type="radio" name="b1q4" value="b"> A hotel manager</label>
+                <label><input type="radio" name="b1q4" value="c"> A local family they met online</label>
+            </div>
+
+            <div class="question">
+                <p>5. What did they learn during the trip?</p>
+                <label><input type="radio" name="b1q5" value="a"> Only how to cook</label>
+                <label><input type="radio" name="b1q5" value="b"> About cultures, independence, and friendship</label>
+                <label><input type="radio" name="b1q5" value="c"> That travel is dangerous</label>
+            </div>
+
+            <button class="btn" onclick="checkB1()">Check Answers</button>
+            <div class="result" id="b1-result"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.icon');
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.style.paddingTop = '0';
+                content.style.paddingBottom = '0';
+                icon.classList.remove('active');
+                button.classList.remove('active');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 20 + "px";
+                content.style.paddingTop = '10px';
+                content.style.paddingBottom = '10px';
+                icon.classList.add('active');
+                button.classList.add('active');
+            }
+        }
+
+        function checkB1() {
+            const q1 = document.querySelector('input[name="b1q1"]:checked');
+            const q2 = document.querySelector('input[name="b1q2"]:checked');
+            const q3 = document.querySelector('input[name="b1q3"]:checked');
+            const q4 = document.querySelector('input[name="b1q4"]:checked');
+            const q5 = document.querySelector('input[name="b1q5"]:checked');
+            const resultDiv = document.getElementById("b1-result");
+
+            if (!q1 || !q2 || !q3 || !q4 || !q5) {
+                resultDiv.textContent = "¡Please answer all questions!";
+                resultDiv.className = "result incorrect"; 
+                resultDiv.style.opacity = 1; 
+                resultDiv.style.transform = "translateY(0)";
+                return;
+            }
+
+            const correctAnswers = {
+                b1q1: "b",
+                b1q2: "b",
+                b1q3: "b",
+                b1q4: "c",
+                b1q5: "b"
+            };
+
+            let score = 0;
+            if (q1.value === correctAnswers.b1q1) score++;
+            if (q2.value === correctAnswers.b1q2) score++;
+            if (q3.value === correctAnswers.b1q3) score++;
+            if (q4.value === correctAnswers.b1q4) score++;
+            if (q5.value === correctAnswers.b1q5) score++;
+
+            if (score === 5) {
+                resultDiv.textContent = "✅ ¡All correct! Excellent work!";
+                resultDiv.className = "result correct";
+                alert("🎉 Congratulations! All answers are correct! 🎉");
+            } else {
+                resultDiv.textContent = `❌ You got ${score} out of 5 correct. Keep practicing!`;
+                resultDiv.className = "result incorrect";
+            }
+            resultDiv.style.opacity = 1; 
+            resultDiv.style.transform = "translateY(0)";
+        }
+    </script>
+
+<footer style="background-color: #eeeeee; width: 100%;" class="text-center text-lg-start text-dark pt-5">
+  <div class="container-fluid">
+    <div class="row text-center text-md-start">
+
+      <!-- Logo + Slogan -->
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English, connect with the world.</p>
+      </div>
+
+      <!-- Resources -->
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+          <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-2 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+        <div class="d-flex justify-content-center justify-content-md-start">
+          <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+            <i class="fab fa-facebook-f text-white"></i>
+          </a>
+          <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+            <i class="fab fa-twitter text-white"></i>
+          </a>
+          <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+            <i class="fab fa-instagram text-white"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

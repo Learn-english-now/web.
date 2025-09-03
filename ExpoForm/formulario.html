@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuccRoot</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .form-control {
+      border-radius: 0.5rem;
+    }
+
+    .btn-custom {
+      background-color: #004aad;
+      color: white;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: #a2b8f4;
+    }
+
+    .form-section {
+      padding: 3rem;
+    }
+
+    .bg-image {
+      object-fit: cover;
+      object-position: left;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .logo-icon {
+      color: #004aad;
+    }
+
+    .form-outline input:focus {
+      border-color: #004aad;
+      box-shadow: 0 0 0 0.2rem rgba(86, 198, 198, 0.25);
+    }
+    #registro{
+      color:  #004aad;
+    }
+  </style>
+</head>
+<body>
+  <section class="vh-100">
+    <div class="container-fluid h-100">
+      <div class="row h-100">
+        <div class="col-md-6 d-flex flex-column justify-content-center form-section">
+          <div class="px-5">
+            <div class="mb-5">
+              <i class="fas fa-crow fa-2x me-3 logo-icon"></i>
+              <span class="h1 fw-bold">Learn English Now</span>
+            </div>
+
+            <form style="max-width: 400px;">
+              <h3 class="fw-normal mb-4">Log in</h3>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email address</label>
+                <input type="email" id="email" class="form-control form-control-lg" placeholder="example@domain.com" />
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" class="form-control form-control-lg" placeholder="••••••••" />
+              </div>
+
+              <div class="pt-1 mb-4">
+                <button class="btn btn-custom btn-lg w-100" type="button">Login</button>
+              </div>
+
+              <p class="small mb-2"><a class="text-muted" href="#">Forgot password?</a></p>
+              <p>Don't have an account? <a href="#" id="Registro">Register here</a></p>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-6 d-none d-md-block px-0">
+          <img src="img/logo.jpg"
+               alt="Login image" class="bg-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

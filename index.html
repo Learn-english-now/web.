@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn English Now</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+
+</head>   
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #ffffff;
+    }
+    nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 30px;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      margin-left: 30px;
+      position: relative;
+      align-items: center;
+    }
+
+    .nav-links a,
+    .dropdown-toggle {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      padding: 8px;
+      display: inline-block;
+    }
+
+    .nav-links a:hover,
+    .dropdown-toggle:hover {
+      color: #004aad;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      min-width: 230px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 15px;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown-content:hover {
+      display: flex;
+    }
+
+    .dropdown-content a {
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f9f9f9;
+    }
+
+    .level-icon {
+      font-weight: bold;
+      background-color: #a2b8f4;
+      color: #000;
+      border-radius: 5px;
+      padding: 2px 6px;
+      margin-right: 10px;
+      font-size: 13px;
+    }
+    .login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 5px;
+}
+
+    .login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+  margin-left: 5px;
+}
+    .register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+    .register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+.banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('img/baaaa.png') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 40px 20px;
+  animation: fadeIn 2s ease-in-out;
+  position: relative;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: 30px;
+  color: #f0e6ff;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.banner button {
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #a2b8f4, #004aad);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.banner button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+    .section-title {
+      text-align: center;
+      color: #004aad;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      background-color: #ccc;
+    }
+
+    .card-title {
+      color: #004aad;
+      font-weight: bold;
+    }
+    .logo1{
+      box-shadow: 0 0 0 1px #004aad;
+      border-radius: 50%;
+    }
+    .slider-section {
+    background: #ffffff;
+    padding: 60px 20px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    .slider-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .slider-container {
+      overflow: hidden;
+      width: 100%;
+    }
+    .slider-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s ease;
+    }
+    .slider-card {
+      background: white;
+      border-radius: 20px;
+      min-width: 300px;
+      max-width: 300px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+    .slider-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      margin-bottom: 15px;
+    }
+    .slider-card h3 {
+      font-size: 1.2rem;
+      color: #004aad;
+      margin-bottom: 10px;
+    }
+    .slider-card h3 span {
+      font-weight: normal;
+      font-size: 0.9rem;
+      color: #7f8c8d;
+    }
+    .slider-card p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #004aad;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 2rem;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .slider-btn.prev {
+      left: 0;
+    }
+    .slider-btn.next {
+      right: 0;
+    }
+    .slider-dots {
+      margin-top: 25px;
+    }
+    .slider-dots .dot {
+      height: 12px;
+      width: 12px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    .slider-dots .dot.active {
+      background-color: #a2b8f4;
+    }
+
+.faq-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #004aad;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.faq-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.faq-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 20px 25px;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question h2 {
+  font-size: 1.1rem;
+  color: #004aad;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.faq-question .icon {
+  font-size: 1.5rem;
+  color: #004aad;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+.faq-answer p {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.faq-card.active .faq-answer {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.faq-card.active .faq-question .icon {
+  transform: rotate(45deg);
+}
+
+.btn-social {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+    --primary-blue: #004aad;
+    --secondary-blue: #e0f2f7;
+    --text-dark: #333;
+    --text-light: #555;
+    --bg-white: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+.alternating-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--bg-white);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    padding: 30px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px var(--shadow-medium);
+}
+
+.block.reverse {
+    flex-direction: row-reverse;
+}
+
+.block-img {
+    flex: 1 1 450px;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.block-img img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.block-img img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+.block-text {
+    flex: 1 1 450px;
+    padding: 15px 0;
+}
+
+.block-text h2 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-blue);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.underline {
+    display: block;
+    width: 60px;
+    height: 5px;
+    background-color: var(--primary-blue);
+    border-radius: 3px;
+    margin-bottom: 25px;
+}
+
+.block.reverse .underline {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.block-text p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+@media (max-width: 992px) {
+    .alternating-section {
+        margin: 60px auto;
+        gap: 60px;
+    }
+
+    .block {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .block.reverse {
+        flex-direction: column;
+    }
+
+    .block-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .underline {
+        margin: 0 auto 25px auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .alternating-section {
+        margin: 40px auto;
+        gap: 40px;
+        padding: 0 15px;
+    }
+
+    .block {
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .block-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .block-text p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .block-text h2 {
+        font-size: 1.6rem;
+    }
+}
+
+
+.plans {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.cardpremium {
+  background-color: #fff;
+  border-radius: 25px;
+  width: 370px;
+  padding: 45px 30px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.header h3 {
+  font-size: 28px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.header .price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #222;
+  margin-top: 8px;
+}
+
+hr {
+  margin: 20px 0;
+  border: none;
+  height: 1px;
+  background: #eee;
+}
+
+.description {
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 16px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+ul li {
+  margin-bottom: 12px;
+  color: #444;
+  font-size: 15px;
+}
+
+.btnpremium, .premium-btn {
+  background: #004aad;
+  border: none;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btnpremium:hover {
+  background: #004aad;
+}
+
+.premium {
+  position: relative;
+}
+.corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #004aad;
+  color: #fbff00;
+  border-bottom-left-radius: 20px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.premium-btn {
+  position: relative;
+  background: linear-gradient(to right, #0046c9, #004aad);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 14px 35px;
+  border: none;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.premium-btn .btn-star {
+  position: absolute;
+  right: 25px;
+  width: 40px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.premium-btn:hover .btn-star {
+  transform: scale(1.25);
+}
+
+.premium-btn:hover .btn-star {
+  transform: scale(1.25);
+}
+
+.premium-btn:hover .btn-star {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 28px;
+  }
+
+  .plans {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .cardpremium {
+    width: 90%;
+    padding: 35px 25px;
+  }
+
+  .btnpremium, .premium-btn {
+    font-size: 15px;
+    padding: 12px 25px;
+  }
+
+  .premium-btn .btn-star {
+    width: 22px;
+  }
+}
+
+/* 🎨 Variables de color para modo claro */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --nav-bg: #ffffff;
+  --nav-text: #000000;
+  --card-bg: #f9f9f9;
+  --card-text: #000000;
+  --footer-bg: #f1f1f1;
+  --footer-text: #000000;
+}
+
+/* 🌙 Variables de color para modo oscuro */
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --nav-bg: #1f1f1f;
+  --nav-text: #ffffff;
+  --card-bg: #1e1e1e;
+  --card-text: #ffffff;
+  --footer-bg: #181818;
+  --footer-text: #ffffff;
+}
+
+/* Navbar */
+nav {
+  background-color: var(--nav-bg) !important;
+  color: var(--nav-text) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a {
+  color: var(--nav-text) !important;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+
+/* Botón modo oscuro */
+.dark-toggle {
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dark-toggle:hover {
+  opacity: 0.8;
+}
+
+/* Navbar adaptada al estilo global */
+nav {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+body.dark-mode nav {
+  background-color: var(--dark-mode-element-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--accent-green);
+  background-color: var(--dark-mode-element-bg);
+  color: var(--accent-green);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* --- Variables de color --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--light-gray-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: var(--black);
+  margin: 0 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-blue);
+}
+
+/* --- Botón cuadrado de modo oscuro --- */
+.dark-mode-toggle {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px; /* cuadrado pero con ligera suavidad */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-left: 250px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent-green);
+}
+
+/* --- Dark Mode --- */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .navbar {
+  background-color: var(--dark-nav);
+}
+
+body.dark-mode .navbar a {
+  color: var(--dark-text);
+}
+
+body.dark-mode .navbar a:hover {
+  color: var(--accent-green);
+}
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+      <div class="nav-links">
+        <a href="../principal">Inicio</a>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Speaking</a>
+          <div class="dropdown-content">
+            <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Listening</a>
+          <div class="dropdown-content">
+            <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+            <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Reading</a>
+          <div class="dropdown-content">
+            <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Writing</a>
+          <div class="dropdown-content">
+            <a href="#"><span class="level-icon">A1</span> Elementary</a>
+            <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+            <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/TestExpo/fulltest.html">Exams</a>
+        <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/aboutus.html">About us</a>
+      </div>
+    </div>
+
+    <!-- Botón Sol/Luna -->
+     <button id="darkModeBtn" class="dark-mode-toggle" aria-label="Toggle Dark Mode" aria-pressed="false">
+  🌞
+</button>
+
+
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario.html"><button class="login-btn" href="">Login</button></a>
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario2.html"><button class="register-btn">Register</button></a>
+
+  </nav>
+
+      <section class="banner">
+    <h1>Your English journey starts here.</h1>
+    <p>Level up your English skills with us!</p>
+  </section>
+
+  <script>
+const darkModeBtn = document.getElementById('darkModeBtn');
+
+darkModeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+
+  // Cambia el icono del botón
+  darkModeBtn.textContent = isDark ? '🌙' : '🌞';
+  
+  // Actualiza atributo aria para accesibilidad
+  darkModeBtn.setAttribute('aria-pressed', isDark);
+});
+</script>
+
+<br>
+
+<div class="container py-5">
+<h2 class="section-title">Develop Your English with Learn English Now</h2>
+
+<div class="row">
+
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100 text-center">
+      <img class="card-img-top" src="https://cdn.pixabay.com/photo/2019/03/31/07/44/music-4092614_1280.jpg" alt="Listening">
+      <div class="card-body">
+        <h5 class="card-title">Listening</h5>
+        <p class="card-text">Strengthen your listening skills with real-life audio and conversations to understand English in authentic contexts.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100 text-center">
+      <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/09/24/17/12/board-3700375_1280.jpg" alt="Speaking">
+      <div class="card-body">
+        <h5 class="card-title">Speaking</h5>
+        <p class="card-text">Overcome your fear of speaking with guided practice and native teachers who help you communicate fluently.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100 text-center">
+      <img class="card-img-top" src="https://cdn.pixabay.com/photo/2016/11/18/16/56/book-1835799_1280.jpg" alt="Reading">
+      <div class="card-body">
+        <h5 class="card-title">Reading</h5>
+        <p class="card-text">Improve your reading comprehension with real texts, new vocabulary, and effective reading strategies.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100 text-center">
+      <img class="card-img-top" src="https://cdn.pixabay.com/photo/2021/03/15/23/54/girl-6098304_1280.jpg" alt="Writing">
+      <div class="card-body">
+        <h5 class="card-title">Writing</h5>
+        <p class="card-text">Learn to write emails, texts, and documents correctly with a focus on grammar and style.</p>
+      </div>
+    </div>
+  </div>
+  <div>
+</div>
+</div>
+<br>
+<br>
+
+<section class="alternating-section">
+  <h2 class="section-title">What will you learn?</h2>
+    <div class="block">
+        <div class="block-img">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80" alt="Students engaging in basic English conversation" />
+        </div>
+        <div class="block-text">
+            <h2>Levels A1 & A2</h2>
+            <span class="underline"></span>
+            <p>At levels A1 and A2, you will begin your English journey by developing the four essential skills: Reading, Writing, Speaking, and Listening. Through dynamic and interactive activities, you will learn basic vocabulary, simple grammar structures, and useful phrases to communicate in everyday situations in a fun and effective way.</p>
+        </div>
+    </div>
+
+    <div class="block reverse">
+        <div class="block-img">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Group of students collaborating on an English project" />
+        </div>
+        <div class="block-text">
+            <h2>Levels B1 & B2</h2>
+            <span class="underline"></span>
+            <p>At levels B1 and B2, you will improve your fluency and comprehension. You’ll work with more complex texts, enhance your writing, and participate in more natural conversations. You’ll also practice expressing opinions, giving detailed descriptions, and understanding different types of audio and video. These levels prepare you to use English in work, travel, and academic contexts.</p>
+        </div>
+    </div>
+
+    <div class="block">
+        <div class="block-img">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" alt="Professional communicating confidently in an international setting" />
+        </div>
+        <div class="block-text">
+            <h2>Level C1</h2>
+            <span class="underline"></span>
+            <p>At level C1, you will reach an advanced command of English. You’ll explore idiomatic expressions, formal and informal language, academic texts, and professional writing. You’ll also develop skills to debate, clearly present ideas, and understand a variety of accents. This level allows you to communicate confidently in any personal or professional setting.</p>
+        </div>
+    </div>
+</section>
+<br>
+  <br>
+  <br>
+
+ <h2 class="section-title">Choose the plan that's right for you</h2>
+  <div class="plans">
+    <div class="cardpremium">
+      <span class="logo">Learn English Now</span>
+      <div class="header">
+        <h3>Free Plan</h3>
+        <p class="price">$0.00</p>
+      </div>
+      <hr />
+      <p class="description">We offer you this features:</p>
+      <ul>
+        <li>° Practice on the areas 2 times a day</li>
+        <li>° Free for 7 days</li>
+        <li>° Mini interactive quizzes (only 2 per day) </li>
+      </ul>
+      <button class="btnpremium">Try Free</button>
+    </div>
+    <div class="cardpremium">
+      <div class="corner"><span>★</span></div>
+      <span class="logo">Learn English Now</span>
+      <div class="header">
+        <h3>Premium Plan</h3>
+        <p class="price">$24.00</p>
+      </div>
+      <hr />
+      <p class="description">We offer you this features:</p>
+      <ul>
+        <li>° Practice without limits</li>
+        <li>° You can use it for as long as you want.</li>
+        <li>° Mini interactive quizzes</li>
+        <li>° Shared account features</li>
+      </ul>
+      <button class="premium-btn">
+        Get Premium
+        <img src="img/Star.png" alt="Star icon" class="btn-star" />
+      </button>      
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+
+<section class="slider-section">
+  <h2 class="section-title">What Our Learners Say</h2>
+
+  <div class="slider-wrapper">
+    <button class="slider-btn prev">&#10094;</button>
+
+    <div class="slider-container">
+      <div class="slider-track">
+
+        <div class="slider-card">
+          <img src="https://media.istockphoto.com/id/1425797951/es/foto/retrato-de-una-mujer-hermosa-y-sonriente.jpg?s=612x612&w=0&k=20&c=mANrf5oB3_YVoYo7w89cduobX4xGriV7NqXDgqAcGQc=" alt="Maria">
+          <h3>María G. <span>(El Salvador)</span></h3>
+          <p>"This site helped me improve my vocabulary and pronunciation. I love how clear and interactive the lessons are!"</p>
+        </div>
+
+        <div class="slider-card">
+          <img src="https://media.istockphoto.com/id/1162358018/es/foto/joven-brasile%C3%B1o-con-camiseta-azul-de-pie-sobre-fondo-blanco-aislado-cara-feliz-sonriendo-con.jpg?s=612x612&w=0&k=20&c=x9tbbjYh_SkUCZJegFLbY9a_AJIYtQmIiDpVEeGvuig=" alt="Luis">
+          <h3>Luis R. <span>(Guatemala)</span></h3>
+          <p>"The reading section helped me understand new words. It's fun and very practical!"</p>
+        </div>
+
+        <div class="slider-card">
+          <img src="https://img.freepik.com/fotos-premium/joven-calida-accesible-pelo-largo-marron-sonrisa-acogedora-posa_116547-98059.jpg" alt="Camila">
+          <h3>Camila V. <span>(Honduras)</span></h3>
+          <p>"Now I feel confident speaking English at work. Thank you for this amazing platform!"</p>
+        </div>
+
+        <div class="slider-card">
+          <img src="https://media.istockphoto.com/id/1364917563/es/foto/hombre-de-negocios-sonriendo-con-los-brazos-cruzados-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=NqMHLF8T4RzPaBE_WMnflSGB_1-kZZTQgAkekUxumZg=" alt="Kevin">
+          <h3>Kevin M. <span>(Mexico)</span></h3>
+          <p>"The design is motivating and the exercises are super helpful. I learn something new every day."</p>
+        </div>
+      </div>
+    </div>
+    <button class="slider-btn next">&#10095;</button>
+  </div>
+
+  <div class="slider-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+<br>
+
+<script>
+  const track = document.querySelector('.slider-track');
+  const cards = document.querySelectorAll('.slider-card');
+  const dots = document.querySelectorAll('.dot');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  let index = 0;
+
+  function updateSlider() {
+    const cardWidth = cards[0].offsetWidth + 20;
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if (index < cards.length - 3) index++;
+    updateSlider();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (index > 0) index--;
+    updateSlider();
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      index = i;
+      updateSlider();
+    });
+  });
+
+  window.addEventListener('resize', updateSlider);
+</script>
+
+<section class="faq-section">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-container">
+    
+    <div class="faq-card">
+      <div class="faq-question">
+        <h2>What skills can I practice?</h2>
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Reading, Writing, Listening and Speaking at all levels.</p>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <div class="faq-question">
+        <h2>Is it suitable for all levels?</h2>
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>From beginner (A1) to advanced (C1).</p>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <div class="faq-question">
+        <h2>Can I use it on my phone?</h2>
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, it's fully responsive and works on all devices.</p>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <div class="faq-question">
+        <h2>How often is new content added?</h2>
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>We add new lessons, exercises and resources every week.</p>
+      </div>
+    </div>  
+  </div>
+  </div>
+</section>
+
+<script>
+  const faqCards = document.querySelectorAll(".faq-card");
+
+  faqCards.forEach(card => {
+    const question = card.querySelector(".faq-question");
+    question.addEventListener("click", () => {
+      card.classList.toggle("active");
+    });
+  });
+</script>
+
+
+ <footer style="background-color: #eeeeee;" class="text-center text-lg-start text-dark pt-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English connect with the world.</p>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+          <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+        </ul>
+      </div>
+
+<div class="col-md-2 mb-4">
+  <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+    <i class="fab fa-facebook-f text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+    <i class="fab fa-twitter text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+    <i class="fab fa-instagram text-white"></i>
+  </a>
+</div>
+
+
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+</body>
+</html> 

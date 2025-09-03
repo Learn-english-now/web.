@@ -1,0 +1,771 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Biology of Risk</title>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+              <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+ <style>
+
+  /*navaaaaaaaaaar*/
+  /* --- Botón modo oscuro --- */
+.btn-toggle {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+}
+
+body.dark-mode .btn-toggle {
+  background: var(--blanco);
+  color: var(--azul-oscuro);
+}
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px;
+  display: inline-block;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover {
+  color: #004aad;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.level-icon {
+  font-weight: bold;
+  background-color: #a2b8f4;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 225px;
+}
+
+.login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-right: 50px;
+}
+
+.register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.logo1 {
+  box-shadow: 0 0 0 1px #004aad;
+  border-radius: 50%;
+}
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+nav {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+body.dark-mode nav {
+  background-color: var(--dark-mode-element-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--accent-green);
+  background-color: var(--dark-mode-element-bg);
+  color: var(--accent-green);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* --- Variables de color --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--light-gray-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: var(--black);
+  margin: 0 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-blue);
+}
+
+/* --- Botón cuadrado de modo oscuro --- */
+.dark-mode-toggle {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px; /* cuadrado pero con ligera suavidad */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-left: 250px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent-green);
+}
+
+  /*navaaaaaaaaaar*/
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0; /* espacio para navbar fijo */
+  line-height: 1.6;
+    }
+    .container2{
+        padding: 100px 20px 20px; /* espacio para navbar fijo */
+
+    }
+.main-container1 {
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* sombra elegante */
+  border-radius: 12px;        /* bordes redondeados */
+  padding: 30px; 
+    }
+h1 {
+  text-align: center;
+  color: #004aad;
+ margin-bottom: 40px;
+    }
+.two-columns {
+  display: flex;
+  gap: 40px;               
+  max-width: 1000px;
+  padding: 20px;
+  text-align: justify;
+  align-items: flex-start; 
+}
+.main-text {
+  flex: 1;
+}
+.sidebar {
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-left: 4px solid #ccc;
+  font-size: 0.9em;
+  flex: 1;
+  min-width: 250px;
+}
+.superscript {
+  font-size: 0.7em;
+  vertical-align: super;
+}
+.captioned-section {
+    display: flex;
+    gap: 30px;
+    margin: 40px 0;
+    align-items: flex-start;
+}
+.captioned-section img {
+  width: 45%;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  object-fit: cover;
+}
+.captioned-text {
+  width: 55%;
+  display: flex;
+  text-align: justify;
+  flex-direction: column;
+}
+.captioned-text p {
+  padding: 15px;
+  border-radius: 12px;
+  margin: 0;
+
+}
+.textimg {
+  background-color: #a2b8f4;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.quote {
+  font-style: italic;
+   color: #004aad;
+}
+p{
+ padding: 8px;
+ border-radius: 8px;
+ margin-bottom: 0px;
+ text-align: justify;
+  align-items: flex-start; 
+  color: #000;
+}
+.image-full {
+  width: 100%;
+  margin: 40px 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.dos{
+  text-align: justify;
+  column-count: 2;         /*lo dividio en 2 columnas */
+  column-gap: 40px;  
+}
+.quiz{
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px 30px;
+      border-radius: 15px;
+      border: 3px solid #004aad;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.question {
+      margin-bottom: 25px;
+}
+.question h3 {
+      margin-bottom: 10px;
+      color: #0a55b8;
+      font-size: 1.1rem
+}
+label {
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+}
+input[type="radio"] {
+      margin-right: 10px;
+}
+.feedback {
+      margin-left: 10px;
+      font-weight: bold;
+      color: #cb6ce6;
+    transition: all 0.3s ease;
+}
+.feedback:empty {
+  display: none;
+}
+
+.feedback.correct {
+  color: #2ecc71;
+  font-weight: bold;
+  animation: pop 0.3s ease;
+}
+
+.feedback.incorrect {
+  color: #e74c3c;
+  font-weight: bold;
+  animation: shake 0.3s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.result {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 20px;
+      color: green;
+}
+.start-btn {
+  background-color: green;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s;
+  margin: 30px auto;
+  display: block;
+}
+.start-btn:hover {
+  background-color: green;
+  transform: scale(1.05);
+}
+.botoncheck{
+    background-color: green;
+    color: #ffffff;
+     padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+    cursor: pointer;
+  margin: 30px auto;
+  display: block;
+}
+.hidden {
+      display: none;
+}
+  </style>
+</head>
+<body>
+<!--navaaaaaaaaaaaaar-->
+<nav>
+  <div class="nav-left">
+    <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+    <div class="nav-links">
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/index.html">Inicio</a>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Speaking</a>
+        <div class="dropdown-content">
+          <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Listening</a>
+        <div class="dropdown-content">
+          <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+          <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Reading</a>
+        <div class="dropdown-content">
+          <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Writing</a>
+        <div class="dropdown-content">
+          <a href="#"><span class="level-icon">A1</span> Elementary</a>
+          <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+          <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/TestExpo/fulltest.html">Exams</a>
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/aboutus.html">About us</a>
+    </div>
+  </div>
+
+  <!-- Botones Login / Register -->
+  <div class="nav-buttons">
+   <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario.html"><button class="login-btn" href="">Login</button></a>
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario2.html"><button class="register-btn">Register</button></a>
+  </div>
+</nav>
+
+<!--navaaaaaaaaaaaaar-->
+
+
+  <div class="container2">
+<div class="main-container1">
+    <h1>The Biology of Risk</h1>
+
+    <div class="two-columns">
+          <p class="line">A diver descends into an underwater cave, a
+        scientist researches a dangerous disease, and an
+        entrepreneur invests in a new business. Each time we try something new, we take a risk. Sometimes, like
+        the diver or the businessman, we take big risks, usually for obvious
+        reasons—for fame, for money, or to save lives. Most people will
+        take some risk to achieve one of these goals. But as the danger
+        increases, the number of people willing to go forward decreases.
+        Only extreme risk-takers continue on. The question is: What
+        exactly drives these people to go on when others would stop?
+        </p>
+
+      <div class="sidebar">
+        <p><strong>Timothy Treadwell</strong> (above left) spent 13 summers photographing grizzly bears in Alaska. In 2003, Treadwell and his girlfriend were killed by one of the bears they were studying.</p>
+      </div>
+    </div>
+
+    <div class="captioned-section">
+      <img src="img/ballena.jpg" alt="Diver and whale">
+      <div class="captioned-text">
+        <p class="textimg"><strong>A diver has a close encounter with a southern right whale in waters off the Auckland Islands, New Zealand.</strong></p>
+        <p>
+          To answer this question, scientists are studying the biological facts involved in risk-taking. Their research focuses on certain chemicals in the brain. An important chemical in risk-taking is dopamine. It motivates us to seek out new and exciting things, and it helps us process emotions like and fear.
+        </p>
+        <p>
+          People whose brains don’t produce enough dopamine often lack motivation and interest in life. On the other hand, someone who takes risks to accomplish something—to climb a mountain or start a company—that’s driven by motivation, and motivation is driven by dopamine,” says Larry Zweifel, a neurobiologist at the University of Washington. “It compels humans to move forward.”
+        </p>
+
+    <p>When we accomplish a task, dopamine produces a feeling of satisfaction: it makes us feel good. The riskier the task, the more dopamine we produce, and the better we feel. Given this, why isn’t everyone trying to climb mountains or start businesses? In part, it’s because of small molecules called autoreceptors. </p>
+
+  </div>
+    </div>
+    <P>These receptors control dopamine use in the brain. A person with more autoreceptors tends to be more careful, as there is less dopamine moving freely around his or her brain.</P>
+
+    <p>“Think of dopamine like gasoline,” says neuropsychologist David Zald. The autoreceptors, on the other hand, are like the brakes in a car. A person who is less able to use brakes is more likely to take risks.</p>
+
+    <h2 style="color:#004aad; margin-top:40px; text-align: center;">Dealing with Fear</h2>
+
+    <p>Dopamine production may make us feel good, but being in a high-risk situation for an extended period of time is also stressful and can be dangerous. Successful risk-takers must learn to control their fear and associate it with high-risk situations to reduce stress and stay safe.</p>
+
+    <p>In reality, to risk is something we all learn to do. Take, for example, learning to drive a car. At first, we may be afraid of the travel or freezing in an emergency. With time and training, we will move comfortably into speeding traffic or swerving to avoid hitting a deer. Similarly, a tightrope walker first learns to walk on a beam on the ground. Later, he or she may walk on a high wire.</p>
+
+    <img src="img/ballena2.jpg" alt="Ocean background" class="image-full">
+   <div class="dos">
+    <p>By this point, the tightrope walker is in control and the activity doesn’t feel dangerous. By practicing a challenging activity, humans can become used to the risk, manage the danger, and control the fear that they feel in those situations.</p>
+
+    <p>The work that marine biologist and deep-sea diver Rhian Waller does illustrates this well. She studies life in some of the deepest and coldest waters on Earth. How does Waller control her fear and stay safe in these high-risk situations?</p>
+
+    <p class="quote">“It comes with practice,” she says. “It’s knowing exactly what to do when something goes wrong. We prepare well for each of our expeditions, and we try to minimize the number of risks we take.”</p>
+
+    <p>Of course, a person doesn’t have to be a tightrope walker or a deep-sea diver to be a risk-taker. Taking risks is part of being human. We are all motivated to experience new things. In order to do so, we have to take chances and, of course, we may fail.</p>
+  </div>
+  
+
+     <br>  <h1>Quiz: The Biology of Risk</h1>
+    <!-- Botón para mostrar el quiz -->
+<button onclick="mostrarQuiz()" class="start-btn">Take the Quiz</button><br>
+
+   <div class="quiz hidden" id="quizContainer"> 
+    <div class="question">
+      <h3>1. What do a diver, a scientist, and an entrepreneur have in common according to the text?</h3>
+      <label><input type="radio" name="q1" value="false">A. They enjoy fame<span class="feedback"></span></label>
+      <label><input type="radio" name="q1" value="false">B. They avoid danger<span class="feedback"></span></label>
+      <label><input type="radio" name="q1" value="true">C. They all take risks<span class="feedback"></span></label>
+      <label><input type="radio" name="q1" value="false">D. They follow rules<span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>2. What happens to the number of people willing to take risks as the danger increases?</h3>
+      <label><input type="radio" name="q2" value="false">A. It stays the same<span class="feedback"></span></label>
+      <label><input type="radio" name="q2" value="false">B.  It increases <span class="feedback"></span></label>
+      <label><input type="radio" name="q2" value="true">C. It decreases<span class="feedback"></span></label>
+      <label><input type="radio" name="q2" value="false">D.  It disappears <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>3. What is dopamine responsible for in the brain?</h3>
+      <label><input type="radio" name="q3" value="false">A. It reduces stress <span class="feedback"></span></label>
+      <label><input type="radio" name="q3" value="false">B.  It controls breathing<span class="feedback"></span></label>
+      <label><input type="radio" name="q3" value="true">C. It motivates us and helps us process emotions<span class="feedback"></span></label>
+      <label><input type="radio" name="q3" value="false">D. It helps us sleep<span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>4. According to the text, people with more dopamine autoreceptors are:</h3>
+      <label><input type="radio" name="q4" value="false">A. More likely to take risks <span class="feedback"></span></label>
+      <label><input type="radio" name="q4" value="false">B. Addicted to adrenaline <span class="feedback"></span></label>
+      <label><input type="radio" name="q4" value="false">C. Always happy<span class="feedback"></span></label>
+      <label><input type="radio" name="q4" value="true">D. Less likely to take risks <span class="feedback"></span></label>
+
+    </div>
+
+    <div class="question">
+      <h3>5. What does dopamine make us feel when we complete a task?</h3>
+      <label><input type="radio" name="q5" value="false">A. Tired <span class="feedback"></span></label>
+      <label><input type="radio" name="q5" value="false">B. Confused<span class="feedback"></span></label>
+      <label><input type="radio" name="q5" value="true">C. Satisfied  <span class="feedback"></span></label>
+      <label><input type="radio" name="q5" value="false">D. Angry <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>6. What is the main reason some people take big risks?</h3>
+      <label><input type="radio" name="q6" value="false">A. To entertain others <span class="feedback"></span></label>
+      <label><input type="radio" name="q6" value="false">B. To escape boredom <span class="feedback"></span></label>
+      <label><input type="radio" name="q6" value="true">C. For fame, money, or to save lives <span class="feedback"></span></label>
+      <label><input type="radio" name="q6" value="false">D. Because they are forced to <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>7. According to the article, how can people learn to deal with fear?</h3>
+      <label><input type="radio" name="q7" value="false">A. By ignoring it <span class="feedback"></span></label>
+      <label><input type="radio" name="q7" value="true">B. By practicing risky activities <span class="feedback"></span></label>
+      <label><input type="radio" name="q7" value="false">C. By running away from danger <span class="feedback"></span></label>
+      <label><input type="radio" name="q7" value="false">D. By talking to others <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>8. How do tightrope walkers and deep-sea divers manage fear?</h3>
+      <label><input type="radio" name="q8" value="false">A. They avoid thinking about it <span class="feedback"></span></label>
+      <label><input type="radio" name="q8" value="false">B. They don’t feel fear at all  <span class="feedback"></span></label>
+      <label><input type="radio" name="q8" value="false">C. They use special machines  <span class="feedback"></span></label>
+      <label><input type="radio" name="q8" value="true">D.They practice until they feel in control  <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>9. What does the text say about minimizing risk?</h3>
+      <label><input type="radio" name="q9" value="true">C. It requires practice and preparation <span class="feedback"></span></label>
+      <label><input type="radio" name="q9" value="false">A. It is impossible to do <span class="feedback"></span></label>
+      <label><input type="radio" name="q9" value="false">B. It’s a sign of weakness <span class="feedback"></span></label>
+      <label><input type="radio" name="q9" value="false">D. Only scientists can do it <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>10. What message does the article give at the end about taking risks?</h3>
+      <label><input type="radio" name="q10" value="false">A. We should always avoid risks <span class="feedback"></span></label>
+      <label><input type="radio" name="q10" value="false">B. Only experts should take risks <span class="feedback"></span></label>
+      <label><input type="radio" name="q10" value="true">C. Risk-taking is natural and necessary to grow<span class="feedback"></span></label>
+      <label><input type="radio" name="q10" value="false">D. All risks should be eliminated<span class="feedback"></span></label>
+    </div>
+
+
+        <button onclick="checkAnswers()" class="botoncheck">Check Answers</button>
+    <div class="result" id="result"></div>
+  </div>
+</div>
+</div>
+
+  <script>
+    function mostrarQuiz() {
+      document.getElementById("quizContainer").classList.remove("hidden");
+    }
+
+    function checkAnswers() {
+  const total = 10;
+  let correct = 0;
+
+  for (let i = 1; i <= total; i++) {
+    const answers = document.getElementsByName('q' + i);
+
+    for (const answer of answers) {
+      const span = answer.parentElement.querySelector('.feedback');
+      span.textContent = '';
+      span.classList.remove("correct", "incorrect");
+    }
+
+    for (const answer of answers) {
+      const span = answer.parentElement.querySelector('.feedback');
+      if (answer.checked) {
+        if (answer.value === "true") {
+          correct++;
+          span.textContent = '  Correct';
+          span.classList.add("correct");
+        } else {
+          span.textContent = '  Incorrect';
+          span.classList.add("incorrect");
+        }
+      }
+    }
+  }
+      document.getElementById("result").innerText = `You got ${correct} out of ${total} correct.`;
+
+    }
+</script>
+<br>
+<!--Footer-->
+  <footer style="background-color: #eeeeee;" class="text-center text-lg-start text-dark pt-5">
+<div class="container-fluid" style="max-width: 100%;">
+    <div class="row text-center text-md-start">
+
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English connect with the world.</p>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+          <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+        </ul>
+      </div>
+
+<div class="col-md-2 mb-4">
+  <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+    <i class="fab fa-facebook-f text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+    <i class="fab fa-twitter text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+    <i class="fab fa-instagram text-white"></i>
+  </a>
+</div>
+
+
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+</body>
+</html>

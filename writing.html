@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learn English Now - Writing & Reading Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+body {
+  background-color: #f4f7fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+    .logo1{
+      box-shadow: 0 0 0 1px #004aad;
+      border-radius: 50%;
+    }
+
+.navbar-custom {
+  background-color: #004aad;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.navbar-custom .brand {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-custom .nav-links a {
+  color: #d6e4ff;
+  margin-left: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-custom .nav-links a:hover {
+  color: #ffffff;
+}
+
+.hero-container {
+  position: relative;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.hero-image {
+  max-height: 480px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
+  letter-spacing: 1px;
+}
+
+.btn-custom {
+  background-color: #004aad;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #003080;
+  color: #ffffff;
+}
+
+.reading-box {
+  background-color: #ffffff;
+  border-left: 6px solid #004aad;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+.feedback-box {
+  background-color: #e8f0ff;
+  border-left: 4px solid #004aad;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+  max-height: 280px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+}
+
+.feedback-box h5 {
+  color: #004aad;
+  font-weight: bold;
+  margin-bottom: 0.6rem;
+}
+
+.word-count {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.3rem;
+  text-align: right;
+}
+
+.score-box {
+  background-color: #daeaff;
+  padding: 0.8rem 1.2rem;
+  border-left: 5px solid #004aad;
+  border-radius: 6px;
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #004aad;
+}
+
+.final-score {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
+  color: #004aad;
+  margin-top: 1rem;
+}
+
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px;
+  display: inline-block;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover {
+  color: #004aad;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.level-icon {
+  font-weight: bold;
+  background-color: #a2b8f4;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 5px;
+}
+
+.login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.logo1 {
+  box-shadow: 0 0 0 1px #004aad;
+  border-radius: 50%;
+}
+
+/* 🎨 Variables de color para modo claro */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --nav-bg: #ffffff;
+  --nav-text: #000000;
+  --card-bg: #f9f9f9;
+  --card-text: #000000;
+  --footer-bg: #f1f1f1;
+  --footer-text: #000000;
+}
+
+/* 🌙 Variables de color para modo oscuro */
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --nav-bg: #1f1f1f;
+  --nav-text: #ffffff;
+  --card-bg: #1e1e1e;
+  --card-text: #ffffff;
+  --footer-bg: #181818;
+  --footer-text: #ffffff;
+}
+
+/* Navbar */
+nav {
+  background-color: var(--nav-bg) !important;
+  color: var(--nav-text) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a {
+  color: var(--nav-text) !important;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+
+/* Botón modo oscuro */
+.dark-toggle {
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dark-toggle:hover {
+  opacity: 0.8;
+}
+
+/* Navbar adaptada al estilo global */
+nav {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+body.dark-mode nav {
+  background-color: var(--dark-mode-element-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--accent-green);
+  background-color: var(--dark-mode-element-bg);
+  color: var(--accent-green);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* --- Variables de color --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--light-gray-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: var(--black);
+  margin: 0 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-blue);
+}
+
+/* --- Botón cuadrado de modo oscuro --- */
+.dark-mode-toggle {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px; /* cuadrado pero con ligera suavidad */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-left: 250px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent-green);
+}
+
+/* --- Dark Mode --- */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .navbar {
+  background-color: var(--dark-nav);
+}
+
+body.dark-mode .navbar a {
+  color: var(--dark-text);
+}
+
+body.dark-mode .navbar a:hover {
+  color: var(--accent-green);
+}
+</style>
+
+     <nav>
+    <div class="nav-left">
+      <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+      <div class="nav-links">
+
+                <a href="../principal/index.html">Inicio</a>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Speaking</a>
+          <div class="dropdown-content">
+            <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Listening</a>
+          <div class="dropdown-content">
+            <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+            <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Reading</a>
+          <div class="dropdown-content">
+            <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Writing</a>
+          <div class="dropdown-content">
+            <a href="#"><span class="level-icon">A1</span> Elementary</a>
+            <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+            <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <a href="../principal/TestExpo/index.html">Exams</a>
+        <a href="aboutus.html">About us</a>
+
+      </div>
+    </div>
+    <button class="login-btn">Login</button>
+    <button href="#" class="register-btn">Register</button>
+  </nav>
+
+
+<div class="container hero-container">
+  <img src="img/Modern Desktop Writing Workshop Google Classroom Header .png" class="img-fluid hero-image" alt="Writing Workshop" />
+  <div class="hero-text">Writing Practice</div>
+</div>
+
+<div class="container mt-5">
+  <h3 class="text-primary">🧠 Advanced Vocabulary (C1)</h3>
+  <p class="text-muted">Learn and apply these words in real context:</p>
+  <ul class="list-group">
+    <li class="list-group-item">Ephemeral</li>
+    <li class="list-group-item">Ubiquitous</li>
+    <li class="list-group-item">Conundrum</li>
+    <li class="list-group-item">Disenfranchise</li>
+    <li class="list-group-item">Ostentatious</li>
+  </ul>
+  <button class="btn btn-custom mt-3" onclick="toggleDefinitions()">Show Definitions</button>
+  <div id="definitions" class="mt-3 d-none">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Ephemeral:</strong> Short-lived, temporary.</li>
+      <li class="list-group-item"><strong>Ubiquitous:</strong> Present everywhere.</li>
+      <li class="list-group-item"><strong>Conundrum:</strong> A difficult problem or puzzle.</li>
+      <li class="list-group-item"><strong>Disenfranchise:</strong> Remove rights or power.</li>
+      <li class="list-group-item"><strong>Ostentatious:</strong> Overly showy, trying to impress.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h3 class="text-primary">📝 Use Vocabulary in Context</h3>
+  <p>Write a short paragraph (80–120 words) using these words meaningfully:</p>
+  <div class="alert alert-secondary"><strong>ephemeral, ubiquitous, conundrum</strong></div>
+  <textarea class="form-control" id="contextWriting" rows="6" placeholder="Write your paragraph here..." oninput="updateWordCount('contextWriting', 'countContext')"></textarea>
+  <div id="countContext" class="word-count">0 / 120 words</div>
+  <div id="wordFeedback" class="feedback-box d-none"></div>
+</div>
+
+<div class="container mt-5">
+  <h3 class="text-primary">📖 Reading Comprehension</h3>
+  <p class="text-muted">Read the text and answer each question.</p>
+  <div class="reading-box">
+    <p>
+      In today’s world, digital presence is almost <strong>ubiquitous</strong>. Social media platforms and messaging apps are used by nearly everyone, everywhere.
+      To maintain privacy in this constant exposure, many people—especially younger users—prefer <strong>ephemeral</strong> content like disappearing stories or messages.
+      However, this gives rise to a <strong>conundrum</strong>: if these moments vanish quickly, do they truly disappear, or do they leave digital traces that affect us anyway?
+      The challenge lies in understanding the consequences of what we share, and how it shapes the way others see us.
+    </p>
+  </div>
+  <div class="mt-4">
+    <h5>🧩 Questions</h5>
+    <ol>
+      <li>Why is ephemeral content popular among young users?<br />
+        <textarea class="form-control mt-2 answer-field" id="q1" rows="2" oninput="updateWordCount('q1', 'countQ1')"></textarea>
+        <div id="countQ1" class="word-count">0 / 50 words</div>
+      </li>
+      <li class="mt-3">What contradiction does the author highlight about ephemeral content?<br />
+        <textarea class="form-control mt-2 answer-field" id="q2" rows="2" oninput="updateWordCount('q2', 'countQ2')"></textarea>
+        <div id="countQ2" class="word-count">0 / 50 words</div>
+      </li>
+      <li class="mt-3">What does the text suggest about the impact of digital content that "disappears"?<br />
+        <textarea class="form-control mt-2 answer-field" id="q3" rows="2" oninput="updateWordCount('q3', 'countQ3')"></textarea>
+        <div id="countQ3" class="word-count">0 / 50 words</div>
+      </li>
+    </ol>
+    <div id="feedbackArea" class="feedback-box d-none"></div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h3 class="text-primary">💬 Express Your Opinion</h3>
+  <p>Write an opinion (100–120 words) on:</p>
+  <div class="alert alert-secondary">
+    <strong>"Do you think ephemeral content helps or harms communication and self-expression?"</strong>
+  </div>
+  <textarea class="form-control" id="opinionText" rows="6" placeholder="Use at least two vocabulary words from today." oninput="updateWordCount('opinionText', 'countOpinion')"></textarea>
+  <div id="countOpinion" class="word-count">0 / 120 words</div>
+  <div id="opinionFeedback" class="feedback-box d-none"></div>
+  <button class="btn btn-custom mt-3" onclick="analyzeAll()">Analyze All 💙</button>
+</div> 
+<br>
+
+<script>
+  const GEMINI_API_KEY = "AIzaSyBsogspGCpsToxdJOHcagzCjxrGCKz-zu4";
+
+  function toggleDefinitions() {
+    document.getElementById("definitions").classList.toggle("d-none");
+  }
+
+  function updateWordCount(textareaId, countId) {
+    const textarea = document.getElementById(textareaId);
+    const countDisplay = document.getElementById(countId);
+    let words = textarea.value.trim().split(/\s+/).filter(Boolean);
+    if (words.length > 0 && words[0] === "") words = [];
+
+    const maxWords = getMaxWords(textareaId);
+    if(words.length > maxWords) {
+      words = words.slice(0, maxWords);
+      textarea.value = words.join(" ");
+    }
+    countDisplay.textContent = `${words.length} / ${maxWords} words`;
+  }
+
+  function getMaxWords(id) {
+    switch(id) {
+      case 'contextWriting': return 120;
+      case 'opinionText': return 120;
+      case 'q1':
+      case 'q2':
+      case 'q3': return 50;
+      default: return 120;
+    }
+  }
+
+  function cleanGeminiResponse(rawText) {
+    rawText = rawText.replace(/```html|```/g, '');
+    rawText = rawText.replace(/\n{2,}/g, '\n');
+    rawText = rawText.replace(/\n/g, '<br>');
+    rawText = rawText.replace(/\"/g, '"');
+    return rawText.trim();
+  }
+
+  async function analyzeTextWithGemini(text, promptExtra = '') {
+    const prompt = `You are an advanced English teacher. Review the following writing. Provide constructive feedback in clean HTML format. Include a score from 0 to 10 evaluating grammar, vocabulary, and coherence.${promptExtra}\n\nText:\n"""${text}"""`;
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [ { parts: [ { text: prompt } ] } ]
+        })
+      });
+      const result = await response.json();
+      let reply = result.candidates?.[0]?.content?.parts?.[0]?.text || "❌ No response.";
+      return cleanGeminiResponse(reply);
+    } catch (err) {
+      return `<h5>Error</h5><p>❌ There was a problem analyzing the text. Please try again later.</p>`;
+    }
+  }
+
+  async function analyzeAll() {
+    const contextText = document.getElementById('contextWriting').value.trim();
+    const q1 = document.getElementById('q1').value.trim();
+    const q2 = document.getElementById('q2').value.trim();
+    const q3 = document.getElementById('q3').value.trim();
+    const opinionText = document.getElementById('opinionText').value.trim();
+
+    if(!contextText || !q1 || !q2 || !q3 || !opinionText) {
+      alert("Please fill in all fields before analyzing.");
+      return;
+    }
+
+    const wordFeedback = document.getElementById('wordFeedback');
+    const feedbackArea = document.getElementById('feedbackArea');
+    const opinionFeedback = document.getElementById('opinionFeedback');
+
+    wordFeedback.classList.remove('d-none');
+    feedbackArea.classList.remove('d-none');
+    opinionFeedback.classList.remove('d-none');
+    wordFeedback.innerHTML = '<h5>🌀 Analyzing your paragraph...</h5><p>Please wait...</p>';
+    feedbackArea.innerHTML = '<h5>🌀 Analyzing reading answers...</h5><p>Please wait...</p>';
+    opinionFeedback.innerHTML = '<h5>🌀 Analyzing your opinion...</h5><p>Please wait...</p>';
+
+    const paraFeedback = await analyzeTextWithGemini(contextText, "\nProvide the feedback and a score between 0 and 10.");
+
+    const readingCombined = `Answer 1: ${q1}\nAnswer 2: ${q2}\nAnswer 3: ${q3}`;
+    const readingFeedback = await analyzeTextWithGemini(readingCombined, "\nEvaluate each answer separately, providing feedback and a score from 0 to 10 for each answer.");
+
+    const opinionFb = await analyzeTextWithGemini(opinionText, "\nProvide feedback and a score between 0 and 10.");
+
+    function extractScores(text) {
+      const regex = /score\s*[:\-]?\s*(\d+(\.\d+)?)/gi;
+      let matches, scores = [];
+      while ((matches = regex.exec(text)) !== null) {
+        scores.push(parseFloat(matches[1]));
+      }
+      return scores;
+    }
+
+    const paraScore = extractScores(paraFeedback)[0] || 0;
+    const readingScores = extractScores(readingFeedback);
+    const q1Score = readingScores[0] || 0;
+    const q2Score = readingScores[1] || 0;
+    const q3Score = readingScores[2] || 0;
+    const opinionScore = extractScores(opinionFb)[0] || 0;
+
+    const finalScore = ((paraScore + q1Score + q2Score + q3Score + opinionScore) / 5).toFixed(2);
+
+    wordFeedback.innerHTML = `<h5>📝 Vocabulary Paragraph Feedback</h5><div class="score-box">Score: ${paraScore} / 10</div><div>${paraFeedback}</div>`;
+    feedbackArea.innerHTML = `
+      <h5>📖 Reading Comprehension Feedback</h5>
+      <div class="score-box">Answer 1 Score: ${q1Score} / 10</div><p>${q1}</p>
+      <div class="score-box">Answer 2 Score: ${q2Score} / 10</div><p>${q2}</p>
+      <div class="score-box">Answer 3 Score: ${q3Score} / 10</div><p>${q3}</p>
+      <div>${readingFeedback}</div>
+    `;
+    opinionFeedback.innerHTML = `<h5>💬 Opinion Feedback</h5><div class="score-box">Score: ${opinionScore} / 10</div><div>${opinionFb}</div>`;
+
+    const finalScoreHtml = document.createElement('div');
+    finalScoreHtml.className = 'final-score';
+    finalScoreHtml.innerHTML = `🟊 <strong>Final Score: ${finalScore} / 10</strong> 🟊`;
+    opinionFeedback.appendChild(finalScoreHtml);
+  }
+
+</script>
+
+  <footer style="background-color: #eeeeee;" class="text-center text-lg-start text-dark pt-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English connect with the world.</p>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+          <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+        </ul>
+      </div>
+
+<div class="col-md-2 mb-4">
+  <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+    <i class="fab fa-facebook-f text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+    <i class="fab fa-twitter text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+    <i class="fab fa-instagram text-white"></i>
+  </a>
+</div>
+
+
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+
+</body>
+</html>

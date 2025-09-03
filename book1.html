@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>In Search of Brazil's Dream Beaches</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /*navar estilo */
+    /* --- Botón modo oscuro --- */
+.btn-toggle {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+}
+
+body.dark-mode .btn-toggle {
+  background: var(--blanco);
+  color: var(--azul-oscuro);
+}
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px;
+  display: inline-block;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover {
+  color: #004aad;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.level-icon {
+  font-weight: bold;
+  background-color: #a2b8f4;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 225px;
+}
+
+.login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-right: 50px;
+}
+
+.register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.logo1 {
+  box-shadow: 0 0 0 1px #004aad;
+  border-radius: 50%;
+}
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+nav {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+body.dark-mode nav {
+  background-color: var(--dark-mode-element-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--accent-green);
+  background-color: var(--dark-mode-element-bg);
+  color: var(--accent-green);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* --- Variables de color --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--light-gray-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: var(--black);
+  margin: 0 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-blue);
+}
+
+/* --- Botón cuadrado de modo oscuro --- */
+.dark-mode-toggle {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px; /* cuadrado pero con ligera suavidad */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-left: 250px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent-green);
+}
+
+    /*navarrrrrr*/
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+.div-container{
+    padding: 100px 20px 20px; /* espacio para navbar fijo */
+
+}
+h1 {
+            text-align: center;
+            color: #004aad;
+            margin-bottom: 40px;
+}
+.container1 {
+         max-width: 900px;
+         margin: auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* sombra elegante */
+        border-radius: 12px;        /* bordes redondeados */
+        padding: 30px; 
+ }
+p{
+     padding: 8px;
+     border-radius: 8px;
+     margin-bottom: 8px;
+   text-align: justify;
+  }
+.two-columns {
+  display: flex;
+  gap: 40px;               
+  max-width: 1000px;
+  padding: 20px;
+  text-align: justify;
+  align-items: flex-start;  
+}
+.two-columns > div {
+  flex: 1;                 
+}
+.image-full {
+     width: 100%;
+    margin: 40px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.captioned-section {
+    display: flex;
+    gap: 30px;
+    margin: 40px 0;
+    align-items: flex-start;
+}
+.captioned-section img {
+    width: 45%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    object-fit: cover;
+}
+.captioned-text {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.captioned-text p {
+    padding: 15px;
+    border-radius: 12px;
+    margin: 0;
+}
+.captioned-section + p {
+  margin-top: -10px;
+}
+.textimg{
+background-color: #a2b8f4;
+ padding: 15px;
+ border-radius: 12px;
+margin-bottom: 20px;
+}
+.quiz{
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px 30px;
+      border-radius: 15px;
+      border: 3px solid #004aad;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.question {
+      margin-bottom: 25px;
+}
+.question h3 {
+      margin-bottom: 10px;
+      color: #004aad;
+      font-size: 1.1rem
+}
+label {
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+}
+input[type="radio"] {
+      margin-right: 10px;
+}
+.feedback {
+      margin-left: 10px;
+      font-weight: bold;
+      color: #cb6ce6;
+    transition: all 0.3s ease;
+}
+.feedback:empty {
+  display: none;
+}
+
+.feedback.correct {
+  color: #2ecc71;
+  font-weight: bold;
+  animation: pop 0.3s ease;
+}
+
+.feedback.incorrect {
+  color: #e74c3c;
+  font-weight: bold;
+  animation: shake 0.3s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.result {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 20px;
+      color: green;
+}
+.start-btn {
+  background-color: green;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s;
+  margin: 30px auto;
+  display: block;
+}
+.start-btn:hover {
+  background-color: green;
+  transform: scale(1.05);
+}
+.botoncheck{
+    background-color: green;
+    color: #ffffff;
+     padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+    cursor: pointer;
+  margin: 30px auto;
+  display: block;
+}
+.hidden {
+      display: none;
+}
+</style>
+</head>
+<body>
+  <!--navaaaaaaaaaaaar-->
+  <nav>
+  <div class="nav-left">
+    <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+    <div class="nav-links">
+      <a href="../principal">Inicio</a>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Speaking</a>
+        <div class="dropdown-content">
+          <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Listening</a>
+        <div class="dropdown-content">
+          <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+          <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Reading</a>
+        <div class="dropdown-content">
+          <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Writing</a>
+        <div class="dropdown-content">
+          <a href="#"><span class="level-icon">A1</span> Elementary</a>
+          <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+          <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/TestExpo/fulltest.html">Exams</a>
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/aboutus.html">About us</a>
+    </div>
+  </div>
+
+  <!-- Botones Login / Register -->
+  <div class="nav-buttons">
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario.html"><button class="login-btn" href="">Login</button></a>
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario2.html"><button class="register-btn">Register</button></a>
+  </div>
+</nav>
+  <!--navaaaaaaaaaaaar-->
+
+  <div class="div-container">
+    <div class="container1">
+        <h1>In Search of Brazil's Dream Beaches</h1>
+
+        <div class="two-columns">
+<div>
+        <p>In pursuit of the perfect beach, travel writer Stanley Stewart heads to Brazil, where he discovers some of the world's most beautiful sandy escapes.</p>
+
+        <p>I'm standing on Rio de Janeiro's Copacabana beach, one of Brazil's, and the world's most famous stretches of sand. As I watch life go by here in all its varied forms, I've come to realize that any understanding of Brazil really begins on its beaches. In this vibrant, multicultural country, the beach is not just a place; it's a state of mind a way of thinking and living.</p>
+  
+     <p>Rio alone, I'm told, has over 70 beaches, each with its own community: some are for bodybuilders, others are for senior citizens, still others are popular with parents and children. But Rio's beaches are just the starting point for my exploration of Brazil's Atlantic coastline, which at more than 8,000 kilometers (5,000 miles), and with more than 2,000 beaches, is the longest in the world. Every Brazilian has his or her own ideas of the perfect beach and is eager to tell you where to find it. I'm happy to take people's advice, but my ultimate goal is to find my own dream beach.</p>
+     </div>    
+      <div>
+        <p>I head to a place said to have some of Brazil's best coastline: the state of Bahia in the northeast. Portuguese settlers established themselves at Bahia's present day capital, Salvador de Bahia, in 1549. Over the centuries, people of many races have arrived and intermarried here, creating a distinctive cultural mix, which influences Bahia's language, religion, cuisine, and dance.</p>
+
+        <p>I'd been told that one of Bahia's best beaches Prainha lies just south of Salvador, near the town of Itacaré. On arriving at Prainha's beach, I discover its golden sand lined by a row of perfect palm trees, moving softly in the ocean breeze. Under the moon, silver waves roll onto the sand. As I enter the water, I have the feeling of swimming through moonlight. </p>
+
+          <p>Prainha's beauty is magnificent, its perfect curves and graceful lines are like something you might see in a postcard. But for me, it's a little too perfect. The beach I'm searching for needs to be a little wilder.</p>
+    </div>  
+      </div>
+
+        <img src="img/playa2.jpg" alt="Frigatebirds at sunset in Fernando de Noronha" class="image-full">
+
+        <p>I continue my search, heading north to one of Brazil's legendary beaches: Jericoacoara. Twenty years ago, only a handful of people were living in Jeri. Today it's an international destination, considered one of the best beach hangouts in the world (especially if you like windsurfing). It attracts visitors from Tokyo to Toronto and has grown from a small village into a lively little town. Despite the changes, Jeri hasn't been spoiled by tourists, mostly because of its isolated location; it's at least five hours from any airport.</p>
+
+       <div class="captioned-section">
+    <img src="img/playa1.jpg" alt="Frigatebirds fly over a beach at sunset">
+    <div class="captioned-text">
+        <p class="textimg"><strong>Frigatebirds fly over a dramatic beach landscape in Fernando de Noronha, Brazil.</strong></p>
+
+        <p>Everyone in Jeri rents a beach buggy, which comes with a driver. I tell my driver to take me as far along the coast as he can. We drive for three hours, finally arriving at Maceio, a fisherman's beach. Boats lie on their sides while nets hang out to dry on lines between fishermen's houses. We eat on the beach and later rest in hammocks near the table. It's a great day on an amazing beach. How can it possibly get any better? I wonder. But I have one final place to visit.</p>
+
+        <p>Of the many beach destinations in this country, there is one that all Brazilians hold in high regard: the islands of Fernando de Noronha. More than a dozen beautiful beaches ring the island of Fernando alone, three of which rank among the top ten in Brazil. The islands of Fernando de Noronha lie a few hundred kilometers out in the Atlantic. For years, people were prohibited from visiting these islands because they were used as a prison and later by the army. Today the islands are a national park and UNESCO World Heritage Site, rich with diverse bird and sea life.</p>
+    </div>
+</div>
+ <p>I visit a number of beaches on Fernando, but I save the best for last. The beach at Praia do Leão is the perfect balance of sand, sea, and sky. The water is pure blue and warm, alive with colorful fish, turtles, and other marine life; the sand is the color of honey. And in the rock formations and strong winds that occasionally come in from the Atlantic, there is that hint of wildness I was seeking. Finally, I've found the beach of my dreams. I dig my toes in the sand deeply and imagine I can hold on to this place forever.</p>
+
+   <br>  <h1>Quiz: In Search of Brazil's Dream Beaches</h1>
+    <!-- Botón para mostrar el quiz -->
+<button onclick="mostrarQuiz()" class="start-btn">Take the Quiz</button><br>
+
+   <div class="quiz hidden" id="quizContainer"> 
+    <div class="question">
+      <h3>1. Why did Stanley Stewart travel to Brazil?</h3>
+      <label><input type="radio" name="q1" value="false">A. To visit his family <span class="feedback"></span></label>
+      <label><input type="radio" name="q1" value="false">B. To learn Portuguese <span class="feedback"></span></label>
+      <label><input type="radio" name="q1" value="true">C. To find the perfect beach <span class="feedback"></span></label>
+      <label><input type="radio" name="q1" value="false">D. To study wildlife <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>2. What does the author say about Copacabana beach?</h3>
+      <label><input type="radio" name="q2" value="false">A. It's quiet and unknown <span class="feedback"></span></label>
+      <label><input type="radio" name="q2" value="false">B. It’s the only beach in Brazil <span class="feedback"></span></label>
+      <label><input type="radio" name="q2" value="true">C. It’s one of the most famous beaches in the world <span class="feedback"></span></label>
+      <label><input type="radio" name="q2" value="false">D. It is dangerous for tourists <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>3. What is the beach a symbol of in Brazilian culture?</h3>
+      <label><input type="radio" name="q3" value="false">A. A historical site <span class="feedback"></span></label>
+      <label><input type="radio" name="q3" value="false">B. A place for only the rich <span class="feedback"></span></label>
+      <label><input type="radio" name="q3" value="true">C. A state of mind and way of life <span class="feedback"></span></label>
+      <label><input type="radio" name="q3" value="false">D. A place for politics <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>4. How many beaches does Brazil have approximately?</h3>
+      <label><input type="radio" name="q4" value="false">A. 800 <span class="feedback"></span></label>
+      <label><input type="radio" name="q4" value="true">B. 2,000 <span class="feedback"></span></label>
+      <label><input type="radio" name="q4" value="false">C. 10,000 <span class="feedback"></span></label>
+      <label><input type="radio" name="q4" value="false">D. 70 <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>5. Where did Portuguese settlers first establish themselves?</h3>
+      <label><input type="radio" name="q5" value="false">A. Itacaré <span class="feedback"></span></label>
+      <label><input type="radio" name="q5" value="false">B. Prainha <span class="feedback"></span></label>
+      <label><input type="radio" name="q5" value="true">C. Salvador de Bahia <span class="feedback"></span></label>
+      <label><input type="radio" name="q5" value="false">D. Jericoacoara <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>6. What is Prainha like, according to the author?</h3>
+      <label><input type="radio" name="q6" value="false">A. Dirty and crowded <span class="feedback"></span></label>
+      <label><input type="radio" name="q6" value="false">B. Wild and untouched <span class="feedback"></span></label>
+      <label><input type="radio" name="q6" value="true">C. Too perfect and postcard-like <span class="feedback"></span></label>
+      <label><input type="radio" name="q6" value="false">D. A popular party beach <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>7. Why hasn’t Jericoacoara been spoiled by tourists?</h3>
+      <label><input type="radio" name="q7" value="false">A. It's very expensive <span class="feedback"></span></label>
+      <label><input type="radio" name="q7" value="true">B. It’s located far from any airport <span class="feedback"></span></label>
+      <label><input type="radio" name="q7" value="false">C. It has bad weather <span class="feedback"></span></label>
+      <label><input type="radio" name="q7" value="false">D. Tourists don’t like beaches <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>8. What kind of transportation is popular in Jeri?</h3>
+      <label><input type="radio" name="q8" value="false">A. Bicycle <span class="feedback"></span></label>
+      <label><input type="radio" name="q8" value="true">B. Beach buggy <span class="feedback"></span></label>
+      <label><input type="radio" name="q8" value="false">C. Horse <span class="feedback"></span></label>
+      <label><input type="radio" name="q8" value="false">D. Taxi <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>9. What were the Fernando de Noronha islands used for in the past?</h3>
+      <label><input type="radio" name="q9" value="false">A. A movie set <span class="feedback"></span></label>
+     <label><input type="radio" name="q9" value="true">B. A prison and army base <span class="feedback"></span></label>
+      <label><input type="radio" name="q9" value="false">C. An amusement park <span class="feedback"></span></label>
+      <label><input type="radio" name="q9" value="false">D. A farming zone <span class="feedback"></span></label>
+    </div>
+
+    <div class="question">
+      <h3>10. Why does the author love Praia do Leão?</h3>
+      <label><input type="radio" name="q10" value="false">A. It has restaurants <span class="feedback"></span></label>
+      <label><input type="radio" name="q10" value="false">B. It reminds him of Rio <span class="feedback"></span></label>
+      <label><input type="radio" name="q10" value="true">C. It has a wild and natural beauty <span class="feedback"></span></label>
+      <label><input type="radio" name="q10" value="false">D. It’s close to the city <span class="feedback"></span></label>
+    </div>
+
+        <button onclick="checkAnswers()" class="botoncheck">Check Answers</button>
+    <div class="result" id="result"></div>
+  </div>
+       </div>
+       </div>
+
+    <br>
+
+
+
+  <script>
+    function mostrarQuiz() {
+      document.getElementById("quizContainer").classList.remove("hidden");
+    }
+
+    function checkAnswers() {
+  const total = 10;
+  let correct = 0;
+
+  for (let i = 1; i <= total; i++) {
+    const answers = document.getElementsByName('q' + i);
+
+    for (const answer of answers) {
+      const span = answer.parentElement.querySelector('.feedback');
+      span.textContent = '';
+      span.classList.remove("correct", "incorrect");
+    }
+
+    for (const answer of answers) {
+      const span = answer.parentElement.querySelector('.feedback');
+      if (answer.checked) {
+        if (answer.value === "true") {
+          correct++;
+          span.textContent = '  Correct';
+          span.classList.add("correct");
+        } else {
+          span.textContent = '  Incorrect';
+          span.classList.add("incorrect");
+        }
+      }
+    }
+  }
+      document.getElementById("result").innerText = `You got ${correct} out of ${total} correct.`;
+
+    }
+  </script>
+ <footer style="background-color: #eeeeee;" class="text-center text-lg-start text-dark pt-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English connect with the world.</p>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none"></a></li>
+        </ul>
+      </div>
+
+<div class="col-md-2 mb-4">
+  <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+    <i class="fab fa-facebook-f text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+    <i class="fab fa-twitter text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+    <i class="fab fa-instagram text-white"></i>
+  </a>
+</div>
+
+
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+</body>
+</html>

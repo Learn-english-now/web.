@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="es">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <title>Reading B2 – The Power of Habit</title>
+   
+<head>
+    <style>
+      /*NAVAR*/
+      /* --- Botón modo oscuro --- */
+.btn-toggle {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+}
+
+body.dark-mode .btn-toggle {
+  background: var(--blanco);
+  color: var(--azul-oscuro);
+}
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px;
+  display: inline-block;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover {
+  color: #004aad;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.level-icon {
+  font-weight: bold;
+  background-color: #a2b8f4;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 225px;
+}
+
+.login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-right: 50px;
+}
+
+.register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.logo1 {
+  box-shadow: 0 0 0 1px #004aad;
+  border-radius: 50%;
+}
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+nav {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+body.dark-mode nav {
+  background-color: var(--dark-mode-element-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--accent-green);
+  background-color: var(--dark-mode-element-bg);
+  color: var(--accent-green);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* --- Variables de color --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--light-gray-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: var(--black);
+  margin: 0 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-blue);
+}
+
+/* --- Botón cuadrado de modo oscuro --- */
+.dark-mode-toggle {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px; /* cuadrado pero con ligera suavidad */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-left: 250px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent-green);
+}
+      /*NAVAR*/
+    :root {
+      --primary-blue: #3f51b5;
+      --light-blue: #7986cb;
+      --dark-blue: #1a237e;
+      --background-light: #e8f0fe;
+      --card-background: #ffffff;
+      --text-color: #333333;
+      --light-text: #666666;
+      --success-green: #4caf50;
+      --error-red: #f44336;
+      --shadow-light: rgba(0, 0, 0, 0.08);
+      --shadow-dark: rgba(0, 0, 0, 0.15);
+    }
+
+    body {
+      background-color: var(--background-light);
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: var(--text-color);
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      margin: 30px auto;
+      background: var(--card-background);
+      padding: 45px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px var(--shadow-light);
+      animation: fadeInScale 0.8s ease-out forwards;
+      opacity: 0;
+      transform: scale(0.98);
+    }
+
+    @keyframes fadeInScale {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark-blue);
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 2.8em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .reading {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-bottom: 45px;
+      text-align: justify;
+    }
+
+    .reading p {
+      margin-bottom: 1em;
+    }
+
+    .glossary {
+      margin-top: 50px;
+      background-color: var(--background-light);
+      padding: 20px 25px;
+      border-radius: 20px;
+      box-shadow: inset 0 2px 8px var(--shadow-light);
+    }
+
+    .accordion-btn {
+      background-color: transparent;
+      color: var(--primary-blue);
+      font-size: 1.4em;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: left;
+      padding: 10px 0;
+      width: 100%;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .accordion-btn:hover {
+      color: var(--dark-blue);
+      transform: translateY(-2px);
+    }
+
+    .accordion-btn .icon {
+      font-size: 0.9em;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-btn.active .icon {
+      transform: rotate(90deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+      padding-left: 15px;
+      color: var(--light-text);
+    }
+
+    .accordion-content ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+
+    .accordion-content li {
+      margin-bottom: 10px;
+      font-size: 1.05em;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .accordion-content li::before {
+      content: '•';
+      color: var(--light-blue);
+      font-size: 1.2em;
+      margin-right: 8px;
+    }
+
+    .accordion-content strong {
+      color: var(--dark-blue);
+    }
+
+    .quiz {
+      background: var(--background-light);
+      padding: 30px;
+      border-radius: 20px;
+      color: var(--dark-blue);
+      margin-top: 50px;
+      box-shadow: 0 5px 15px var(--shadow-light);
+    }
+
+    .question {
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .question:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .question p {
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      color: var(--primary-blue);
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--text-color);
+    }
+
+    label:hover {
+      background-color: rgba(63, 81, 181, 0.05);
+      transform: translateX(5px);
+    }
+
+    label input[type="radio"] {
+      margin-right: 12px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--primary-blue);
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    label input[type="radio"]:checked {
+      background-color: var(--primary-blue);
+      border-color: var(--primary-blue);
+    }
+
+    label input[type="radio"]:checked::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--card-background);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .btn {
+      background-color: var(--primary-blue);
+      color: var(--card-background);
+      padding: 14px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn:hover {
+      background-color: var(--dark-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .result {
+      margin-top: 25px;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: var(--background-light);
+      box-shadow: inset 0 1px 5px var(--shadow-light);
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .result.correct {
+      color: var(--success-green);
+      border: 1px solid var(--success-green);
+    }
+
+    .result.incorrect {
+      color: var(--error-red);
+      border: 1px solid var(--error-red);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!--NAVAR-->
+  <nav>
+  <div class="nav-left">
+    <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+    <div class="nav-links">
+      <a href="../principal/index.html">Inicio</a>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Speaking</a>
+        <div class="dropdown-content">
+          <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Listening</a>
+        <div class="dropdown-content">
+          <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+          <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Reading</a>
+        <div class="dropdown-content">
+          <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Writing</a>
+        <div class="dropdown-content">
+          <a href="#"><span class="level-icon">A1</span> Elementary</a>
+          <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+          <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/TestExpo/fulltest.html">Exams</a>
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/aboutus.html">About us</a>
+    </div>
+  </div>
+
+  <!-- Botones Login / Register -->
+  <div class="nav-buttons">
+   <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario.html"><button class="login-btn" href="">Login</button></a>
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario2.html"><button class="register-btn">Register</button></a>
+  </div>
+</nav>
+
+  <!--NAVA-->
+    <div class="container">
+        <h1>The Power of Habit</h1>
+
+        <div class="reading">
+            <p>
+                Habits shape much of our daily behavior. From brushing our teeth to checking our phones, our routines are often controlled by unconscious patterns. According to researchers, habits emerge because the brain is constantly looking for ways to save effort. Once a behavior becomes automatic, it allows our minds to focus on more complex tasks.
+            </p>
+            <p>
+                Charles Duhigg, in his book "The Power of Habit", explains that every habit follows a loop: cue, routine, and reward. For example, you might feel stressed (cue), go for a walk (routine), and feel relaxed afterward (reward). Identifying these elements can help in changing unwanted behaviors.
+            </p>
+            <p>
+                While habits can be powerful forces for good, they can also lead to destructive behaviors. The key is awareness. When individuals learn to recognize their habits, they gain the ability to change them. Organizations and societies can also benefit from understanding habits, as it allows them to improve productivity and well-being.
+            </p>
+            <p>
+                In essence, habits are neither destiny nor fixed. With intention and persistence, people can transform their lives by rewiring their habits, one loop at a time.
+            </p>
+        </div>
+
+        <div class="glossary">
+            <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span>Vocabulary</span>
+                <i class="fas fa-chevron-right icon"></i> </button>
+            <div class="accordion-content" id="glossary-content">
+                <ul>
+                    <li><strong>Habit</strong> – hábito</li>
+                    <li><strong>Loop</strong> – ciclo</li>
+                    <li><strong>Cue</strong> – señal/disparador</li>
+                    <li><strong>Reward</strong> – recompensa</li>
+                    <li><strong>Awareness</strong> – conciencia</li>
+                    <li><strong>Rewire</strong> – reprogramar (el cerebro)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quiz">
+            <div class="question">
+                <p>1. What is the brain constantly trying to do, according to researchers?</p>
+                <label><input type="radio" name="b2q1" value="a"> Learn new things every day</label>
+                <label><input type="radio" name="b2q1" value="b"> Find ways to save effort</label>
+                <label><input type="radio" name="b2q1" value="c"> Avoid stressful situations</label>
+            </div>
+
+            <div class="question">
+                <p>2. What are the three components of a habit loop?</p>
+                <label><input type="radio" name="b2q2" value="a"> Action, delay, and consequence</label>
+                <label><input type="radio" name="b2q2" value="b"> Cue, routine, and reward</label>
+                <label><input type="radio" name="b2q2" value="c"> Trigger, habit, and benefit</label>
+            </div>
+
+            <div class="question">
+                <p>3. What does recognizing your habits allow you to do?</p>
+                <label><input type="radio" name="b2q3" value="a"> Repeat them more easily</label>
+                <label><input type="radio" name="b2q3" value="b"> Ignore their impact</label>
+                <label><input type="radio" name="b2q3" value="c"> Change them</label>
+            </div>
+
+            <div class="question">
+                <p>4. Why is it beneficial for organizations to understand habits?</p>
+                <label><input type="radio" name="b2q4" value="a"> To control employees better</label>
+                <label><input type="radio" name="b2q4" value="b"> To improve productivity and well-being</label>
+                <label><input type="radio" name="b2q4" value="c"> To reduce the number of habits</label>
+            </div>
+
+            <div class="question">
+                <p>5. What is the main message of the reading?</p>
+                <label><input type="radio" name="b2q5" value="a"> Habits are impossible to change</label>
+                <label><input type="radio" name="b2q5" value="b"> Habits can be transformed with effort</label>
+                <label><input type="radio" name="b2q5" value="c"> Only bad habits matter</label>
+            </div>
+
+            <button class="btn" onclick="checkB2()">Check Answers</button>
+            <div class="result" id="b2-result"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.icon');
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.style.paddingTop = '0';
+                content.style.paddingBottom = '0';
+                icon.classList.remove('active');
+                button.classList.remove('active');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 20 + "px";
+                content.style.paddingTop = '10px';
+                content.style.paddingBottom = '10px';
+                icon.classList.add('active');
+                button.classList.add('active');
+            }
+        }
+
+        function checkB2() {
+            const q1 = document.querySelector('input[name="b2q1"]:checked');
+            const q2 = document.querySelector('input[name="b2q2"]:checked');
+            const q3 = document.querySelector('input[name="b2q3"]:checked');
+            const q4 = document.querySelector('input[name="b2q4"]:checked');
+            const q5 = document.querySelector('input[name="b2q5"]:checked');
+            const resultDiv = document.getElementById("b2-result");
+
+            if (!q1 || !q2 || !q3 || !q4 || !q5) {
+                resultDiv.textContent = "¡Please answer all questions!";
+                resultDiv.className = "result incorrect"; 
+                resultDiv.style.opacity = 1; 
+                resultDiv.style.transform = "translateY(0)";
+                return;
+            }
+
+            const correctAnswers = {
+                b2q1: "b",
+                b2q2: "b",
+                b2q3: "c",
+                b2q4: "b",
+                b2q5: "b"
+            };
+
+            let score = 0;
+            if (q1.value === correctAnswers.b2q1) score++;
+            if (q2.value === correctAnswers.b2q2) score++;
+            if (q3.value === correctAnswers.b2q3) score++;
+            if (q4.value === correctAnswers.b2q4) score++;
+            if (q5.value === correctAnswers.b2q5) score++;
+
+            if (score === 5) {
+                resultDiv.textContent = "✅ ¡All correct! Excellent work!";
+                resultDiv.className = "result correct";
+                alert("🎉 Congratulations! All answers are correct! 🎉");
+            } else {
+                resultDiv.textContent = `❌ You got ${score} out of 5 correct. Keep practicing!`;
+                resultDiv.className = "result incorrect";
+            }
+            resultDiv.style.opacity = 1; 
+            resultDiv.style.transform = "translateY(0)";
+        }
+    </script>
+
+    <footer style="background-color: #eeeeee; width: 100%;" class="text-center text-lg-start text-dark pt-5">
+  <div class="container-fluid">
+    <div class="row text-center text-md-start">
+
+      <!-- Logo + Slogan -->
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English, connect with the world.</p>
+      </div>
+
+      <!-- Resources -->
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+          <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-2 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+        <div class="d-flex justify-content-center justify-content-md-start">
+          <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+            <i class="fab fa-facebook-f text-white"></i>
+          </a>
+          <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+            <i class="fab fa-twitter text-white"></i>
+          </a>
+          <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+            <i class="fab fa-instagram text-white"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sobre Nosotros - Learn English Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        /*navaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar*/
+
+        /* Variables CSS para una paleta de colores coherente */
+        :root {
+            --primary-blue: #004AAD;
+            --light-blue: #A2B8F4;
+            --dark-text: #2D3436;
+            --light-bg: #F8F8F8; /* Un fondo ligeramente grisáceo para el cuerpo */
+            --white: #FFFFFF;
+            --gray-light: #EEEEEE; /* Para el fondo del footer */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6; /* Mejorar la legibilidad del texto */
+        }
+
+        /* --- Estilos de la Barra de Navegación (sin modificar, solo se mantiene el original) --- */
+        nav {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            color: #004aad;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .logo span {
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            margin-left: 30px;
+            position: relative;
+            align-items: center;
+        }
+
+        .nav-links a,
+        .dropdown-toggle {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            padding: 8px;
+            display: inline-block;
+        }
+
+        .nav-links a:hover,
+        .dropdown-toggle:hover {
+            color: #004aad;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            min-width: 230px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 15px;
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown-content:hover {
+            display: flex;
+        }
+
+        .dropdown-content a {
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+        }
+
+        .level-icon {
+            font-weight: bold;
+            background-color: #a2b8f4;
+            color: #000;
+            border-radius: 5px;
+            padding: 2px 6px;
+            margin-right: 10px;
+            font-size: 13px;
+        }
+        .login-btn {
+            padding: 8px 15px;
+            background-color: transparent;
+            border: 2px solid #004aad;
+            color: #004aad;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+  margin-left: 300px;
+                }
+
+        .login-btn:hover {
+            border-color: #a2b8f4;
+            color: #a2b8f4;
+        }
+        .register-btn {
+            padding: 8px 15px;
+            background-color: transparent;
+            border: 2px solid #004aad;
+            color: #004aad;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .register-btn:hover {
+            border-color: #a2b8f4;
+            color: #a2b8f4;
+        }
+        .page-content {
+            padding: 20px;
+        }
+
+        /* --- Estilos del Header / Sección de Héroe (CONTENIDO) --- */
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 1rem; /* Mayor padding para un impacto visual */
+            border-bottom-left-radius: 40px; /* Bordes redondeados en la parte inferior */
+            border-bottom-right-radius: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0, 74, 173, 0.3); /* Sombra más pronunciada para el header */
+        }
+
+        header h1 {
+            margin-bottom: 1.5rem;
+            font-size: 3.8rem; /* Tamaño de fuente mucho más grande */
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Sombra de texto para el título */
+        }
+
+        header p {
+            font-size: 1.5rem; /* Tamaño de fuente más grande */
+            max-width: 800px; /* Mayor ancho para el párrafo */
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* --- Estilos Generales de Contenido (CONTENIDO) --- */
+        .container {
+            max-width: 1200px; /* Contenedor un poco más ancho */
+            margin: auto;
+            padding: 2.5rem 1.5rem;
+            background-color: var(--white); /* Fondo blanco para el contenedor principal */
+            border-radius: 20px; /* Bordes redondeados para el contenedor */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra más suave y extendida */
+            margin-bottom: 60px; /* Espacio antes del footer */
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            margin-bottom: 2rem; /* Mayor margen inferior */
+            font-size: 3rem; /* Títulos de sección más grandes */
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px; /* Espacio para el subrayado */
+        }
+
+        h2::after { /* Subrayado elegante para los títulos de sección */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px; /* Ancho del subrayado */
+            height: 5px;
+            background-color: var(--light-blue);
+            border-radius: 5px;
+        }
+
+        /* --- Sección de Misión y Visión (CONTENIDO) --- */
+        .mission-vision-section {
+            display: flex;
+            justify-content: center;
+            gap: 3rem; /* Mayor espacio entre tarjetas */
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .mv-card {
+            background: var(--white);
+            border-radius: 25px; /* Bordes más redondeados */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada y elegante */
+            padding: 3rem; /* Mayor padding */
+            flex: 1 1 45%;
+            min-width: 320px; /* Ancho mínimo para evitar que se aplasten */
+            opacity: 0;
+            transform: translateY(70px); /* Mayor desplazamiento inicial */
+            transition: all 0.9s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más lenta y suave */
+            border: 1px solid rgba(0, 74, 173, 0.1); /* Borde sutil */
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px); /* Efecto de elevación al pasar el mouse */
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hover */
+        }
+
+        .mv-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mv-card h2 {
+            color: var(--primary-blue);
+            font-size: 2.5rem; /* Títulos de tarjeta más grandes */
+            margin-top: 0;
+            text-align: left;
+            border-bottom: 4px solid var(--light-blue); /* Línea más gruesa debajo del título */
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+         .mv-card h2::after { /* Eliminar el subrayado adicional del h2 en las tarjetas */
+            content: none;
+        }
+
+        .mv-card p {
+            font-size: 1.15rem; /* Tamaño de fuente ligeramente mayor */
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* --- Sección de Valores (CONTENIDO) --- */
+        .icon-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem; /* Mayor espacio entre iconos */
+            justify-content: center;
+            margin-top: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .icon-box {
+            text-align: center;
+            width: 200px; /* Aumentado el ancho para un mejor espaciado */
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .icon-box:hover {
+            transform: translateY(-8px); /* Efecto hover más pronunciado */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon-box img {
+            width: 90px; /* Iconos más grandes */
+            height: 90px;
+            margin-bottom: 1.2rem;
+            filter: drop-shadow(0 8px 10px rgba(0, 74, 173, 0.25)); /* Sombra más intensa para los iconos */
+        }
+
+        .icon-box p {
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1.25rem; /* Tamaño de fuente más grande */
+        }
+
+        /* --- Sección del Slider (Meet Our Team) (CONTENIDO) --- */
+        .slider-section {
+            background: var(--light-bg); /* Fondo ligeramente grisáceo para la sección del slider */
+            padding: 80px 20px; /* Mayor padding */
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.05); /* Sombra interna para un efecto de profundidad */
+            margin-bottom: 60px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px; /* Espacio para los botones */
+        }
+
+        .slider-container {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 40px; /* Mayor espacio entre tarjetas */
+            transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); /* Transición más lenta y elegante */
+        }
+
+        .slider-card {
+            background: var(--white);
+            border-radius: 25px; /* Bordes más redondeados */
+            min-width: 350px; /* Ancho de tarjeta ligeramente mayor */
+            max-width: 350px;
+            padding: 30px; /* Mayor padding */
+            text-align: left;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(0, 74, 173, 0.1); /* Borde sutil */
+        }
+
+        .slider-card:hover {
+            transform: translateY(-12px); /* Efecto de elevación más pronunciado */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-card h3 {
+            font-size: 1.6rem; /* Título más grande */
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .slider-card h3 span {
+            font-weight: 400;
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .slider-card p {
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.7;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 2.8rem; /* Botones más grandes */
+            width: 60px; /* Tamaño del botón */
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            box-shadow: 0 6px 15px rgba(0, 74, 173, 0.4); /* Sombra más intensa para los botones */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background-color: #003a8d; /* Color más oscuro al pasar el mouse */
+            transform: translateY(-50%) scale(1.1); /* Efecto de escala más pronunciado */
+            box-shadow: 0 8px 20px rgba(0, 74, 173, 0.6);
+        }
+
+        .slider-btn.prev {
+            left: -20px; /* Botones ligeramente más afuera */
+        }
+
+        .slider-btn.next {
+            right: -20px; /* Botones ligeramente más afuera */
+        }
+
+        .team-photo {
+            width: 140px; /* Fotos más grandes */
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 25px; /* Mayor margen inferior */
+            border: 6px solid var(--primary-blue);
+        }
+
+        .slider-dots {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 12px; /* Mayor espacio entre puntos */
+        }
+
+        .slider-dots .dot {
+            height: 16px; /* Puntos más grandes */
+            width: 16px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .slider-dots .dot.active {
+            background-color: var(--primary-blue);
+            transform: scale(1.3); /* Efecto de escala más pronunciado al estar activo */
+        }
+
+        /* --- Responsive Adjustments (SOLO CONTENIDO) --- */
+        @media (max-width: 992px) {
+            header {
+                padding: 4rem 1rem;
+            }
+            header h1 {
+                font-size: 3rem;
+            }
+            header p {
+                font-size: 1.3rem;
+            }
+            h2 {
+                font-size: 2.5rem;
+            }
+            .mission-vision-section {
+              gap: 2rem;
+              padding: 20px 20px 20px 20px;
+            }
+            .mv-card {
+                flex: 1 1 90%;
+                padding: 2.5rem;
+            }
+            .mv-card h2 {
+                font-size: 2.2rem;
+            }
+            .mv-card p {
+                font-size: 1.1rem;
+            }
+            .icon-section {
+                gap: 3rem;
+            }
+            .icon-box {
+                width: 180px;
+                padding: 15px;
+            }
+            .icon-box img {
+                width: 80px;
+                height: 80px;
+            }
+            .icon-box p {
+                font-size: 1.15rem;
+            }
+            .slider-section {
+                padding: 60px 20px;
+            }
+            .slider-wrapper {
+                padding: 0 30px;
+            }
+            .slider-card {
+                min-width: 300px;
+                max-width: 300px;
+                padding: 25px;
+            }
+            .slider-card h3 {
+                font-size: 1.4rem;
+            }
+            .slider-card h3 span {
+                font-size: 1rem;
+            }
+            .team-photo {
+                width: 120px;
+                height: 120px;
+                border: 5px solid var(--primary-blue);
+            }
+            .slider-btn {
+                font-size: 2.2rem;
+                width: 50px;
+                height: 50px;
+            }
+            .slider-btn.prev {
+                left: 0px;
+            }
+            .slider-btn.next {
+                right: 0px;
+            }
+            .slider-dots .dot {
+                height: 14px;
+                width: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 3rem 1rem;
+            }
+            header h1 {
+                font-size: 2.8rem;
+            }
+            header p {
+                font-size: 1.1rem;
+            }
+            h2 {
+                font-size: 2.2rem;
+            }
+            h2::after {
+                width: 80px;
+                height: 4px;
+            }
+            .mv-card {
+                padding: 7rem;
+            }
+            .mv-card h2 {
+                font-size: 2rem;
+            }
+            .icon-section {
+                gap: 2rem;
+            }
+            .icon-box {
+                width: 150px;
+            }
+            .icon-box img {
+                width: 70px;
+                height: 70px;
+            }
+            .icon-box p {
+                font-size: 1rem;
+            }
+            .slider-section {
+                padding: 40px 15px;
+            }
+            .slider-wrapper {
+                padding: 0; /* Quitar padding para que los botones queden pegados a los bordes */
+            }
+            .slider-card {
+                min-width: 280px;
+                max-width: 95%; /* Asegura que la tarjeta no se desborde */
+            }
+            .slider-btn {
+                font-size: 1.8rem;
+                width: 40px;
+                height: 40px;
+                top: calc(50% + 20px); /* Ajustar posición para que no se superpongan */
+            }
+            .slider-btn.prev {
+                left: -5px;
+            }
+            .slider-btn.next {
+                right: -5px;
+            }
+            .team-photo {
+                width: 100px;
+                height: 100px;
+                border: 4px solid var(--primary-blue);
+            }
+            .slider-dots {
+                margin-top: 30px;
+            }
+            .slider-dots .dot {
+                height: 12px;
+                width: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 2.5rem 0.8rem;
+            }
+            header h1 {
+                font-size: 2.4rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            h2::after {
+                width: 60px;
+                height: 3px;
+            }
+            .container {
+                padding: 1.5rem 0.8rem;
+                border-radius: 15px;
+            }
+            .mv-card {
+                padding: 10rem;
+                border-radius: 20px;
+            }
+            .mv-card h2 {
+                font-size: 1.8rem;
+            }
+            .mv-card p {
+                font-size: 1rem;
+            }
+            .icon-section {
+                gap: 1.5rem;
+            }
+            .icon-box {
+                width: 130px;
+                padding: 10px;
+            }
+            .icon-box img {
+                width: 60px;
+                height: 60px;
+            }
+            .icon-box p {
+                font-size: 0.9rem;
+            }
+            .slider-section {
+                padding: 30px 10px;
+            }
+            .slider-card {
+                min-width: 250px;
+                padding: 20px;
+            }
+            .slider-card h3 {
+                font-size: 1.2rem;
+            }
+            .slider-card h3 span {
+                font-size: 0.9rem;
+            }
+            .team-photo {
+                width: 90px;
+                height: 90px;
+                margin-bottom: 15px;
+            }
+            .slider-dots {
+                margin-top: 20px;
+            }
+            .slider-dots .dot {
+                height: 10px;
+                width: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+    <div class="nav-left">
+      <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+      <div class="nav-links">
+
+                <a href="../principal/index.html">Inicio</a>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Speaking</a>
+          <div class="dropdown-content">
+            <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Listening</a>
+          <div class="dropdown-content">
+            <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+            <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Reading</a>
+          <div class="dropdown-content">
+            <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Writing</a>
+          <div class="dropdown-content">
+            <a href="#"><span class="level-icon">A1</span> Elementary</a>
+            <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+            <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/TestExpo/fulltest.html">Exams</a>
+        <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/aboutus.html">About us</a>
+
+      </div>
+    </div>
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario.html"><button class="login-btn" href="">Login</button></a>
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario2.html"><button class="register-btn">Register</button></a>
+  </nav>
+
+    <header>
+        <h1>About Us</h1>
+        <p>We are passionate about helping people unlock new opportunities through English. Our mission is to make English learning accessible, engaging, and effective for everyone.</p>
+    </header>
+
+   
+        <section class="mission-vision-section">
+            <div class="mv-card fade-in">
+                <h2>Our Vision</h2>
+                <p>We aspire to empower youth and adults around the world by helping them learn English in a way that opens doors to personal and professional growth. Our goal is to offer an engaging, innovative, and practical learning experience. Ultimately, we aim to become the go-to website for learners seeking to improve their English and expand their opportunities.</p>
+            </div>
+            <div class="mv-card fade-in">
+                <h2>Our Mission</h2>
+                <p>Our mission is to revolutionize the way English is taught by making it more engaging, modern, and accessible for both young people and adults. We are committed to offering high-quality, enjoyable, and affordable learning resources that inspire confidence and curiosity, while helping learners see English not just as a subject, but as a key to a better future.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Our Values</h2>
+            <div class="icon-section">
+                <div class="icon-box">
+                    <img src="https://img.icons8.com/ios-filled/100/004aad/idea.png" alt="Innovación">
+                    <p>Innovation</p>
+                </div>
+                <div class="icon-box">
+                    <img src="https://img.icons8.com/ios-filled/100/004aad/handshake.png" alt="Compromiso">
+                    <p>Commitment</p>
+                </div>
+                <div class="icon-box">
+                    <img src="https://img.icons8.com/ios-filled/100/004aad/shield.png" alt="Integridad">
+                    <p>Integrity</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slider-section">
+            <h2 class="section-title">Meet Our Team</h2>
+
+            <div class="slider-wrapper">
+                <button class="slider-btn prev">&#10094;</button>
+
+                <div class="slider-container">
+                    <div class="slider-track">
+                        <div class="slider-card">
+                            <img src="https://via.placeholder.com/140/004aad/ffffff?text=Anderson" alt="Anderson Rosales" class="team-photo">
+                            <h3>Anderson Rosales <span>Programmer</span></h3>
+                            <p>Specialized in backend and database integration. Passionate about clean and efficient code.</p>
+                        </div>
+
+                        <div class="slider-card">
+                            <img src="https://via.placeholder.com/140/004aad/ffffff?text=Walter" alt="Walter Hernández" class="team-photo">
+                            <h3>Walter Hernández <span>Programmer</span></h3>
+                            <p>Frontend expert focused on building interactive and responsive user experiences.</p>
+                        </div>
+
+                        <div class="slider-card">
+                            <img src="https://via.placeholder.com/140/004aad/ffffff?text=Lucia" alt="Lucía Posada" class="team-photo">
+                            <h3>Lucía Posada <span>Programmer</span></h3>
+                            <p>Full-stack developer who brings innovation and attention to detail in every project.</p>
+                        </div>
+
+                        <div class="slider-card">
+                            <img src="https://via.placeholder.com/140/004aad/ffffff?text=Gabriela" alt="Gabriela Saldaña" class="team-photo">
+                            <h3>Gabriela Saldaña <span>Marketing & Web Designer</span></h3>
+                            <p>Creative mind behind our design and branding. Combines aesthetics and usability.</p>
+                        </div>
+
+                        <div class="slider-card">
+                            <img src="https://via.placeholder.com/140/004aad/ffffff?text=Sara" alt="Sara Santos" class="team-photo">
+                            <h3>Sara Santos <span>Marketing & Web Designer</span></h3>
+                            <p>Focuses on visual storytelling and impactful content that connects with users.</p>
+                        </div>
+
+                        <div class="slider-card">
+                            <img src="https://via.placeholder.com/140/004aad/ffffff?text=Yessenia" alt="Yessenia Escamilla" class="team-photo">
+                            <h3>Yessenia Escamilla <span>Marketing & Web Designer</span></h3>
+                            <p>Drives user engagement with dynamic visuals and intuitive design principles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-btn next">&#10095;</button>
+            </div>
+
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+  
+
+    <!-- Footer -->
+<footer style="background-color: #eeeeee; width: 100%;" class="text-center text-lg-start text-dark pt-5">
+  <div class="container-fluid">
+    <div class="row text-center text-md-start">
+
+      <!-- Logo + Slogan -->
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English, connect with the world.</p>
+      </div>
+
+      <!-- Resources -->
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+          <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-2 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+          <i class="fab fa-facebook-f text-white"></i>
+        </a>
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+          <i class="fab fa-twitter text-white"></i>
+        </a>
+        <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+          <i class="fab fa-instagram text-white"></i>
+        </a>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script>
+        const track = document.querySelector('.slider-track');
+        const cards = document.querySelectorAll('.slider-card');
+        const dots = document.querySelectorAll('.dot');
+        const nextBtn = document.querySelector('.next');
+        const prevBtn = document.querySelector('.prev');
+        let index = 0;
+        let cardsPerView = 3; // Default para pantallas grandes
+
+        function updateCardsPerView() {
+            if (window.innerWidth <= 768) {
+                cardsPerView = 1; // Mostrar 1 tarjeta en pantallas pequeñas
+            } else if (window.innerWidth <= 992) {
+                cardsPerView = 2; // Mostrar 2 tarjetas en pantallas medianas
+            } else {
+                cardsPerView = 3; // Mostrar 3 tarjetas en pantallas grandes
+            }
+        }
+
+        function updateSlider() {
+            updateCardsPerView(); // Actualizar cardsPerView en cada deslizamiento o redimensionamiento
+            const sliderContainerWidth = document.querySelector('.slider-container').offsetWidth;
+            const gap = 40; // Definido en CSS para slider-track
+            const totalCardWidth = cards[0].offsetWidth + gap;
+            const maxIndex = cards.length - cardsPerView;
+
+            if (index > maxIndex) {
+                index = 0; // Vuelve al inicio
+            }
+            if (index < 0) {
+                index = maxIndex; // Va al final
+            }
+
+            track.style.transform = `translateX(-${index * totalCardWidth}px)`;
+
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[index]) dots[index].classList.add('active');
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (index < cards.length - cardsPerView) {
+                index++;
+            } else {
+                index = 0; // Loop al inicio
+            }
+            updateSlider();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+            } else {
+                index = cards.length - cardsPerView; // Loop al final
+            }
+            updateSlider();
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                index = i;
+                updateSlider();
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            updateSlider();
+            // Recalcular la transformación inmediatamente después de redimensionar
+            const totalCardWidth = cards[0].offsetWidth + 40; // Usar el espacio fijo
+            track.style.transition = 'none'; // Deshabilitar temporalmente la transición
+            track.style.transform = `translateX(-${index * totalCardWidth}px)`;
+            setTimeout(() => {
+                track.style.transition = 'transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1)'; // Volver a habilitar la transición
+            }, 50);
+        });
+
+        // Inicializar el slider al cargar la página
+        document.addEventListener('DOMContentLoaded', updateSlider);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.mv-card').forEach(card => {
+                card.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html>

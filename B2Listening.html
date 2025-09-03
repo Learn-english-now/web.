@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>English Now - Premier Podcasts for Advanced English Learners</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">sw
+    <style>
+
+  /* Variables de color */
+        :root {
+            --primary-blue: #0056b3;
+            --light-blue: #b0c4de;
+            --white: #ffffff;
+            --accent-green: #3ad67a;
+            --black: #000000;
+            --light-gray-bg: #f8f9fa;
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --dark-text: #eaeaea;
+            --dark-nav: #1a1a1a;
+            --primary-blue-original: #004aad;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+            --card-bg-light: #f8f9fa;
+        }
+        
+        /* Variables de color para modo oscuro */
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --nav-bg: #1f1f1f;
+            --nav-text: #ffffff;
+            --card-bg: #1e1e1e;
+            --card-text: #ffffff;
+            --footer-bg: #181818;
+            --footer-text: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            color: var(--dark-gray);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            padding-top: 80px; /* Add padding to body to prevent content from hiding behind the fixed navbar */
+        }
+        
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        /* Navbar - Estilos consolidados */
+        nav {
+            background-color: var(--nav-bg, var(--white));
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, color 0.3s;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .dark-mode nav {
+            background-color: var(--nav-bg) !important;
+            color: var(--nav-text) !important;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            margin-left: 30px;
+            position: relative;
+            align-items: center;
+        }
+
+        .nav-links a,
+        .dropdown-toggle {
+            text-decoration: none;
+            color: var(--nav-text, var(--black));
+            font-weight: 500;
+            padding: 8px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .dropdown-toggle:hover {
+            color: var(--primary-blue-original);
+            opacity: 0.8;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg, var(--white));
+            min-width: 230px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 15px;
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .dropdown-content a {
+            padding: 10px;
+            text-decoration: none;
+            color: var(--card-text, #333);
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-gray-bg);
+        }
+
+        .level-icon {
+            font-weight: bold;
+            background-color: #a2b8f4;
+            color: #000;
+            border-radius: 5px;
+            padding: 2px 6px;
+            margin-right: 10px;
+            font-size: 13px;
+        }
+
+        .login-btn,
+        .register-btn {
+            padding: 8px 15px;
+            background-color: transparent;
+            border: 2px solid var(--primary-blue-original);
+            color: var(--primary-blue-original);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn {
+            margin-left: 5px;
+        }
+
+        .register-btn {
+            margin-left: 10px;
+        }
+
+        .login-btn:hover,
+        .register-btn:hover {
+            border-color: #a2b8f4;
+            color: #a2b8f4;
+        }
+        
+        .logo1 {
+            box-shadow: 0 0 0 1px var(--primary-blue-original);
+            border-radius: 50%;
+        }
+
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            color: var(--nav-text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            margin-left: 250px;
+        }
+
+        .dark-mode-toggle:hover {
+            opacity: 0.8;
+        }
+        
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .navbar {
+            background-color: var(--dark-nav);
+        }
+
+        body.dark-mode .navbar a {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .navbar a:hover {
+            color: var(--accent-green);
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            color: var(--dark-text);
+        }
+        
+        body.dark-mode .login-btn,
+        body.dark-mode .register-btn {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        body.dark-mode .login-btn:hover,
+        body.dark-mode .register-btn:hover {
+            border-color: var(--primary-blue-original);
+            color: var(--primary-blue-original);
+        }
+
+        .text-dark {
+            color: var(--text-color, var(--black)) !important;
+        }
+
+        body.dark-mode .text-dark {
+            color: var(--text-color, var(--dark-text)) !important;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg, #eeeeee) !important;
+            color: var(--footer-text, #000000) !important;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* General Content Styles from previous code */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            padding: 0 1.5rem;
+            text-align: center;
+           
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            transition: color 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        body.dark-mode h2 {
+            color: var(--accent-green);
+            text-shadow: 1px 1px 2px rgba(75, 210, 120, 0.1);
+        }
+
+        .row.justify-content-center {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-items: center;
+            align-items: stretch;
+            padding: 20px 0;
+            max-width: 100%;
+        }
+
+        .podcast-card {
+            border-radius: 16px;
+            background: var(--card-bg-light);
+            border: 1px solid var(--light-gray-bg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            min-height: 450px;
+            padding: 1.5rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .podcast-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .podcast-card {
+            background: var(--dark-card);
+            border-color: #444;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-mode .podcast-card:hover {
+            box-shadow: 0 15px 35px rgba(75, 210, 120, 0.3);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+            user-select: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-mode .card-title {
+            color: var(--white);
+        }
+
+        .card-body p {
+            font-size: 1rem;
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+            text-align: justify;
+        }
+
+        body.dark-mode .card-body p {
+            color: var(--dark-text);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-green);
+            border-color: var(--accent-green);
+            color: var(--white);
+            font-weight: 700;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            user-select: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .btn-primary {
+            background-color: var(--accent-green);
+            border-color: var(--accent-green);
+            color: var(--dark-bg);
+        }
+
+        body.dark-mode .btn-primary:hover {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 6px 14px rgba(75, 210, 120, 0.4);
+        }
+
+        @media (max-width: 1200px) {
+            .row.justify-content-center {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+            }
+            h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .row.justify-content-center {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-left: 0;
+            }
+            .dark-mode-toggle {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.6rem;
+            }
+            .card-title {
+                font-size: 1.2rem;
+            }
+            .card-body p {
+                font-size: 0.9rem;
+            }
+            .podcast-card {
+                padding: 1rem;
+                min-height: 400px;
+            }
+            .card-img-top {
+                height: 160px;
+            }
+            .login-btn,
+            .register-btn {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <nav>
+        <div class="nav-left">
+            <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+            <div class="nav-links">
+                <a href="../principal/index.html">Inicio</a>
+                <div class="dropdown">
+                    <a class="dropdown-toggle">Speaking</a>
+                    <div class="dropdown-content">
+                        <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+                        <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+                        <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+                        <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+                        <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle">Listening</a>
+                    <div class="dropdown-content">
+                        <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+                        <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+                        <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+                        <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+                        <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle">Reading</a>
+                    <div class="dropdown-content">
+                        <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+                        <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+                        <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+                        <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+                        <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle">Writing</a>
+                    <div class="dropdown-content">
+                        <a href="#"><span class="level-icon">A1</span> Elementary</a>
+                        <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+                        <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+                        <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+                        <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+                        <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html"><span class="level-icon">C1</span> Pre-advanced</a>
+                    </div>
+                </div>
+                <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/TestExpo/fulltest.html">Exams</a>
+                <a href="aboutus.html">About us</a>
+            </div>
+        </div>
+        <button id="darkModeBtn" class="dark-mode-toggle" aria-label="Toggle Dark Mode" aria-pressed="false">
+            🌞
+        </button>
+        <button class="login-btn">Login</button>
+        <a href="#" class="register-btn">Register</a>
+    </nav>
+
+
+    <main class="container" role="main">
+        <h2>Explore Our Diverse Podcast Collection to Master Your English Fluency:</h2>
+
+        <div class="row justify-content-center" aria-label="Podcast types">
+            <article class="podcast-card" tabindex="0" aria-labelledby="pod1-title" aria-describedby="pod1-desc">
+                <img src="img/B2life.jpg" alt="Culture and society" class="card-img-top" loading="lazy" />
+                <h3 id="pod1-title" class="card-title">Culture & Society Unveiled</h3>
+                <p id="pod1-desc">Delve into nuanced discussions on **diverse cultural aspects** and societal trends from various English-speaking regions. Broaden your linguistic repertoire and gain deeper **insights into global perspectives**.</p>
+                <a href="B2card.html" class="btn btn-primary" aria-label="Go to Culture & Society Unveiled podcast">Access Podcast</a>
+            </article>
+
+            <article class="podcast-card" tabindex="0" aria-labelledby="pod2-title" aria-describedby="pod2-desc">
+                <img src="img/B2ai.jpg" alt="Science and technology" class="card-img-top" loading="lazy" />
+                <h3 id="pod2-title" class="card-title">Innovations in Science & Tech</h3>
+                <p id="pod2-desc">Keep abreast of **groundbreaking advancements** in science and technology. Our expertly curated episodes demystify **intricate concepts**, making them accessible for vocabulary enrichment and comprehensive understanding.</p>
+                <a href="listening.card2.html" class="btn btn-primary" aria-label="Go to Innovations in Science & Tech podcast">Access Podcast</a>
+            </article>
+
+            <article class="podcast-card" tabindex="0" aria-labelledby="pod3-title" aria-describedby="pod3-desc">
+                <img src="img/b1Viajes.jpg" alt="Travel and adventure" class="card-img-top" loading="lazy" />
+                <h3 id="pod3-title" class="card-title">Global Journeys & Adventures</h3>
+                <p id="pod3-desc">Immerse yourself in captivating narratives of **international travel** and extraordinary expeditions. Acquire sophisticated expressions for discussing journeys and broaden your appreciation for **diverse global destinations**.</p>
+                <a href="listening.card3.html" class="btn btn-primary" aria-label="Go to Global Journeys & Adventures podcast">Access Podcast</a>
+            </article>
+
+            <article class="podcast-card" tabindex="0" aria-labelledby="pod4-title" aria-describedby="pod4-desc">
+                <img src="img/noticias.jpg" alt="News and current events" class="card-img-top" loading="lazy" />
+                <h3 id="pod4-title" class="card-title">Current Affairs & Analysis</h3>
+                <p id="pod4-desc">Stay informed about **significant current events** and global developments. Our analytical discussions provide **in-depth perspectives**, enabling you to refine your comprehension and engage critically with complex news topics.</p>
+                <a href="#" class="btn btn-primary" aria-label="Go to Current Affairs & Analysis podcast">Access Podcast</a>
+            </article>
+
+            <article class="podcast-card" tabindex="0" aria-labelledby="pod5-title" aria-describedby="pod5-desc">
+                <img src="img/negocios.jpg" alt="Business" class="card-img-top" loading="lazy" />
+                <h3 id="pod5-title" class="card-title">Professional English Mastery</h3>
+                <p id="pod5-desc">Elevate your **business English proficiency** through authentic workplace scenarios and discussions. Master essential terminology for **corporate communications, impactful presentations, and successful negotiations**.</p>
+                <a href="#" class="btn btn-primary" aria-label="Go to Professional English Mastery podcast">Access Podcast</a>
+            </article>
+
+            <article class="podcast-card" tabindex="0" aria-labelledby="pod6-title" aria-describedby="pod6-desc">
+                <img src="img/conversaciones.jpg" alt="Daily conversations" class="card-img-top" loading="lazy" />
+                <h3 id="pod6-title" class="card-title">Advanced Conversational Skills</h3>
+                <p id="pod6-desc">Develop your ability to engage in **spontaneous and fluent conversations** across a wide range of subjects. Enhance your **idiomatic expressions** and refine your pronunciation for natural interactions.</p>
+                <a href="#" class="btn btn-primary" aria-label="Go to Advanced Conversational Skills podcast">Access Podcast</a>
+            </article>
+
+            <article class="podcast-card" tabindex="0" aria-labelledby="pod7-title" aria-describedby="pod7-desc">
+                <img src="img/examenes.jpg" alt="Official exams" class="card-img-top" loading="lazy" />
+                <h3 id="pod7-title" class="card-title">Exam Preparation Strategies</h3>
+                <p id="pod7-desc">Strategically prepare for **advanced English language examinations** such as CAE or IELTS. Our episodes offer invaluable insights, targeted practice, and comprehensive vocabulary reviews to **optimize your performance**.</p>
+                <a href="#" class="btn btn-primary" aria-label="Go to Exam Preparation Strategies podcast">Access Podcast</a>
+            </article>
+
+            <article class="podcast-card" tabindex="0" aria-labelledby="pod8-title" aria-describedby="pod8-desc">
+                <img src="img/historias.jpg" alt="Stories and narratives" class="card-img-top" loading="lazy" />
+                <h3 id="pod8-title" class="card-title">Engaging Narratives & Stories</h3>
+                <p id="od8-desc">Indulge in **thought-provoking narratives** and intricate storylines, specifically curated to challenge your listening comprehension and enrich your understanding of **complex literary devices and themes**.</p>
+                <a href="#" class="btn btn-primary" aria-label="Go to Engaging Narratives & Stories podcast">Access Podcast</a>
+            </article>
+
+            <article class="podcast-card" tabindex="0" aria-labelledby="pod9-title" aria-describedby="pod9-desc">
+                <img src="img/peliculas.jpg" alt="English with shows and movies" class="card-img-top" loading="lazy" />
+                <h3 id="pod9-title" class="card-title">Film & TV English Immersion</h3>
+                <p id="pod9-desc">Immerse yourself in English by dissecting clips and critical analyses of acclaimed **films and television series**. Enhance your capacity to understand diverse accents, idiomatic expressions, and **cultural nuances conveyed through media**.</p>
+                <a href="#" class="btn btn-primary" aria-label="Go to Film & TV English Immersion podcast">Access Podcast</a>
+            </article>
+        </div>
+    </main>
+
+
+        <footer style="background-color: #eeeeee;" class="text-center text-lg-start text-dark pt-5">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-3 mb-4 text-center">
+                    <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+                    <p class="fw-bold mb-1">Learn English Now</p>
+                    <p class="small">Learn English connect with the world.</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+                        <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+                    <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+                        <i class="fab fa-facebook-f text-white"></i>
+                    </a>
+                    <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+                        <i class="fab fa-twitter text-white"></i>
+                    </a>
+                    <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+                        <i class="fab fa-instagram text-white"></i>
+                    </a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+                    <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+                    <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+            © 2025 Learn English Now
+        </div>
+    </footer>
+
+    <script>
+
+       const darkModeBtn = document.getElementById('darkModeBtn');
+        darkModeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            darkModeBtn.textContent = isDark ? '🌙' : '🌞';
+            darkModeBtn.setAttribute('aria-pressed', isDark);
+        });
+
+        const toggleBtn = document.getElementById('toggleDarkMode');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const pressed = toggleBtn.getAttribute('aria-pressed') === 'true';
+                toggleBtn.setAttribute('aria-pressed', String(!pressed));
+                toggleBtn.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+            });
+        }
+
+        const langBtn = document.getElementById('toggleLang');
+        const texts = {
+            es: {
+                title: "Explora Nuestra Diversa Colección de Podcasts para Dominar tu Fluidez en Inglés:",
+                podcasts: [
+                    {
+                        title: "Cultura y Sociedad Reveladas",
+                        desc: "Profundiza en discusiones matizadas sobre **diversos aspectos culturales** y tendencias sociales de varias regiones de habla inglesa. Amplía tu repertorio lingüístico y obtén **conocimientos más profundos sobre perspectivas globales**.",
+                        btn: "Acceder al Podcast"
+                    },
+                    {
+                        title: "Innovaciones en Ciencia y Tecnología",
+                        desc: "Mantente al tanto de los **avances revolucionarios** en ciencia y tecnología. Nuestros episodios cuidadosamente seleccionados desmitifican **conceptos intrincados**, haciéndolos accesibles para el enriquecimiento del vocabulario y una comprensión integral.",
+                        btn: "Acceder al Podcast"
+                    },
+                    {
+                        title: "Viajes y Aventuras Globales",
+                        desc: "Sumérgete en narrativas cautivadoras de **viajes internacionales** y expediciones extraordinarias. Adquiere expresiones sofisticadas para hablar de viajes y amplía tu apreciación por los **diversos destinos globales**.",
+                        btn: "Acceder al Podcast"
+                    },
+                    {
+                        title: "Actualidad y Análisis",
+                        desc: "Mantente informado sobre **eventos actuales significativos** y desarrollos globales. Nuestras discusiones analíticas proporcionan **perspectivas en profundidad**, permitiéndote refinar tu comprensión y participar críticamente en temas de noticias complejos.",
+                        btn: "Acceder al Podcast"
+                    },
+                    {
+                        title: "Dominio del Inglés Profesional",
+                        desc: "Eleva tu **competencia en inglés de negocios** a través de escenarios y discusiones auténticas del ámbito laboral. Domina la terminología esencial para **comunicaciones corporativas, presentaciones impactantes y negociaciones exitosas**.",
+                        btn: "Acceder al Podcast"
+                    },
+                    {
+                        title: "Habilidades de Conversación Avanzadas",
+                        desc: "Desarrolla tu capacidad para entablar **conversaciones espontáneas y fluidas** sobre una amplia gama de temas. Mejora tus **expresiones idiomáticas** y refina tu pronunciación para interacciones naturales.",
+                        btn: "Acceder al Podcast"
+                    },
+                    {
+                        title: "Estrategias de Preparación para Exámenes",
+                        desc: "Prepárate estratégicamente para **exámenes avanzados de inglés** como CAE o IELTS. Nuestros episodios ofrecen conocimientos invaluables, práctica dirigida y revisiones exhaustivas de vocabulario para **optimizar tu rendimiento**.",
+                        btn: "Acceder al Podcast"
+                    },
+                    {
+                        title: "Narrativas e Historias Cautivadoras",
+                        desc: "Disfruta de **narrativas estimulantes** e intrincadas tramas, específicamente seleccionadas para desafiar tu comprensión auditiva y enriquecer tu entendimiento de **recursos literarios y temas complejos**.",
+                        btn: "Acceder al Podcast"
+                    },
+                    {
+                        title: "Inmersión en Inglés con Cine y TV",
+                        desc: "Sumérgete en inglés analizando fragmentos y críticas de **películas y series de televisión** aclamadas. Mejora tu capacidad para comprender diversos acentos, expresiones idiomáticas y **matices culturales transmitidos a través de los medios**.",
+                        btn: "Acceder al Podcast"
+                    }
+                ]
+            },
+            en: {
+                title: "Explore Our Diverse Podcast Collection to Master Your English Fluency:",
+                podcasts: [
+                    {
+                        title: "Culture & Society Unveiled",
+                        desc: "Delve into nuanced discussions on **diverse cultural aspects** and societal trends from various English-speaking regions. Broaden your linguistic repertoire and gain deeper **insights into global perspectives**.",
+                        btn: "Access Podcast"
+                    },
+                    {
+                        title: "Innovations in Science & Tech",
+                        desc: "Keep abreast of **groundbreaking advancements** in science and technology. Our expertly curated episodes demystify **intricate concepts**, making them accessible for vocabulary enrichment and comprehensive understanding.",
+                        btn: "Access Podcast"
+                    },
+                    {
+                        title: "Global Journeys & Adventures",
+                        desc: "Immerse yourself in captivating narratives of **international travel** and extraordinary expeditions. Acquire sophisticated expressions for discussing journeys and broaden your appreciation for **diverse global destinations**.",
+                        btn: "Access Podcast"
+                    },
+                    {
+                        title: "Current Affairs & Analysis",
+                        desc: "Stay informed about **significant current events** and global developments. Our analytical discussions provide **in-depth perspectives**, enabling you to refine your comprehension and engage critically with complex news topics.",
+                        btn: "Access Podcast"
+                    },
+                    {
+                        title: "Professional English Mastery",
+                        desc: "Elevate your **business English proficiency** through authentic workplace scenarios and discussions. Master essential terminology for **corporate communications, impactful presentations, and successful negotiations**.",
+                        btn: "Access Podcast"
+                    },
+                    {
+                        title: "Advanced Conversational Skills",
+                        desc: "Develop your ability to engage in **spontaneous and fluent conversations** across a wide range of subjects. Enhance your **idiomatic expressions** and refine your pronunciation for natural interactions.",
+                        btn: "Access Podcast"
+                    },
+                    {
+                        title: "Exam Preparation Strategies",
+                        desc: "Strategically prepare for **advanced English language examinations** such as CAE or IELTS. Our episodes offer invaluable insights, targeted practice, and comprehensive vocabulary reviews to **optimize your performance**.",
+                        btn: "Access Podcast"
+                    },
+                    {
+                        title: "Engaging Narratives & Stories",
+                        desc: "Indulge in **thought-provoking narratives** and intricate storylines, specifically curated to challenge your listening comprehension and enrich your understanding of **complex literary devices and themes**.",
+                        btn: "Access Podcast"
+                    },
+                    {
+                        title: "Film & TV English Immersion",
+                        desc: "Immerse yourself in English by dissecting clips and critical analyses of acclaimed **films and television series**. Enhance your capacity to understand diverse accents, idiomatic expressions, and **cultural nuances conveyed through media**.",
+                        btn: "Access Podcast"
+                    }
+                ]
+            }
+        };
+
+        let currentLang = 'en';
+
+        function updateTexts(lang) {
+            document.querySelector('main h2').textContent = texts[lang].title;
+            const cards = document.querySelectorAll('.podcast-card');
+            cards.forEach((card, i) => {
+                const titleElement = card.querySelector('h3');
+                const descElement = card.querySelector('p');
+                const btnElement = card.querySelector('a');
+
+                if (titleElement) titleElement.textContent = texts[lang].podcasts[i].title;
+                if (descElement) descElement.innerHTML = texts[lang].podcasts[i].desc;
+                if (btnElement) btnElement.textContent = texts[lang].podcasts[i].btn;
+            });
+        }
+
+        if (langBtn) {
+            langBtn.addEventListener('click', () => {
+                currentLang = currentLang === 'es' ? 'en' : 'es';
+                updateTexts(currentLang);
+            });
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

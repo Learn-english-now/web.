@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapters Raggedy Ann</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+              <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /*navaaaaaaaaaaaaar*/
+    /* --- Botón modo oscuro --- */
+.btn-toggle {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+}
+
+body.dark-mode .btn-toggle {
+  background: var(--blanco);
+  color: var(--azul-oscuro);
+}
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px;
+  display: inline-block;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover {
+  color: #004aad;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.level-icon {
+  font-weight: bold;
+  background-color: #a2b8f4;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 225px;
+}
+
+.login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-right: 50px;
+}
+
+.register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.logo1 {
+  box-shadow: 0 0 0 1px #004aad;
+  border-radius: 50%;
+}
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+nav {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+body.dark-mode nav {
+  background-color: var(--dark-mode-element-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--accent-green);
+  background-color: var(--dark-mode-element-bg);
+  color: var(--accent-green);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* --- Variables de color --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--light-gray-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: var(--black);
+  margin: 0 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-blue);
+}
+
+/* --- Botón cuadrado de modo oscuro --- */
+.dark-mode-toggle {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px; /* cuadrado pero con ligera suavidad */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-left: 250px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent-green);
+}
+    /*navaaaaaaaaaaaaaaaaaaaaaa*/
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 0;
+      background-color: #fdfdfd;
+    }
+    .estilo{
+      padding: 20px;
+
+    }
+    h2 {
+      color: #2a4d69;
+      text-align: center;
+      font-size: 28px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 14px;
+      border: 1px solid #ddd;
+      text-align: justify;
+      font-size: 16px;
+      padding-left: 230px;
+    }
+    th {
+      background-color: #2a4d69;
+      color: white;
+      letter-spacing: 1px;
+    }
+    a.see-pdf {
+      background-color: #38a169;
+      color: white;
+      padding: 8px 14px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    a.see-pdf:hover {
+      background-color: #2f855a;
+    }
+  </style>
+</head>
+<body>
+<!--navaaaaaaar-->
+<nav>
+  <div class="nav-left">
+    <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+    <div class="nav-links">
+      <a href="../principal">Inicio</a>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Speaking</a>
+        <div class="dropdown-content">
+          <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Listening</a>
+        <div class="dropdown-content">
+          <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+          <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Reading</a>
+        <div class="dropdown-content">
+          <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+          <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle">Writing</a>
+        <div class="dropdown-content">
+          <a href="#"><span class="level-icon">A1</span> Elementary</a>
+          <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+          <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+          <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+          <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoMypage/writing.html"><span class="level-icon">C1</span> Pre-advanced</a>
+        </div>
+      </div>
+
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/TestExpo/fulltest.html">Exams</a>
+      <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/aboutus.html">About us</a>
+    </div>
+  </div>
+
+  <!-- Botones Login / Register -->
+  <div class="nav-buttons">
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario.html"><button class="login-btn" href="">Login</button></a>
+    <a href="file:///C:/Users/MINEDUCYT/Downloads/principal/ExpoForm/formulario2.html"><button class="register-btn">Register</button></a>
+  </div>
+</nav>
+<!--navaaaaaaar-->
+
+
+  <div class="estilo">
+  <h2>Chapters of "Raggedy Ann"</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Chapter</th>
+        <th>File</th>
+      </tr>
+    </thead>
+    <tbody id="tablaNovelas"></tbody>
+  </table>
+
+  <script>
+    const novelas = [
+      
+      { categoria: "Chapter 1 - Introduction ",
+       archivo: "rpdf/Chapter_1.pdf" },
+      { categoria: "Chapter 2 - Raggedy Ann Learns a Lesson",
+       archivo: "rpdf/Chapter_2.pdf" },
+      { categoria: "Chapter 3 - Raggedy Ann and the Washing", 
+      archivo: "rpdf/Chapter_3.pdf" },
+      { categoria: "Chapter 4 - Raggedy Ann and the Kite",
+       archivo: "rpdf/Chapter_4.pdf" },
+      { categoria: "Chapter 5 - Raggedy Ann and the Painter",
+       archivo: "rpdf/Chapter_5.pdf" },
+      { categoria: "Chapter 6 - Raggedy Ann Saves Fido", 
+      archivo: "rpdf/Chapter_6.pdf" },
+      { categoria: "Chapter 7 - Raggedy Ann’s Trip on the River", 
+      archivo: "rpdf/Chapter_7.pdf" },
+      { categoria: "Chapter 8 - Raggedy Ann and the New Dolls", 
+      archivo: "rpdf/Chapter_8.pdf" },
+      { categoria: "Chapter 9 - Raggedy Ann and the Cats", 
+      archivo: "rpdf/Chapter_9.pdf" },
+      { categoria: "Chapter 10 - Raggedy Ann and the Gift", 
+      archivo: "rpdf/Chapter_10.pdf" },
+      { categoria: "Chapter 11 - Raggedy Ann and the Chickens", 
+      archivo: "rpdf/Chapter_11.pdf" },
+      { categoria: "Chapter 12 - Raggedy Ann and the Mouse", 
+      archivo: "rpdf/Chapter_12.pdf" },
+      { categoria: "Chapter 13 - Raggedy Ann’s New Sisters", 
+      archivo: "rpdf/Chapter_13.pdf" }
+    ];
+
+    const tabla = document.getElementById("tablaNovelas");
+
+    novelas.forEach((novela) => {
+      const fila = document.createElement("tr");
+
+const tdCategoria = document.createElement("td");
+const contenido = document.createElement("div");
+contenido.textContent = novela.categoria;
+tdCategoria.appendChild(contenido);
+
+      const tdLink = document.createElement("td");
+      const enlace = document.createElement("a");
+      enlace.href = novela.archivo;
+      enlace.textContent = "See PDF";
+      enlace.className = "see-pdf";
+      enlace.target = "_blank";
+      tdLink.appendChild(enlace);
+
+      fila.appendChild(tdCategoria);
+      fila.appendChild(tdLink);
+      tabla.appendChild(fila);
+    });
+  </script>
+ </div>
+  <!--Footer-->
+  <footer style="background-color: #eeeeee;" class="text-center text-lg-start text-dark pt-5">
+<div class="container-fluid" style="max-width: 100%;">
+    <div class="row text-center text-md-start">
+
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English connect with the world.</p>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+          <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+        </ul>
+      </div>
+
+<div class="col-md-2 mb-4">
+  <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+    <i class="fab fa-facebook-f text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+    <i class="fab fa-twitter text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+    <i class="fab fa-instagram text-white"></i>
+  </a>
+</div>
+
+
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+</body>
+</html>
