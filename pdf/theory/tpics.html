@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interesting Topics</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e8f1f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007acc; /* Azul principal */
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0.3em;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin: 0;
+    }
+
+    h3 {
+      color: #005fa3;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .card-img-overlay h1 {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 2rem;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      background-color: white;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-title {
+      font-weight: bold;
+      color: #007acc;
+    }
+
+    .card-body i {
+      font-size: 2.2rem;
+      color: #009a6e; /* Verde acento */
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    main {
+      padding: 40px 20px;
+      background-color: #ffffff;
+      max-width: 1100px;
+      margin: auto;
+      border-radius: 10px;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .btn-primary {
+      border-radius: 30px;
+      padding: 8px 20px;
+      background-color: #009a6e;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #007a57;
+    }
+
+    @media (max-width: 767px) {
+      header h2 {
+        font-size: 1.8rem;
+      }
+
+      .card-body i {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Image -->
+  <div class="card bg-dark text-white mb-3">
+    <img src="img/student-865073_1280.jpg" class="card-img" alt="Interesting Topics background" style="height: 300px; object-fit: cover">
+  </div>
+
+  <!-- Header -->
+  <header class="mb-3 mt-3">
+    <h2>Interesting Topics</h2>
+    <p>Explore curious and engaging topics that make learning enjoyable.</p>
+  </header>
+
+  <!-- Intro Section -->
+  <main class="mb-5">
+    <section>
+      <h3>What are Interesting Topics?</h3>
+      <p>Interesting topics are subjects that spark curiosity and encourage exploration. They can include science, technology, history, arts, and fun facts that make learning enjoyable and memorable.</p>
+
+      <h3>Why explore these topics?</h3>
+      <ul>
+        <li>They broaden knowledge in unique and exciting ways.</li>
+        <li>Help develop critical thinking and creativity.</li>
+        <li>Make learning fun by connecting it with real-world applications.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Topic Cards -->
+  <main class="mb-5">
+    <section>
+      <div class="row">
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-space-shuttle"></i>
+              <h5 class="card-title">Space & Universe</h5>
+              <p class="card-text">Discover fascinating facts about galaxies, stars, and the mysteries of the cosmos.</p>
+              <a href="spaceanduniverse.html" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-microscope"></i>
+              <h5 class="card-title">Science Experiments</h5>
+              <p class="card-text">Learn fun science experiments you can try at home or in the classroom.</p>
+              <a href="science.html" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-globe-americas"></i>
+              <h5 class="card-title">World Cultures</h5>
+              <p class="card-text">Dive into traditions, festivals, and stories from around the world.</p>
+              <a href="culture.html" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-robot"></i>
+              <h5 class="card-title">Technology & AI</h5>
+              <p class="card-text">Explore how artificial intelligence and new technologies are shaping the future.</p>
+              <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-book"></i>
+              <h5 class="card-title">History & Legends</h5>
+              <p class="card-text">Uncover historical events, famous figures, and fascinating legends.</p>
+              <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-palette"></i>
+              <h5 class="card-title">Arts & Creativity</h5>
+              <p class="card-text">Learn about painting, music, and creative activities to inspire your mind.</p>
+              <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-leaf"></i>
+              <h5 class="card-title">Nature & Wildlife</h5>
+              <p class="card-text">Discover the wonders of nature, plants, and fascinating animal species.</p>
+              <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-lightbulb"></i>
+              <h5 class="card-title">Fun Facts</h5>
+              <p class="card-text">Explore surprising and fun facts that will spark your curiosity.</p>
+              <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-brain"></i>
+              <h5 class="card-title">Mind & Psychology</h5>
+              <p class="card-text">Learn about human behavior, the mind, and interesting psychological concepts.</p>
+              <a href="#" class="btn btn-primary">Explore</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

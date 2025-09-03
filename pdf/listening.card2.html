@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn English Now</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+
+</head>   
+  <style>
+    /* --- Variables de color --- */
+:root {
+  --azul-oscuro: #004aad;
+  --azul-suave: #a2b8f4;
+  --blanco: #ffffff;
+  --verde: #4be178;
+  --negro: #000000;
+}
+
+/* --- Body y Modo Oscuro --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--azul-suave);
+  color: var(--azul-oscuro);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* --- Espaciado superior para contenido --- */
+body::before {
+  content: "";
+  display: block;
+  height: 90px;
+}
+
+.content {
+  padding-top: 30px;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+/* --- Iframe (video) --- */
+iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  transition: box-shadow 0.3s;
+}
+
+body.dark-mode iframe {
+  box-shadow: 0 4px 20px rgba(255,255,255,0.2);
+}
+
+/* --- Títulos y párrafos --- */
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  transition: color 0.3s;
+  text-align: justify;
+}
+
+/* --- Glosario --- */
+.glossary-term {
+  border-bottom: 2px dotted var(--azul-oscuro);
+  cursor: help;
+  position: relative;
+  color: var(--azul-oscuro);
+  font-weight: 600;
+  outline: none;
+}
+
+body.dark-mode .glossary-term {
+  color: var(--verde);
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 200px;
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 100;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.glossary-term:hover .tooltip-text,
+.glossary-term:focus .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--azul-oscuro) transparent transparent transparent;
+}
+
+body.dark-mode .tooltip-text {
+  background-color: var(--blanco);
+  color: var(--azul-oscuro);
+}
+
+body.dark-mode .tooltip-text::after {
+  border-color: var(--blanco) transparent transparent transparent;
+}
+
+/* --- Quiz --- */
+.quiz-container {
+  background: var(--blanco);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s;
+  text-align: left;
+}
+
+body.dark-mode .quiz-container {
+  background: #1a1a1a;
+  color: var(--blanco);
+}
+
+.quiz-container h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: var(--azul-oscuro);
+}
+
+body.dark-mode .quiz-container h3 {
+  color: var(--verde);
+}
+
+.quiz-question {
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.quiz-options label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.quiz-feedback {
+  margin-top: 15px;
+  font-weight: 600;
+  min-height: 24px;
+}
+
+/* --- Botón de submit quiz --- */
+.boton-submit {
+  margin-top: 15px;
+  background-color: var(--verde);
+  color: var(--azul-oscuro);
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.boton-submit:hover {
+  background-color: #3bd167;
+}
+
+/* --- Botón modo oscuro --- */
+.btn-toggle {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+}
+
+body.dark-mode .btn-toggle {
+  background: var(--blanco);
+  color: var(--azul-oscuro);
+}
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px;
+  display: inline-block;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover {
+  color: #004aad;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.level-icon {
+  font-weight: bold;
+  background-color: #a2b8f4;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 5px;
+}
+
+.login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.logo1 {
+  box-shadow: 0 0 0 1px #004aad;
+  border-radius: 50%;
+}
+
+/* 🎨 Variables de color para modo claro */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --nav-bg: #ffffff;
+  --nav-text: #000000;
+  --card-bg: #f9f9f9;
+  --card-text: #000000;
+  --footer-bg: #f1f1f1;
+  --footer-text: #000000;
+}
+
+/* 🌙 Variables de color para modo oscuro */
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --nav-bg: #1f1f1f;
+  --nav-text: #ffffff;
+  --card-bg: #1e1e1e;
+  --card-text: #ffffff;
+  --footer-bg: #181818;
+  --footer-text: #ffffff;
+}
+
+/* Navbar */
+nav {
+  background-color: var(--nav-bg) !important;
+  color: var(--nav-text) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a {
+  color: var(--nav-text) !important;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+
+/* Botón modo oscuro */
+.dark-toggle {
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dark-toggle:hover {
+  opacity: 0.8;
+}
+
+/* Navbar adaptada al estilo global */
+nav {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+body.dark-mode nav {
+  background-color: var(--dark-mode-element-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--accent-green);
+  background-color: var(--dark-mode-element-bg);
+  color: var(--accent-green);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* --- Variables de color --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--light-gray-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: var(--black);
+  margin: 0 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-blue);
+}
+
+/* --- Botón cuadrado de modo oscuro --- */
+.dark-mode-toggle {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px; /* cuadrado pero con ligera suavidad */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-left: 250px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent-green);
+}
+
+/* --- Dark Mode --- */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .navbar {
+  background-color: var(--dark-nav);
+}
+
+body.dark-mode .navbar a {
+  color: var(--dark-text);
+}
+
+body.dark-mode .navbar a:hover {
+  color: var(--accent-green);
+}
+</style>
+
+
+
+      <nav>
+    <div class="nav-left">
+      <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+      <div class="nav-links">
+
+        <a href="../principal/index.html">Inicio</a>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Speaking</a>
+          <div class="dropdown-content">
+            <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Listening</a>
+          <div class="dropdown-content">
+            <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+            <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Reading</a>
+          <div class="dropdown-content">
+            <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Writing</a>
+          <div class="dropdown-content">
+            <a href="#"><span class="level-icon">A1</span> Elementary</a>
+            <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+            <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/ExpoMypage/index.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <a href="../principal/TestExpo/index.html">Exams</a>
+        <a href="aboutus.html">About us</a>
+      </div>
+    </div>
+     <button id="darkModeBtn" class="dark-mode-toggle" aria-label="Toggle Dark Mode" aria-pressed="false">
+  🌞
+</button>
+
+
+    <button class="login-btn">Login</button>
+    <button href="#" class="register-btn">Register</button>
+  </nav>
+
+  <main class="content" role="main">
+    <h2>Science & Technology: Learn with English</h2>
+
+    <p>
+      Discover how 
+      <span class="glossary-term" tabindex="0" aria-describedby="tooltip1">
+        artificial intelligence
+        <span role="tooltip" id="tooltip1" class="tooltip-text" aria-hidden="true">
+          Technology that allows machines to perform tasks that require human intelligence.
+        </span>
+      </span> 
+      is shaping the future. In this TED Talk, you'll explore the impact of technology on our society in simple English.
+    </p>
+
+    <iframe 
+      src="https://www.youtube.com/embed/5eW6Eagr9XA" 
+      title="TED Talk on AI and the Future"
+      allowfullscreen
+      aria-label="TED Talk Video: Artificial Intelligence and the Future"
+    ></iframe>
+
+    <section class="quiz-container" aria-labelledby="quizHeading">
+      <h3 id="quizHeading">Quick Quiz: Test your understanding!</h3>
+      <form id="quizForm" aria-live="polite">
+        <div class="quiz-question">
+          <p><strong>1.</strong> What is artificial intelligence?</p>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="a" required> A form of art</label>
+            <label><input type="radio" name="q1" value="b"> Technology that mimics human thinking</label>
+            <label><input type="radio" name="q1" value="c"> Natural biology</label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>2.</strong> Why is AI important?</p>
+          <div class="quiz-options">
+            <label><input type="radio" name="q2" value="a" required> It helps machines become more emotional</label>
+            <label><input type="radio" name="q2" value="b"> It allows machines to automate tasks and solve problems</label>
+            <label><input type="radio" name="q2" value="c"> It's just entertainment</label>
+          </div>
+        </div>
+
+        <button type="submit" class="boton-submit">Submit Answers</button>
+        <div id="quizFeedback" class="quiz-feedback" role="alert" aria-live="assertive"></div>
+      </form>
+    </section>
+  </main>
+
+    <script>
+darkModeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+
+  // Cambia el icono del botón
+  darkModeBtn.textContent = isDark ? '🌙' : '🌞';
+  
+  // Actualiza atributo aria para accesibilidad
+  darkModeBtn.setAttribute('aria-pressed', String(isDark));
+});
+
+// Quiz
+const quizForm = document.getElementById('quizForm');
+const feedback = document.getElementById('quizFeedback');
+quizForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let score = 0;
+  const answers = { q1: 'a', q2: 'b' };
+  const formData = new FormData(quizForm);
+  if (formData.get('q1') === answers.q1) score++;
+  if (formData.get('q2') === answers.q2) score++;
+
+  if (score === 2) {
+    feedback.textContent = 'Excellent! You answered all questions correctly.';
+    feedback.style.color = 'var(--white)';
+    feedback.style.backgroundColor = 'var(--accent-green)';
+  } else if (score === 1) {
+    feedback.textContent = 'Good attempt, review the video again.';
+    feedback.style.color = 'var(--dark-gray-heading)';
+    feedback.style.backgroundColor = '#ffc107';
+  } else {
+    feedback.textContent = 'Try again, watch the video and retry.';
+    feedback.style.color = 'var(--white)';
+    feedback.style.backgroundColor = '#dc3545';
+  }
+});
+</script>

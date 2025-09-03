@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn English Now</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+ </head>
+  <style>
+nav {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links a,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 8px;
+  display: inline-block;
+}
+
+.nav-links a:hover,
+.dropdown-toggle:hover {
+  color: #004aad;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+}
+
+.level-icon {
+  font-weight: bold;
+  background-color: #a2b8f4;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.login-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-left: 5px;
+}
+
+.login-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.register-btn {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #004aad;
+  color: #004aad;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  border-color: #a2b8f4;
+  color: #a2b8f4;
+}
+
+.logo1 {
+  box-shadow: 0 0 0 1px #004aad;
+  border-radius: 50%;
+}
+
+/* 🎨 Variables de color para modo claro */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --nav-bg: #ffffff;
+  --nav-text: #000000;
+  --card-bg: #f9f9f9;
+  --card-text: #000000;
+  --footer-bg: #f1f1f1;
+  --footer-text: #000000;
+}
+
+/* 🌙 Variables de color para modo oscuro */
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --nav-bg: #1f1f1f;
+  --nav-text: #ffffff;
+  --card-bg: #1e1e1e;
+  --card-text: #ffffff;
+  --footer-bg: #181818;
+  --footer-text: #ffffff;
+}
+
+/* Navbar */
+nav {
+  background-color: var(--nav-bg) !important;
+  color: var(--nav-text) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a {
+  color: var(--nav-text) !important;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+
+/* Botón modo oscuro */
+.dark-toggle {
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dark-toggle:hover {
+  opacity: 0.8;
+}
+
+/* Navbar adaptada al estilo global */
+nav {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+body.dark-mode nav {
+  background-color: var(--dark-mode-element-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle {
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .theme-toggle {
+  border-color: var(--accent-green);
+  background-color: var(--dark-mode-element-bg);
+  color: var(--accent-green);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* --- Variables de color --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #b0c4de;
+  --white: #ffffff;
+  --accent-green: #3ad67a;
+  --black: #000000;
+  --light-gray-bg: #f8f9fa;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-text: #eaeaea;
+  --dark-nav: #1a1a1a;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--light-gray-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: var(--black);
+  margin: 0 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-blue);
+}
+
+/* --- Botón cuadrado de modo oscuro --- */
+.dark-mode-toggle {
+  background: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px; /* cuadrado pero con ligera suavidad */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-left: 250px;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent-green);
+}
+
+/* --- Dark Mode --- */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .navbar {
+  background-color: var(--dark-nav);
+}
+
+body.dark-mode .navbar a {
+  color: var(--dark-text);
+}
+
+body.dark-mode .navbar a:hover {
+  color: var(--accent-green);
+}
+</style>
+
+
+<!-- navbar-->
+      <nav>
+    <div class="nav-left">
+      <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="50" width="50" />
+      <div class="nav-links">
+
+        <a href="../principal">Inicio</a>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Speaking</a>
+          <div class="dropdown-content">
+            <a href="../principal/A1Speaking.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2Speaking.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Speaking.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Speakig.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/C1Speaaking.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Listening</a>
+          <div class="dropdown-content">
+            <a href="../principal/2listening.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/A2listeing.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/B1Listening.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/B2Listening.html"><span class="level-icon">B2</span> Upper-intermediate</a>
+            <a href="../principal/listening.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Reading</a>
+          <div class="dropdown-content">
+            <a href="../principal/level.html"><span class="level-icon">A1</span> Elementary</a>
+            <a href="../principal/levelA2.html"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="../principal/levelB1.html"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="../principal/levelB2.html"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/reading2.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle">Writing</a>
+          <div class="dropdown-content">
+            <a href="#"><span class="level-icon">A1</span> Elementary</a>
+            <a href="#"><span class="level-icon">A2</span> Pre-intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Intermediate</a>
+            <a href="#"><span class="level-icon">B1</span> Upper-intermediate</a>
+            <a href="#"><span class="level-icon">B2</span> Pre-advanced</a>
+            <a href="../principal/ExpoMypage/index.html"><span class="level-icon">C1</span> Pre-advanced</a>
+          </div>
+        </div>
+
+        <a href="../principal/TestExpo/index.html">Exams</a>
+        <a href="aboutus.html">About us</a>
+      </div>
+    </div>
+     <button id="darkModeBtn" class="dark-mode-toggle" aria-label="Toggle Dark Mode" aria-pressed="false">
+  🌞
+</button>
+
+    <button class="login-btn">Login</button>
+    <button href="#" class="register-btn">Register</button>
+  </nav>
+
+<style>
+  :root {
+    --primary-blue: #0056b3;
+    --light-blue: #b0c4de;
+    --white: #ffffff;
+    --accent-green: #3ad67a;
+    --black: #000000;
+    --light-gray: #eef2f6;
+    --medium-gray: #6c757d;
+    --dark-gray: #343a40;
+    --card-bg-light: #f8f9fa;
+    --dark-mode-bg: #1e1e1e;
+    --dark-mode-card-bg: #2c2c2c;
+    --dark-mode-text: #e0e0e0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+    color: var(--dark-gray);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+
+  body.dark-mode {
+    background: var(--dark-mode-bg);
+    color: var(--dark-mode-text);
+  }
+
+  header.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    padding: 1rem 2.5rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  body.dark-mode header.navbar {
+    background-color: var(--dark-mode-card-bg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .navbar .brand {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 3rem;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+
+  body.dark-mode .navbar .brand {
+    color: var(--accent-green);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--accent-green);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-blue);
+  }
+
+  .nav-links .disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  body.dark-mode .nav-links a {
+    color: var(--dark-mode-text);
+  }
+
+  body.dark-mode .nav-links a:hover {
+    color: var(--accent-green);
+  }
+
+  .btn-toggle {
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 2.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-toggle:hover {
+    background-color: var(--accent-green);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  }
+
+  body.dark-mode .btn-toggle {
+    background: var(--accent-green);
+    color: var(--dark-mode-bg);
+    box-shadow: 0 4px 10px rgba(75, 210, 120, 0.25);
+  }
+
+  body.dark-mode .btn-toggle:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  #toggleLang {
+    margin-left: 1rem;
+  }
+
+  body::before {
+    content: "";
+    display: block;
+    height: 90px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    transition: color 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+  }
+
+  body.dark-mode h2 {
+    color: var(--accent-green);
+    text-shadow: 1px 1px 2px rgba(75, 210, 120, 0.1);
+  }
+
+  .row.justify-content-center {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    align-items: stretch;
+    padding: 20px 0;
+    max-width: 100%;
+  }
+
+  .podcast-card {
+    border-radius: 16px;
+    background: var(--card-bg-light);
+    border: 1px solid var(--light-gray);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    min-height: 450px;
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .podcast-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  body.dark-mode .podcast-card {
+    background: var(--dark-mode-card-bg);
+    border-color: #444;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  body.dark-mode .podcast-card:hover {
+    box-shadow: 0 15px 35px rgba(75, 210, 120, 0.3);
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+    user-select: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+  }
+
+  body.dark-mode .card-title {
+    color: var(--white);
+  }
+
+  .card-body p {
+    font-size: 1rem;
+    color: var(--medium-gray);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+    text-align: justify;
+  }
+
+  body.dark-mode .card-body p {
+    color: var(--dark-mode-text);
+  }
+
+  .btn-primary {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    color: var(--white);
+    font-weight: 700;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    user-select: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  }
+
+  body.dark-mode .btn-primary {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    color: var(--dark-mode-bg);
+  }
+
+  body.dark-mode .btn-primary:hover {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: var(--white);
+    box-shadow: 0 6px 14px rgba(75, 210, 120, 0.4);
+  }
+
+  @media (max-width: 1200px) {
+    .row.justify-content-center {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 800px;
+    }
+    h2 {
+      font-size: 2.4rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .row.justify-content-center {
+      grid-template-columns: 1fr;
+      max-width: 450px;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    header.navbar {
+      flex-direction: column;
+      padding: 1rem 1.5rem;
+    }
+    .navbar .brand {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    .nav-links {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .btn-toggle {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+    #toggleLang {
+      margin-top: 5px;
+      margin-left: 0;
+    }
+    body::before {
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.6rem;
+    }
+    .card-title {
+      font-size: 1.2rem;
+    }
+    .card-body p {
+      font-size: 0.9rem;
+    }
+    .podcast-card {
+      padding: 1rem;
+      min-height: 400px;
+    }
+    .card-img-top {
+      height: 160px;
+    }
+  }
+</style>
+
+  <main class="container" role="main">
+    <h2>Select a Podcast to Enhance Your English Skills:</h2>
+
+    <div class="row justify-content-center" aria-label="Podcast types">
+      <article class="podcast-card" tabindex="0" aria-labelledby="pod1-title" aria-describedby="pod1-desc">
+        <img src="img/b1cultura.jpg" alt="Culture and society" class="card-img-top" loading="lazy" />
+        <h3 id="pod1-title" class="card-title">Culture & Life</h3>
+        <p id="pod1-desc">Explore various **cultural topics** and everyday life scenarios in English-speaking countries. Improve your vocabulary and **understanding of different customs**.</p>
+        <a href="B1card.html" class="btn btn-primary" aria-label="Go to Culture & Life podcast">Go to Podcast</a>
+      </article>
+
+      <article class="podcast-card" tabindex="0" aria-labelledby="pod2-title" aria-describedby="pod2-desc">
+        <img src="img/b1Ciencia.jpg" alt="Science and technology" class="card-img-top" loading="lazy" />
+        <h3 id="pod2-title" class="card-title">Science & Tech</h3>
+        <p id="pod2-desc">Stay updated with the latest in **science and technology**. Our podcasts explain **complex ideas** in clear English, perfect for expanding your knowledge.</p>
+        <a href="listening.card2.html" class="btn btn-primary" aria-label="Go to Science & Tech podcast">Go to Podcast</a>
+      </article>
+
+      <article class="podcast-card" tabindex="0" aria-labelledby="pod3-title" aria-describedby="pod3-desc">
+        <img src="img/b1Viajes.jpg" alt="Travel and adventure" class="card-img-top" loading="lazy" />
+        <h3 id="pod3-title" class="card-title">Travel & Fun</h3>
+        <p id="pod3-desc">Hear engaging stories about **travel adventures** and exciting destinations. Learn useful phrases for your next trip and discover **interesting places** around the world.</p>
+        <a href="listening.card3.html" class="btn btn-primary" aria-label="Go to Travel & Fun podcast">Go to Podcast</a>
+      </article>
+
+      <article class="podcast-card" tabindex="0" aria-labelledby="pod4-title" aria-describedby="pod4-desc">
+        <img src="img/noticias.jpg" alt="News and current events" class="card-img-top" loading="lazy" />
+        <h3 id="pod4-title" class="card-title">News Now</h3>
+        <p id="pod4-desc">Catch up on **current events** and global news. Our episodes simplify **important topics**, helping you understand the world better while practicing your English.</p>
+        <a href="#" class="btn btn-primary" aria-label="Go to News Now podcast">Go to Podcast</a>
+      </article>
+
+      <article class="podcast-card" tabindex="0" aria-labelledby="pod5-title" aria-describedby="pod5-desc">
+        <img src="img/negocios.jpg" alt="Business" class="card-img-top" loading="lazy" />
+        <h3 id="pod5-title" class="card-title">Work English</h3>
+        <p id="pod5-desc">Improve your **professional English** with common workplace conversations. Perfect for learning vocabulary for **meetings, emails, and job interviews**.</p>
+        <a href="#" class="btn btn-primary" aria-label="Go to Work English podcast">Go to Podcast</a>
+      </article>
+
+      <article class="podcast-card" tabindex="0" aria-labelledby="pod6-title" aria-describedby="pod6-desc">
+        <img src="img/conversaciones.jpg" alt="Daily conversations" class="card-img-top" loading="lazy" />
+        <h3 id="pod6-title" class="card-title">Talk Every Day</h3>
+        <p id="pod6-desc">Practice **everyday English conversations** that you can use in real-life situations. Expand your **speaking confidence** with practical dialogues and common phrases.</p>
+        <a href="#" class="btn btn-primary" aria-label="Go to Talk Every Day podcast">Go to Podcast</a>
+      </article>
+
+      <article class="podcast-card" tabindex="0" aria-labelledby="pod7-title" aria-describedby="pod7-desc">
+        <img src="img/examenes.jpg" alt="Official exams" class="card-img-top" loading="lazy" />
+        <h3 id="pod7-title" class="card-title">Test English</h3>
+        <p id="pod7-desc">Get ready for **English language exams** like Cambridge or IELTS. We offer tips, practice exercises, and essential vocabulary to **help you succeed**.</p>
+        <a href="#" class="btn btn-primary" aria-label="Go to Test English podcast">Go to Podcast</a>
+      </article>
+
+      <article class="podcast-card" tabindex="0" aria-labelledby="pod8-title" aria-describedby="pod8-desc">
+        <img src="img/historias.jpg" alt="Stories and narratives" class="card-img-top" loading="lazy" />
+        <h3 id="pod8-title" class="card-title">Stories for You</h3>
+        <p id="pod8-desc">Enjoy **compelling short stories** designed to improve your listening comprehension and introduce new vocabulary in a fun way.</p>
+        <a href="#" class="btn btn-primary" aria-label="Go to Stories for You podcast">Go to Podcast</a>
+      </article>
+
+      <article class="podcast-card" tabindex="0" aria-labelledby="pod9-title" aria-describedby="pod9-desc">
+        <img src="img/peliculas.jpg" alt="English with shows and movies" class="card-img-top" loading="lazy" />
+        <h3 id="pod9-title" class="card-title">English with TV & Film</h3>
+        <p id="pod9-desc">Learn English by listening to clips and discussions about popular **TV shows and movies**. Improve your comprehension and **natural English rhythm**.</p>
+        <a href="#" class="btn btn-primary" aria-label="Go to English with TV & Film podcast">Go to Podcast</a>
+      </article>
+    </div>
+  </main>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleDarkMode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const pressed = toggleBtn.getAttribute('aria-pressed') === 'true';
+      toggleBtn.setAttribute('aria-pressed', String(!pressed));
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    });
+
+    const langBtn = document.getElementById('toggleLang');
+
+const texts = {
+  es: {
+    brand: "English Now",
+    navHome: "Inicio",
+    navPractice: "Práctica", // Reverted to "Práctica" as it's common and fine for B1
+    navPromo: "Promociones", // Changed "Ofertas" to "Promociones" for B1
+    navAbout: "Acerca de Nosotros", // Changed "Nosotros" to "Acerca de Nosotros" for B1
+    darkModeOn: "Modo Oscuro",
+    darkModeOff: "Modo Claro",
+    langBtnLabel: "Cambiar a inglés",
+    langBtnText: "Español",
+    title: "Selecciona un Podcast para Mejorar tus Habilidades en Inglés:", // B1-level Spanish title
+    podcasts: [
+      {
+        title: "Cultura y Vida",
+        desc: "Explora varios **temas culturales** y situaciones de la vida cotidiana en países de habla inglesa. Mejora tu vocabulario y tu **comprensión de diferentes costumbres**.",
+        btn: "Ir a Podcast"
+      },
+      {
+        title: "Ciencia y Tecnología",
+        desc: "Mantente al día con lo último en **ciencia y tecnología**. Nuestros podcasts explican **ideas complejas** en inglés claro, perfectos para expandir tus conocimientos.",
+        btn: "Ir a Podcast"
+      },
+      {
+        title: "Viajes y Diversión",
+        desc: "Escucha historias fascinantes sobre **aventuras de viaje** y destinos emocionantes. Aprende frases útiles para tu próximo viaje y descubre **lugares interesantes** alrededor del mundo.",
+        btn: "Ir a Podcast"
+      },
+      {
+        title: "Noticias Ahora",
+        desc: "Ponte al día con los **eventos actuales** y las noticias globales. Nuestros episodios simplifican **temas importantes**, ayudándote a entender mejor el mundo mientras practicas tu inglés.",
+        btn: "Ir a Podcast"
+      },
+      {
+        title: "Inglés para el Trabajo",
+        desc: "Mejora tu **inglés profesional** con conversaciones comunes del ámbito laboral. Ideal para aprender vocabulario para **reuniones, correos electrónicos y entrevistas de trabajo**.",
+        btn: "Ir a Podcast"
+      },
+      {
+        title: "Hablar Cada Día",
+        desc: "Practica **conversaciones diarias en inglés** que puedes usar en situaciones de la vida real. Aumenta tu **confianza al hablar** con diálogos prácticos y frases comunes.",
+        btn: "Ir a Podcast"
+      },
+      {
+        title: "Inglés para Exámenes",
+        desc: "Prepárate para **exámenes de inglés** como Cambridge o IELTS. Ofrecemos consejos, ejercicios de práctica y vocabulario esencial para **ayudarte a tener éxito**.",
+        btn: "Ir a Podcast"
+      },
+      {
+        title: "Cuentos para Ti",
+        desc: "Disfruta de **cautivadoras historias cortas** diseñadas para mejorar tu comprensión auditiva e introducir nuevo vocabulario de una manera divertida.",
+        btn: "Ir a Podcast"
+      },
+      {
+        title: "Inglés con TV y Cine",
+        desc: "Aprende inglés escuchando fragmentos y discusiones sobre **programas de televisión y películas** populares. Mejora tu comprensión y el **ritmo natural del inglés**.",
+        btn: "Ir a Podcast"
+      }
+    ]
+  },
+  en: {
+    brand: "English Now",
+    navHome: "Home",
+    navPractice: "Practice",
+    navPromo: "Promo",
+    navAbout: "About Us",
+    darkModeOn: "Dark Mode",
+    darkModeOff: "Light Mode",
+    langBtnLabel: "Switch to Spanish",
+    langBtnText: "English",
+    title: "Select a Podcast to Enhance Your English Skills:",
+    podcasts: [
+      {
+        title: "Culture & Life",
+        desc: "Explore various **cultural topics** and everyday life scenarios in English-speaking countries. Improve your vocabulary and **understanding of different customs**.",
+        btn: "Go to Podcast"
+      },
+      {
+        title: "Science & Tech",
+        desc: "Stay updated with the latest in **science and technology**. Our podcasts explain **complex ideas** in clear English, perfect for expanding your knowledge.",
+        btn: "Go to Podcast"
+      },
+      {
+        title: "Travel & Fun",
+        desc: "Hear engaging stories about **travel adventures** and exciting destinations. Learn useful phrases for your next trip and discover **interesting places** around the world.",
+        btn: "Go to Podcast"
+      },
+      {
+        title: "News Now",
+        desc: "Catch up on **current events** and global news. Our episodes simplify **important topics**, helping you understand the world better while practicing your English.",
+        btn: "Go to Podcast"
+      },
+      {
+        title: "Work English",
+        desc: "Improve your **professional English** with common workplace conversations. Perfect for learning vocabulary for **meetings, emails, and job interviews**.",
+        btn: "Go to Podcast"
+      },
+      {
+        title: "Talk Every Day",
+        desc: "Practice **everyday English conversations** that you can use in real-life situations. Expand your **speaking confidence** with practical dialogues and common phrases.",
+        btn: "Go to Podcast"
+      },
+      {
+        title: "Test English",
+        desc: "Get ready for **English language exams** like Cambridge or IELTS. We offer tips, practice exercises, and essential vocabulary to **help you succeed**.",
+        btn: "Go to Podcast"
+      },
+      {
+        title: "Stories for You",
+        desc: "Enjoy **compelling short stories** designed to improve your listening comprehension and introduce new vocabulary in a fun way.",
+        btn: "Go to Podcast"
+      },
+      {
+        title: "English with TV & Film",
+        desc: "Learn English by listening to clips and discussions about popular **TV shows and movies**. Improve your comprehension and **natural English rhythm**.",
+        btn: "Go to Podcast"
+      }
+    ]
+  }
+};
+
+let currentLang = 'en';
+
+function updateTexts(lang) {
+  document.querySelector('.brand').textContent = texts[lang].brand;
+  document.querySelectorAll('.nav-links a')[1].textContent = texts[lang].navHome;
+  document.querySelectorAll('.nav-links a')[2].textContent = texts[lang].navPractice;
+  document.querySelectorAll('.nav-links a')[3].textContent = texts[lang].navPromo;
+  const aboutLink = document.querySelectorAll('.nav-links a')[4];
+  aboutLink.textContent = texts[lang].navAbout;
+  aboutLink.setAttribute('aria-disabled', lang === 'es' ? 'true' : 'false');
+
+  const darkModeBtn = document.getElementById('toggleDarkMode');
+  darkModeBtn.textContent = document.body.classList.contains('dark-mode') ?
+    texts[lang].darkModeOff : texts[lang].darkModeOn;
+
+  langBtn.textContent = texts[lang].langBtnText;
+  langBtn.setAttribute('aria-label', texts[lang].langBtnLabel);
+
+  document.querySelector('main h2').textContent = texts[lang].title;
+
+  const cards = document.querySelectorAll('.podcast-card');
+  cards.forEach((card, i) => {
+    card.querySelector('h3').textContent = texts[lang].podcasts[i].title;
+    card.querySelector('p').textContent = texts[lang].podcasts[i].desc;
+    card.querySelector('a').textContent = texts[lang].podcasts[i].btn;
+  });
+}
+
+langBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'es' ? 'en' : 'es';
+  updateTexts(currentLang);
+});
+
+updateTexts(currentLang);
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+
+
+    <!-- footer -->
+
+  </div>
+  </div>
+  </div>
+  </div>
+  <footer style="background-color: #eeeeee;" class="text-center text-lg-start text-dark pt-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+
+      <div class="col-md-3 mb-4 text-center">
+        <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+        <p class="fw-bold mb-1">Learn English Now</p>
+        <p class="small">Learn English connect with the world.</p>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+          <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+        </ul>
+      </div>
+
+<div class="col-md-2 mb-4">
+  <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+    <i class="fab fa-facebook-f text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+    <i class="fab fa-twitter text-white"></i>
+  </a>
+  <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+    <i class="fab fa-instagram text-white"></i>
+  </a>
+</div>
+
+
+      <div class="col-md-4 mb-4">
+        <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+        <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+        <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+        <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+    © 2025 Learn English Now
+  </div>
+</footer>
+
+
+
+
+    <script>
+const darkModeBtn = document.getElementById('darkModeBtn');
+
+darkModeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+
+  // Cambia el icono del botón
+  darkModeBtn.textContent = isDark ? '🌙' : '🌞';
+  
+  // Actualiza atributo aria para accesibilidad
+  darkModeBtn.setAttribute('aria-pressed', isDark);
+});
+</script>
