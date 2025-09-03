@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travel & Adventure - TED + Glosario + Quiz + Modo Oscuro</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --azul-oscuro: #004aad;
+      --azul-suave: #a2b8f4;
+      --blanco: #ffffff;
+      --verde: #4be178;
+      --negro: #000000;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--azul-suave);
+      color: var(--azul-oscuro);
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: var(--negro);
+      color: var(--blanco);
+    }
+
+    header.navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--blanco);
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a,
+    .brand {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-links .disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    .btn-toggle {
+      background: var(--azul-oscuro);
+      color: var(--blanco);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 1.5rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode .btn-toggle {
+      background: var(--blanco);
+      color: var(--azul-oscuro);
+    }
+
+    body::before {
+      content: "";
+      display: block;
+      height: 90px;
+    }
+
+    .content {
+      padding-top: 30px;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: box-shadow 0.3s;
+    }
+
+    body.dark-mode iframe {
+      box-shadow: 0 4px 20px rgba(255,255,255,0.2);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      transition: color 0.3s;
+      text-align: justify;
+      color: var(--azul-oscuro);
+    }
+
+    body.dark-mode p {
+      color: var(--blanco);
+    }
+
+    .glossary-term {
+      border-bottom: 2px dotted var(--azul-oscuro);
+      cursor: help;
+      position: relative;
+      color: var(--azul-oscuro);
+      font-weight: 600;
+      outline: none;
+    }
+
+    body.dark-mode .glossary-term {
+      color: var(--verde);
+    }
+
+    .tooltip-text {
+      visibility: hidden;
+      opacity: 0;
+      width: 220px;
+      background-color: var(--azul-oscuro);
+      color: var(--blanco);
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px;
+      position: absolute;
+      z-index: 100;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.85rem;
+      line-height: 1.3;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .glossary-term:hover .tooltip-text,
+    .glossary-term:focus .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .tooltip-text::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--azul-oscuro) transparent transparent transparent;
+    }
+
+    body.dark-mode .tooltip-text {
+      background-color: var(--blanco);
+      color: var(--azul-oscuro);
+    }
+
+    body.dark-mode .tooltip-text::after {
+      border-color: var(--blanco) transparent transparent transparent;
+    }
+
+    .quiz-container {
+      background: var(--blanco);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
+      text-align: left;
+    }
+
+    body.dark-mode .quiz-container {
+      background: #1a1a1a;
+      color: var(--blanco);
+    }
+
+    .quiz-container h3 {
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: var(--azul-oscuro);
+    }
+
+    body.dark-mode .quiz-container h3 {
+      color: var(--verde);
+    }
+
+    .quiz-question {
+      margin-bottom: 20px;
+      font-weight: 500;
+      text-align: justify;
+    }
+
+    .quiz-options label {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .quiz-feedback {
+      margin-top: 15px;
+      font-weight: 600;
+      min-height: 24px;
+    }
+
+    .boton-submit {
+      margin-top: 15px;
+      background-color: var(--verde);
+      color: var(--azul-oscuro);
+      border: none;
+      padding: 10px 20px;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    .boton-submit:hover {
+      background-color: #3bd167;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar" role="banner">
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="#" class="brand">English now</a>
+      <a href="#">Home</a>
+      <a href="#">Practice</a>
+      <a href="#">Topics</a>
+      <button id="toggleDarkMode" class="btn-toggle" aria-label="Toggle Dark Mode" aria-pressed="false">Modo Oscuro</button>
+    </nav>
+  </header>
+
+  <main class="content" role="main">
+    <h2>Travel & Adventure: Explore English Through Stories</h2>
+
+    <p>
+      In this TED Talk, you’ll hear the story of a woman who traveled the world and discovered the 
+      <span class="glossary-term" tabindex="0" aria-describedby="tooltip1">
+        cultural differences
+        <span role="tooltip" id="tooltip1" class="tooltip-text" aria-hidden="true">
+          The ways people from different countries or backgrounds behave or believe differently.
+        </span>
+      </span> 
+      that shape how we experience life. It’s a great way to improve your listening and vocabulary!
+    </p>
+
+    <iframe 
+      src="https://www.youtube.com/embed/ODLg_00f9BE" 
+      title="TED Talk on Travel and Adventure"
+      allowfullscreen
+      aria-label="TED Talk Video: Travel and Adventure"
+    ></iframe>
+
+    <section class="quiz-container" aria-labelledby="quizHeading">
+      <h3 id="quizHeading">Quiz: Test your travel vocabulary!</h3>
+      <form id="quizForm" aria-live="polite">
+        <div class="quiz-question">
+          <p><strong>1.</strong> What are cultural differences?</p>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="a" required> The way people dress the same</label>
+            <label><input type="radio" name="q1" value="b"> The unique beliefs and behaviors of different groups</label>
+            <label><input type="radio" name="q1" value="c"> Tourist attractions</label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>2.</strong> What can travel teach us?</p>
+          <div class="quiz-options">
+            <label><input type="radio" name="q2" value="a" required> Only how to take pictures</label>
+            <label><input type="radio" name="q2" value="b"> How to appreciate other cultures and see new perspectives</label>
+            <label><input type="radio" name="q2" value="c"> That home is always better</label>
+          </div>
+        </div>
+
+        <button type="submit" class="boton-submit">Submit Answers</button>
+        <div id="quizFeedback" class="quiz-feedback" role="alert" aria-live="assertive"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleDarkMode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleBtn.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+      toggleBtn.setAttribute('aria-pressed', isDark);
+    });
+
+    const quizForm = document.getElementById('quizForm');
+    const feedback = document.getElementById('quizFeedback');
+    quizForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const answers = { q1: 'b', q2: 'b' };
+      const formData = new FormData(quizForm);
+      let score = 0;
+      if (formData.get('q1') === answers.q1) score++;
+      if (formData.get('q2') === answers.q2) score++;
+
+      if (score === 2) {
+        feedback.textContent = '¡Excelente! Estás listo para tu próxima aventura.';
+        feedback.style.color = 'var(--verde)';
+      } else if (score === 1) {
+        feedback.textContent = 'Buen trabajo, pero aún puedes mejorar.';
+        feedback.style.color = 'orange';
+      } else {
+        feedback.textContent = 'Intenta ver el video nuevamente y responde otra vez.';
+        feedback.style.color = 'red';
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Culture & Society - TED Talk + Glossary + Quiz + Dark Mode</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* --- Color Variables --- */
+    :root {
+      --primary-blue: #0056b3; /* A slightly darker, more professional blue */
+      --light-blue: #b0c4de;   /* A calming, lighter blue for backgrounds */
+      --white: #ffffff;
+      --accent-green: #3ad67a; /* A vibrant, eye-catching green */
+      --black: #000000;
+      --light-gray-bg: #f8f9fa; /* Very light background for elements */
+      --medium-gray-text: #6c757d;  /* For body text, good readability */
+      --dark-gray-heading: #343a40;    /* For headings and strong text */
+      --dark-mode-bg: #1e1e1e; /* Deeper dark mode background */
+      --dark-mode-element-bg: #2c2c2c; /* Background for cards/elements in dark mode */
+      --dark-mode-text: #e0e0e0; /* Lighter text for dark mode readability */
+      --dark-mode-border: #444444; /* Border color for dark mode elements */
+    }
+
+    /* --- Base Styles --- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%); /* Subtle gradient for background */
+      color: var(--dark-gray-heading); /* Default text color */
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.4s ease, color 0.4s ease; /* Smoother transitions */
+      line-height: 1.7; /* Increased line height for better readability */
+      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    }
+
+    body.dark-mode {
+      background: var(--dark-mode-bg);
+      color: var(--dark-mode-text);
+    }
+
+    /* --- Header / Navbar --- */
+    header.navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--white);
+      padding: 1rem 2.5rem; /* Increased horizontal padding */
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000; /* Ensure it's above everything */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* More noticeable shadow */
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    body.dark-mode header.navbar {
+      background-color: var(--dark-mode-element-bg);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Darker shadow for dark mode */
+    }
+
+    .navbar .brand {
+      color: var(--primary-blue);
+      font-size: 1.8rem; /* Larger brand text */
+      font-style: italic;
+      font-weight: 700; /* Bolder */
+      text-decoration: none;
+      margin-right: 3rem; /* More space to the right */
+      white-space: nowrap;
+      transition: color 0.3s ease;
+      letter-spacing: -0.5px; /* Slightly tighter letter spacing */
+    }
+
+    body.dark-mode .navbar .brand {
+      color: var(--accent-green); /* Green in dark mode */
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem; /* Increased space between nav links */
+      flex-wrap: wrap; /* Allows links to wrap on smaller screens */
+    }
+
+    .nav-links a {
+      color: var(--dark-gray-heading); /* Default nav link color */
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      position: relative; /* For the underline effect */
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after { /* Animated underline effect */
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      display: block;
+      margin-top: 5px;
+      right: 0;
+      background: var(--accent-green);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+      left: 0;
+      background: var(--accent-green);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    .nav-links .disabled {
+      opacity: 0.4; /* Slightly lighter disabled link */
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    body.dark-mode .nav-links a {
+      color: var(--dark-mode-text);
+    }
+
+    body.dark-mode .nav-links a:hover {
+      color: var(--accent-green);
+    }
+
+    /* --- Toggle Buttons (Dark Mode & Language) --- */
+    .btn-toggle {
+      background: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      padding: 0.6rem 1.2rem; /* Consistent padding */
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 2.5rem; /* Space from nav links */
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    }
+
+    .btn-toggle:hover {
+      background-color: var(--accent-green); /* Green on hover */
+      color: var(--white);
+      transform: translateY(-2px); /* Slight lift effect */
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    body.dark-mode .btn-toggle {
+      background: var(--accent-green);
+      color: var(--dark-mode-bg); /* Dark text on green button in dark mode */
+      box-shadow: 0 4px 10px rgba(75, 210, 120, 0.25);
+    }
+
+    body.dark-mode .btn-toggle:hover {
+      background-color: var(--primary-blue); /* Blue on hover in dark mode */
+      color: var(--white);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    #toggleLang {
+      margin-left: 1rem; /* Space between the two toggle buttons */
+    }
+
+    /* --- Spacer for fixed Navbar --- */
+    body::before {
+      content: "";
+      display: block;
+      height: 90px; /* Adjust based on navbar height */
+    }
+
+    /* --- Main Content Container --- */
+    .content {
+      padding: 60px 1.5rem 80px; /* Increased padding top/bottom */
+      max-width: 960px; /* Slightly wider content area */
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 3rem; /* Larger, more impactful heading */
+      margin-bottom: 3.5rem; /* More space below heading */
+      font-weight: 700;
+      color: var(--primary-blue); /* Stronger color for heading */
+      transition: color 0.3s ease;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* More pronounced text shadow */
+    }
+
+    body.dark-mode h2 {
+      color: var(--accent-green);
+      text-shadow: 2px 2px 4px rgba(75, 210, 120, 0.15);
+    }
+
+    p {
+      font-size: 1.15rem; /* Slightly larger paragraph text */
+      margin-bottom: 3rem; /* More space below paragraphs */
+      max-width: 850px; /* Wider paragraph for better readability */
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8; /* Increased line height for better flow */
+      transition: color 0.3s ease;
+      text-align: justify; /* Justify text for clean blocks */
+      color: var(--medium-gray-text); /* Consistent gray for body text */
+    }
+
+    body.dark-mode p {
+      color: var(--dark-mode-text);
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 900px; /* Wider video player */
+      height: 520px; /* Taller video player */
+      border: none;
+      border-radius: 16px; /* More rounded corners */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* Deeper, more prominent shadow */
+      margin-bottom: 50px; /* More space below video */
+      transition: box-shadow 0.3s ease;
+    }
+
+    body.dark-mode iframe {
+      box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+    }
+
+    /* --- Glossary Terms --- */
+    .glossary-term {
+      border-bottom: 3px dotted var(--primary-blue); /* Thicker, more visible dotted line */
+      cursor: help;
+      position: relative;
+      color: var(--primary-blue);
+      font-weight: 600;
+      outline: none;
+      text-decoration: none;
+      transition: color 0.3s ease, border-color 0.3s ease;
+      padding-bottom: 2px; /* Small padding to avoid overlap with line */
+    }
+
+    body.dark-mode .glossary-term {
+      color: var(--accent-green);
+      border-color: var(--accent-green);
+    }
+
+    .tooltip-text {
+      visibility: hidden;
+      opacity: 0;
+      width: 280px; /* Wider tooltip for more text */
+      background-color: var(--dark-gray-heading); /* Darker background for contrast */
+      color: var(--white);
+      text-align: center;
+      border-radius: 10px; /* More rounded corners */
+      padding: 12px; /* Increased padding */
+      position: absolute;
+      z-index: 100;
+      bottom: 150%; /* Position further above the text */
+      left: 50%;
+      transform: translateX(-50%) translateY(10px); /* Initial slight offset for animation */
+      transition: opacity 0.3s ease, transform 0.3s ease; /* Animate both opacity and position */
+      font-size: 0.95rem;
+      line-height: 1.5;
+      pointer-events: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Stronger shadow for tooltip */
+    }
+
+    .glossary-term:hover .tooltip-text,
+    .glossary-term:focus .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0); /* Move to final position */
+    }
+
+    .tooltip-text::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -10px; /* Larger arrow base */
+      border-width: 10px; /* Larger arrow */
+      border-style: solid;
+      border-color: var(--dark-gray-heading) transparent transparent transparent;
+    }
+
+    body.dark-mode .tooltip-text {
+      background-color: var(--white);
+      color: var(--dark-gray-heading);
+      box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+    }
+
+    body.dark-mode .tooltip-text::after {
+      border-color: var(--white) transparent transparent transparent;
+    }
+
+    /* --- Quiz Container --- */
+    .quiz-container {
+      background: var(--light-gray-bg); /* Lighter background for quiz */
+      padding: 40px; /* More padding */
+      border-radius: 16px;
+      max-width: 850px; /* Wider quiz container */
+      margin: 0 auto 100px; /* More bottom margin */
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Stronger shadow */
+      transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+      text-align: left;
+      border: 1px solid rgba(0,0,0,0.05); /* Subtle border */
+    }
+
+    body.dark-mode .quiz-container {
+      background: var(--dark-mode-element-bg);
+      color: var(--dark-mode-text);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      border-color: var(--dark-mode-border);
+    }
+
+    .quiz-container h3 {
+      margin-bottom: 30px; /* More space below quiz title */
+      font-weight: 700;
+      font-size: 2rem; /* Larger quiz title */
+      color: var(--primary-blue);
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    }
+
+    body.dark-mode .quiz-container h3 {
+      color: var(--accent-green);
+      text-shadow: 1px 1px 2px rgba(75, 210, 120, 0.1);
+    }
+
+    .quiz-question {
+      margin-bottom: 30px; /* More space between questions */
+      font-weight: 500;
+      font-size: 1.1rem;
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    .quiz-question p strong {
+      display: block;
+      margin-bottom: 10px; /* More space between question number and text */
+      font-size: 1.25rem; /* Larger question text */
+      color: var(--dark-gray-heading);
+      transition: color 0.3s ease;
+    }
+
+    body.dark-mode .quiz-question p strong {
+      color: var(--dark-mode-text);
+    }
+
+    .quiz-options label {
+      display: flex; /* Use flexbox for better alignment of radio button and text */
+      align-items: center;
+      margin-bottom: 15px; /* More space between options */
+      cursor: pointer;
+      font-weight: 400;
+      padding: 12px 18px; /* More padding for options */
+      border-radius: 8px; /* More rounded options */
+      background-color: var(--white); /* White background for options in light mode */
+      border: 1px solid var(--light-gray); /* Subtle border for options */
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    }
+
+    .quiz-options label:hover {
+      background-color: var(--soft-blue); /* Light blue on hover */
+      color: var(--dark-gray-heading);
+      transform: translateX(5px); /* Slide effect on hover */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    body.dark-mode .quiz-options label {
+      background-color: #3a3a3a; /* Darker option background in dark mode */
+      color: var(--dark-mode-text);
+      border-color: #555;
+    }
+
+    body.dark-mode .quiz-options label:hover {
+      background-color: var(--dark-blue); /* Dark blue on hover in dark mode */
+      color: var(--white);
+      transform: translateX(5px);
+    }
+
+    .quiz-options input[type="radio"] {
+      margin-right: 12px; /* More space from radio button to text */
+      transform: scale(1.2); /* Slightly larger radio button */
+      accent-color: var(--primary-blue); /* Custom color for radio button */
+    }
+
+    body.dark-mode .quiz-options input[type="radio"] {
+      accent-color: var(--accent-green); /* Green accent in dark mode */
+    }
+
+    .quiz-feedback {
+      margin-top: 30px;
+      font-weight: 700;
+      min-height: 35px; /* Ensure space for feedback message */
+      text-align: center;
+      font-size: 1.2rem; /* Larger feedback text */
+      padding: 10px 0;
+      border-radius: 8px;
+    }
+
+    .submit-button {
+      margin-top: 40px; /* More space above button */
+      background-color: var(--accent-green);
+      color: var(--white); /* White text on green button */
+      border: none;
+      padding: 14px 30px; /* Larger padding for button */
+      font-weight: 700;
+      border-radius: 10px; /* More rounded button */
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+      font-size: 1.2rem; /* Larger font size */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Soft shadow */
+    }
+
+    .submit-button:hover {
+      background-color: var(--primary-blue); /* Blue on hover */
+      color: var(--white);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      transform: translateY(-3px); /* Lift effect on hover */
+    }
+
+    body.dark-mode .submit-button {
+      background-color: var(--accent-green);
+      color: var(--dark-mode-bg); /* Dark text on green button */
+    }
+
+    body.dark-mode .submit-button:hover {
+      background-color: var(--primary-blue);
+      color: var(--white);
+      box-shadow: 0 6px 18px rgba(75, 225, 120, 0.4);
+    }
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 992px) { /* Adjustments for larger tablets */
+      .content {
+        padding: 40px 1.2rem 60px;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.05rem;
+      }
+      iframe {
+        height: 450px;
+      }
+      .quiz-container {
+        padding: 30px;
+      }
+      .quiz-container h3 {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 768px) { /* Adjustments for smaller tablets and larger phones */
+      header.navbar {
+        flex-direction: column; /* Stack navbar items */
+        padding: 1rem 1.5rem;
+      }
+      .navbar .brand {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      .nav-links {
+        flex-direction: column; /* Stack nav links */
+        gap: 0.8rem;
+      }
+      .btn-toggle {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+      body::before {
+        height: 180px; /* Adjust for stacked navbar */
+      }
+      h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+      iframe {
+        height: 380px;
+        margin-bottom: 30px;
+      }
+      .quiz-container {
+        padding: 25px;
+        margin-bottom: 60px;
+      }
+      .quiz-container h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+      .quiz-question p strong {
+        font-size: 1.1rem;
+      }
+      .submit-button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        margin-top: 30px;
+      }
+      .quiz-options label {
+        padding: 10px 15px;
+      }
+    }
+
+    @media (max-width: 480px) { /* Adjustments for small phones */
+      .content {
+        padding: 30px 1rem 50px;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      iframe {
+        height: 250px;
+        border-radius: 12px;
+      }
+      .tooltip-text {
+        width: 200px;
+        font-size: 0.85rem;
+        padding: 8px;
+      }
+      .quiz-container {
+        padding: 20px;
+      }
+      .quiz-question p strong {
+        font-size: 1rem;
+      }
+      .quiz-options label {
+        font-size: 0.95rem;
+        padding: 8px 12px;
+      }
+      .submit-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar" role="banner">
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="#" class="brand">English Now</a>
+      <a href="#">Home</a>
+      <a href="#">Practice</a>
+      <a href="#">Promotion</a>
+      <a href="#" class="disabled" aria-disabled="true" tabindex="-1">About us</a>
+      <button id="toggleDarkMode" class="btn-toggle" aria-label="Toggle Dark Mode" aria-pressed="false">Dark Mode</button>
+    </nav>
+  </header>
+
+  <main class="content" role="main">
+    <h2>Culture & Life: Learn about The culture of the contries</h2>
+
+    <p>
+      Watch this inspiring in the culture of the contries
+    
+      <span class="glossary-term" tabindex="0" aria-describedby="tooltip1">
+        "The Danger of a Single Story"
+        <span role="tooltip" id="tooltip1" class="tooltip-text" aria-hidden="true">
+          A "single story" means hearing only one perspective about a group or culture, which can be misleading.
+        </span>
+      </span>, where she discusses the 
+      <span class="glossary-term" tabindex="0" aria-describedby="tooltip2">
+        stereotypes
+        <span role="tooltip" id="tooltip2" class="tooltip-text" aria-hidden="true">
+          Oversimplified and fixed ideas about a particular group of people.
+        </span>
+      </span> that can shape our understanding of cultures.
+    </p>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/ew864XMV-lY?si=KEx2z3OnGvFUwDX-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <section class="quiz-container" aria-labelledby="quizHeading">
+      <h3 id="quizHeading">Quick Quiz: Test your understanding!</h3>
+      <form id="quizForm" aria-live="polite">
+        <div class="quiz-question">
+          <p><strong>1.</strong> What does the "single story" refer to?</p>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="a" required> Hearing only one perspective about a culture</label>
+            <label><input type="radio" name="q1" value="b"> Listening to many stories</label>
+            <label><input type="radio" name="q1" value="c"> A book title</label>
+          </div>
+        </div>
+        <div class="quiz-question">
+          <p><strong>2.</strong> What is a stereotype?</p>
+          <div class="quiz-options">
+            <label><input type="radio" name="q2" value="a" required> A complex story</label>
+            <label><input type="radio" name="q2" value="b"> Oversimplified ideas about a group</label>
+            <label><input type="radio" name="q2" value="c"> A positive compliment</label>
+          </div>
+        </div>
+        <button type="submit" class="submit-button">Submit Answers</button>
+        <div id="quizFeedback" class="quiz-feedback" role="alert" aria-live="assertive"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleDarkMode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      
+      toggleBtn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      toggleBtn.setAttribute('aria-pressed', String(isDark));
+    });
+
+    const quizForm = document.getElementById('quizForm');
+    const feedback = document.getElementById('quizFeedback');
+
+    quizForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      let score = 0;
+      const answers = { q1: 'a', q2: 'b' };
+      const formData = new FormData(quizForm);
+
+      // Reset previous feedback styles
+      feedback.style.color = ''; 
+      feedback.style.backgroundColor = '';
+
+      if (formData.get('q1') === answers.q1) score++;
+      if (formData.get('q2') === answers.q2) score++;
+
+      if (score === 2) {
+        feedback.textContent = 'Excellent! You answered all questions correctly.';
+        feedback.style.color = 'var(--white)'; /* White text for success */
+        feedback.style.backgroundColor = 'var(--accent-green)'; /* Green background for success */
+      } else if (score === 1) {
+        feedback.textContent = 'Good attempt, but you can review the video again to improve.';
+        feedback.style.color = 'var(--dark-gray-heading)'; /* Dark text for warning */
+        feedback.style.backgroundColor = '#ffc107'; /* Yellow background for warning */
+      } else {
+        feedback.textContent = 'Don\'t give up. Try watching the video and answering again.';
+        feedback.style.color = 'var(--white)'; /* White text for error */
+        feedback.style.backgroundColor = '#dc3545'; /* Red background for error */
+      }
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
