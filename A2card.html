@@ -41,84 +41,17 @@
       color: var(--dark-mode-text);
     }
 
-    /* --- Header / Navbar --- */
-    header.navbar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--white);
-      padding: 1rem 2.5rem; /* Increased horizontal padding */
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000; /* Ensure it's above everything */
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* More noticeable shadow */
-      transition: background-color 0.4s ease, box-shadow 0.4s ease;
-    }
+    
 
     body.dark-mode header.navbar {
       background-color: var(--dark-mode-element-bg);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Darker shadow for dark mode */
     }
 
-    .navbar .brand {
-      color: var(--primary-blue);
-      font-size: 1.8rem; /* Larger brand text */
-      font-style: italic;
-      font-weight: 700; /* Bolder */
-      text-decoration: none;
-      margin-right: 3rem; /* More space to the right */
-      white-space: nowrap;
-      transition: color 0.3s ease;
-      letter-spacing: -0.5px; /* Slightly tighter letter spacing */
-    }
+    
 
     body.dark-mode .navbar .brand {
       color: var(--accent-green); /* Green in dark mode */
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2.2rem; /* Increased space between nav links */
-      flex-wrap: wrap; /* Allows links to wrap on smaller screens */
-    }
-
-    .nav-links a {
-      color: var(--dark-gray-heading); /* Default nav link color */
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05rem;
-      position: relative; /* For the underline effect */
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a::after { /* Animated underline effect */
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      display: block;
-      margin-top: 5px;
-      right: 0;
-      background: var(--accent-green);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-      left: 0;
-      background: var(--accent-green);
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-blue);
-    }
-
-    .nav-links .disabled {
-      opacity: 0.4; /* Slightly lighter disabled link */
-      pointer-events: none;
-      cursor: not-allowed;
     }
 
     body.dark-mode .nav-links a {
@@ -961,6 +894,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
 
 
