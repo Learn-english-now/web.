@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* --- Color Variables --- */
+   /* --- Color Variables --- */
     :root {
       --primary-blue: #0056b3; /* A slightly darker, more professional blue */
       --light-blue: #b0c4de;   /* A calming, lighter blue for backgrounds */
@@ -40,84 +40,17 @@
       color: var(--dark-mode-text);
     }
 
-    /* --- Header / Navbar --- */
-    header.navbar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--white);
-      padding: 1rem 2.5rem; /* Increased horizontal padding */
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000; /* Ensure it's above everything */
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* More noticeable shadow */
-      transition: background-color 0.4s ease, box-shadow 0.4s ease;
-    }
+    
 
     body.dark-mode header.navbar {
       background-color: var(--dark-mode-element-bg);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Darker shadow for dark mode */
     }
 
-    .navbar .brand {
-      color: var(--primary-blue);
-      font-size: 1.8rem; /* Larger brand text */
-      font-style: italic;
-      font-weight: 700; /* Bolder */
-      text-decoration: none;
-      margin-right: 3rem; /* More space to the right */
-      white-space: nowrap;
-      transition: color 0.3s ease;
-      letter-spacing: -0.5px; /* Slightly tighter letter spacing */
-    }
+    
 
     body.dark-mode .navbar .brand {
       color: var(--accent-green); /* Green in dark mode */
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2.2rem; /* Increased space between nav links */
-      flex-wrap: wrap; /* Allows links to wrap on smaller screens */
-    }
-
-    .nav-links a {
-      color: var(--dark-gray-heading); /* Default nav link color */
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05rem;
-      position: relative; /* For the underline effect */
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a::after { /* Animated underline effect */
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      display: block;
-      margin-top: 5px;
-      right: 0;
-      background: var(--accent-green);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-      left: 0;
-      background: var(--accent-green);
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-blue);
-    }
-
-    .nav-links .disabled {
-      opacity: 0.4; /* Slightly lighter disabled link */
-      pointer-events: none;
-      cursor: not-allowed;
     }
 
     body.dark-mode .nav-links a {
@@ -537,6 +470,226 @@
         padding: 10px 20px;
       }
     }
+
+     /* Navbar - Estilos consolidados */
+        nav {
+            background-color: var(--nav-bg, var(--white));
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, color 0.3s;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .dark-mode nav {
+            background-color: var(--nav-bg) !important;
+            color: var(--nav-text) !important;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            margin-left: 30px;
+            position: relative;
+            align-items: center;
+        }
+
+        .nav-links a,
+        .dropdown-toggle {
+            text-decoration: none;
+            color: var(--nav-text, var(--black));
+            font-weight: 500;
+            padding: 8px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .dropdown-toggle:hover {
+            color: var(--primary-blue-original);
+            opacity: 0.8;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg, var(--white));
+            min-width: 230px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 15px;
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .dropdown-content a {
+            padding: 10px;
+            text-decoration: none;
+            color: var(--card-text, #333);
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-gray-bg);
+        }
+
+        .level-icon {
+            font-weight: bold;
+            background-color: #a2b8f4;
+            color: #000;
+            border-radius: 5px;
+            padding: 2px 6px;
+            margin-right: 10px;
+            font-size: 13px;
+        }
+
+        .login-btn,
+        .register-btn {
+            padding: 8px 15px;
+            background-color: transparent;
+            border: 2px solid var(--primary-blue-original);
+            color: var(--primary-blue-original);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn {
+            margin-left: 5px;
+        }
+
+        .register-btn {
+            margin-left: 10px;
+        }
+
+        .login-btn:hover,
+        .register-btn:hover {
+            border-color: #a2b8f4;
+            color: #a2b8f4;
+        }
+        
+        .logo1 {
+            box-shadow: 0 0 0 1px var(--primary-blue-original);
+            border-radius: 50%;
+        }
+
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            color: var(--nav-text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            margin-left: 250px;
+        }
+
+        .dark-mode-toggle:hover {
+            opacity: 0.8;
+        }
+        
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .navbar {
+            background-color: var(--dark-nav);
+        }
+
+        body.dark-mode .navbar a {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .navbar a:hover {
+            color: var(--accent-green);
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            color: var(--dark-text);
+        }
+        
+        body.dark-mode .login-btn,
+        body.dark-mode .register-btn {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        body.dark-mode .login-btn:hover,
+        body.dark-mode .register-btn:hover {
+            border-color: var(--primary-blue-original);
+            color: var(--primary-blue-original);
+        }
+
+        .text-dark {
+            color: var(--text-color, var(--black)) !important;
+        }
+
+        body.dark-mode .text-dark {
+            color: var(--text-color, var(--dark-text)) !important;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg, #eeeeee) !important;
+            color: var(--footer-text, #000000) !important;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* General Content Styles from previous code */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            padding: 0 1.5rem;
+            text-align: center;
+           
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            transition: color 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        body.dark-mode h2 {
+            color: var(--accent-green);
+            text-shadow: 1px 1px 2px rgba(75, 210, 120, 0.1);
+        }
+
+        .row.justify-content-center {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-items: center;
+            align-items: stretch;
+            padding: 20px 0;
+            max-width: 100%;
+        }
   </style>
 </head>
 <body>
@@ -692,4 +845,5 @@
 </body>
 
 </html>
+
 
