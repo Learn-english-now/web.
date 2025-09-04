@@ -797,8 +797,53 @@
       </form>
     </section>
   </main>
-
+<footer style="background-color: #eeeeee;" class="text-center text-lg-start text-dark pt-5">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-3 mb-4 text-center">
+                    <img src="img/logo.png" alt="Logo English Now" class="rounded-circle mb-2 logo1" height="70" width="70" />
+                    <p class="fw-bold mb-1">Learn English Now</p>
+                    <p class="small">Learn English connect with the world.</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-uppercase fw-bold" style="color: #004aad;">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#!" class="text-dark text-decoration-none">Vocabulary Builder</a></li>
+                        <li><a href="#!" class="text-dark text-decoration-none">Placement Test</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-uppercase fw-bold" style="color: #004aad;">Síguenos</h6>
+                    <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#" role="button">
+                        <i class="fab fa-facebook-f text-white"></i>
+                    </a>
+                    <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#" role="button">
+                        <i class="fab fa-twitter text-white"></i>
+                    </a>
+                    <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#" role="button">
+                        <i class="fab fa-instagram text-white"></i>
+                    </a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-uppercase fw-bold" style="color: #004aad;">Contact</h6>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> San Salvador, Santa Elena, El Salvador</p>
+                    <p><i class="fas fa-phone me-2"></i> +503 7482-0238</p>
+                    <p><i class="fas fa-envelope me-2"></i> learnenglishnow2026@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3 mt-4" style="background-color: #004aad; color: white;">
+            © 2025 Learn English Now
+        </div>
+    </footer>
   <script>
+      const darkModeBtn = document.getElementById('darkModeBtn');
+        darkModeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            darkModeBtn.textContent = isDark ? '🌙' : '🌞';
+            darkModeBtn.setAttribute('aria-pressed', isDark);
+        });
     const toggleBtn = document.getElementById('toggleDarkMode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
@@ -845,5 +890,6 @@
 </body>
 
 </html>
+
 
 
